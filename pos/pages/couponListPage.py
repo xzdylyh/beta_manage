@@ -34,22 +34,22 @@ class CouponList(BasePage):
     coupon_sheets_loc = (By.ID, "sheets")
 
     # 与其他券混用：0可以，1不可以，2部分可以
-    # coupon_mix_loc = (By.NAME, "mix")
     coupon_mix_loc = (By.XPATH, "//input[@name='mix']/..")
     # 转赠好友0可以； 1不可以
-    coupon_givefriend0_loc = (
-        By.XPATH,
-        "//input[@name='givefriend' and @value='0']"
-    )
-    coupon_givefriend1_loc = (
-        By.XPATH,
-        "//input[@name='givefriend' and @value='1']"
-    )
+    coupon_givefriend_loc = (By.XPATH, "//input[@name='givefriend']/..")
+
 
     # 启用时间，输入为天
     coupon_time_loc = (By.NAME, "enabled")
     # 自券发出之日起
     coupon_inputTerm_loc = (By.ID, "inputTerm")
+    # 使用固定日期链接button
+    coupon_inputTermBtn_loc = (By.XPATH, "//input[@id=inputTerm]/../button")
+    #开始日期
+    coupon_inputDateStart_loc = (By.ID, "inputDateStart")
+    # 结束日期
+    coupon_inputDateEnd_loc = (By.ID, "inputDateEnd")
+
 
     # 适用门店; 更改链接
     coupon_changeShop_loc = (By.LINK_TEXT, "更改")
@@ -92,6 +92,7 @@ class CouponList(BasePage):
 
     def inputCouponName(self, name):
         """输入名称"""
+        self.clearInputText(*(self.coupon_inputName_loc))
         self.inputText(name, '名称', *(self.coupon_inputName_loc))
 
     def inputCouponMinValue(self, value):
@@ -102,7 +103,7 @@ class CouponList(BasePage):
         )
         self.inputText(
             value,
-            '消费总金额满{}元不可用'.format(value),
+            '消费总金额满多少元不可用',
             *(self.coupon_minvalue_loc)
         )
 
@@ -114,7 +115,7 @@ class CouponList(BasePage):
         )
         self.inputText(
             value,
-            '消费总金额每满{}元可用1张'.format(value),
+            '消费总金额每满多少元可用1张',
             *(self.coupon_minvalue1_loc)
         )
 
@@ -122,7 +123,7 @@ class CouponList(BasePage):
         """每次消费最多可使用券数量"""
         self.inputText(
             value,
-            '每次消费最多可使用{}张'.format(value),
+            '每次消费最多可使用几张',
             *(self.coupon_sheets_loc)
         )
 
@@ -134,6 +135,42 @@ class CouponList(BasePage):
     def clickCouponShowName(self, index):
         """客户端展示券名称"""
         self.clickBtnIndex('客户端显示券名称', index, *(self.coupon_viewName_loc))
+
+
+    def clickCouponGiveFriend(self, index):
+        """转赠好友是否可以"""
+        self.clickBtnIndex(
+            '转赠好友',
+            index,
+            *(self.coupon_givefriend_loc)
+        )
+
+    def inputCouponEnabledTime(self, text):
+        """输入券启用时间"""
+        self.inputText(
+            text,
+            '启用时间',
+            *(self.coupon_time_loc)
+        )
+
+
+    def _inputCouponTerm(self, text):
+        """券有效期"""
+        self.inputText(
+            text,
+            '有效期－相对日期',
+            *(self.coupon_inputTerm_loc)
+        )
+
+    def _inputCouponT(self, text):
+        """有效期－固定日期"""
+        self.clickBtn('使用固定有效期', *(self.coupon_inputTermBtn_loc))
+        self.clearInputText(*(self.coupon_inputDateStart_loc))
+        self.inputText(text, '开始日期', *(self.coupon_inputDateStart_loc))
+        self.clearInputText(*(self.coupon_inputDateEnd_loc))
+        self.inputText(text, '结束日期', *(self.coupon_inputDateEnd_loc))
+
+
 
 
 

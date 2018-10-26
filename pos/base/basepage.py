@@ -153,9 +153,6 @@ class BasePage(object):
         try:
             self.driver.implicitly_wait(TimeOut) #智能等待；此贯穿self.driver整个生命周期
             elements = self.driver.find_elements(*loc)
-            #元素高亮显示
-            for e in elements:
-                self.hightlight(e)
 
             self.driver.implicitly_wait(0) #恢复等待
             return elements
@@ -366,7 +363,11 @@ class BasePage(object):
     def clickBtnIndex(self, desc, index, *loc):
         """点击操作，按索引，适用于findelemens方法"""
         print('Clicks:{}{}'.format(desc, loc))
-        self.find_elements(*loc)[int(index)].click()
+        ele = self.find_elements(*loc)[int(index)]
+        # 元素高亮显示
+        self.hightlight(ele)
+        # 元素单击
+        ele.click()
 
 
 

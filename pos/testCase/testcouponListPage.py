@@ -18,7 +18,19 @@ from pos.lib import (
 
 
 case1Data = [
-    {'title':'创建营销活动 - 自动化测试专用'}
+    {
+        'title':'创建营销活动 - 自动化测试专用',
+        'couponType': 0, #券类型，0代金券；1礼品券；2券包
+        'property': 1, #属性;0普通；1微信群发消息专用
+        'clientShow': 1, #客户端展示券名称;0显示；1不显示
+        'mixUsed': 1, #与其它券混合使用；0可以；1不可以；2部分可以
+        'inputValue': 5, #券面值为5员
+        'name': '暖心券', #名称
+        'minValue': 50,  # 总金额满50元，此券可用
+        'dealNum': 2, #每次消费最多张数
+        'isGiveFriend': 1, #券转赠给好友0可以；1不可以
+        'enabledTime': 1 #启用时间 1为1天，0为当日启用
+    }
 ]
 
 
@@ -47,16 +59,25 @@ class TestCouponListPage(unittest.TestCase):
         # 创建新的券
         self.clist.clickCouponCreate_Btn()
         # 选择券类型，0代金券；1礼品券；2券包
-        self.clist.clickCouponType(0)
+        self.clist.clickCouponType(data['couponType'])
         # 属性;0普通；1微信群发消息专用
-        self.clist.clickCouponPro(1)
+        self.clist.clickCouponPro(data['property'])
         # 面值
+        self.clist.inputCouponValue(data['inputValue'])
         # 名称
+        self.clist.inputCouponName(data['name'])
         # 客户端展示券名称;0显示；1不显示
-        self.clist.clickCouponShowName(1)
+        self.clist.clickCouponShowName(data['clientShow'])
+        # 起用金额
+        self.clist.inputCouponMinValue(data['minValue'])
+        # 每次消费最多张数
+        self.clist.inputCouponSheets(data['dealNum'])
         # 与其它券混合使用；0可以；1不可以；2部分可以
-        self.clist.clickCouponMix(2)
-
+        self.clist.clickCouponMix(data['mixUsed'])
+        # 券是否可以转赠给好友
+        self.clist.clickCouponGiveFriend(data['isGiveFriend'])
+        # 启用时间，0为当日启用，输入其它按天数启用
+        self.clist.inputCouponEnabledTime(data['enabledTime'])
 
 
 if __name__ == "__main__":
