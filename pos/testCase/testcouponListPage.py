@@ -9,7 +9,8 @@ import ddt
 from pos.pages.couponListPage import CouponList
 from pos.lib.scripts import (
     select_Browser_WebDriver,
-    replayCaseFail
+    replyCaseFail,
+    getData
 )
 from pos.lib import (
     gl,
@@ -17,21 +18,6 @@ from pos.lib import (
 )
 
 
-case1Data = [
-    {
-        'title':'创建营销活动 - 自动化测试专用',
-        'couponType': 0, #券类型，0代金券；1礼品券；2券包
-        'property': 1, #属性;0普通；1微信群发消息专用
-        'clientShow': 1, #客户端展示券名称;0显示；1不显示
-        'mixUsed': 1, #与其它券混合使用；0可以；1不可以；2部分可以
-        'inputValue': 5, #券面值为5员
-        'name': '暖心券', #名称
-        'minValue': 50,  # 总金额满50元，此券可用
-        'dealNum': 2, #每次消费最多张数
-        'isGiveFriend': 1, #券转赠给好友0可以；1不可以
-        'enabledTime': 1 #启用时间 1为1天，0为当日启用
-    }
-]
 
 
 @ddt.ddt
@@ -47,8 +33,11 @@ class TestCouponListPage(unittest.TestCase):
         cls.driver.quit()
         # pass
 
-    @ddt.data(*case1Data)
-    @replayCaseFail(num=3)
+
+
+
+    @ddt.data(*getData('couponListPage', 'CASE1'))
+    @replyCaseFail(num=3)
     def testCase1(self, data):
         """创建券"""
         self.clist = CouponList(self.url, self.driver, data['title'])
@@ -64,8 +53,8 @@ class TestCouponListPage(unittest.TestCase):
         self.clist.clickCouponPro(data['property'])
         # 面值
         self.clist.inputCouponValue(data['inputValue'])
-        # 名称
-        self.clist.inputCouponName(data['name'])
+        # 名称;op=1清空输入框
+        self.clist.inputCouponName(data['name'], op=1)
         # 客户端展示券名称;0显示；1不显示
         self.clist.clickCouponShowName(data['clientShow'])
         # 起用金额
@@ -78,6 +67,24 @@ class TestCouponListPage(unittest.TestCase):
         self.clist.clickCouponGiveFriend(data['isGiveFriend'])
         # 启用时间，0为当日启用，输入其它按天数启用
         self.clist.inputCouponEnabledTime(data['enabledTime'])
+        # 有效期
+        self.clist.inputCouponTerm(
+            op=data['termTimeOption'],
+            text=data['termTime'],
+            startDate=data['termStartTime'],
+            endDate=data['termEndTime']
+        )
+        # 时间段设置;0为全天可用;1为自动化全天
+        self.clist.clickCouponEatTime(data['eatTime'])
+        #限制与说明
+        self.clist.inputCouponArea(data['restriction'])
+        #保存，提交
+        self.clist.clickCouponSave()
+        #提交，确认
+        self.clist.clickCouponConfirm()
+
+
+
 
 
 if __name__ == "__main__":

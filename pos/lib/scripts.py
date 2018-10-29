@@ -143,7 +143,7 @@ def zipDir(dirpath,outFullName):
     zip.close()
 
 
-def replayCaseFail(num=3):
+def replyCaseFail(num=3):
     """
     测试case失败后，重新执行功能
     :param num: 失败最多可以执行次数，默认为3次
@@ -166,6 +166,29 @@ def replayCaseFail(num=3):
             raise raise_info
         return warpper
     return _warpper
+
+
+def getData(file, field):
+    """
+    从data目录下的yaml文件读取指定字段(field)CASE数据
+    :param file:yaml数据文件
+    :param field: 指定字段读取
+    :return: 结构数据
+    """
+    yaml_end = str(file).endswith('.yaml')
+    yam_end = str(file).endswith('.yam')
+    if not (yaml_end or yam_end):
+        file = os.path.join(file, '.yaml')
+
+    field = str(field).strip().upper()
+    data = getYamlfield(
+        os.path.join(
+            gl.dataPath, 'couponListPage.yaml'
+        )
+    )[field]
+    return data
+
+
 
 
 if __name__ == "__main__":

@@ -49,7 +49,8 @@ class CouponList(BasePage):
     coupon_inputDateStart_loc = (By.ID, "inputDateStart")
     # 结束日期
     coupon_inputDateEnd_loc = (By.ID, "inputDateEnd")
-
+    # 时间段设置
+    coupon_clicksEattime_loc = (By.XPATH, "//input[@name='eattime[]'/..]")
 
     # 适用门店; 更改链接
     coupon_changeShop_loc = (By.LINK_TEXT, "更改")
@@ -62,6 +63,12 @@ class CouponList(BasePage):
     coupon_extend_loc = (By.ID, "inputExtend")
     # 限制与说明文本域
     coupon_area_loc = (By.NAME, "restriction")
+
+    # 保存按钮，根据返回查找
+    coupon_save_loc = (By.XPATH, "//button[contains(text(), '保存')]")
+    # 确认按钮
+    coupon_confirm_loc = (By.XPATH, "//button[contains(text(), '确认')]")
+
 
     ########################操作########################################
     def clickCouponManage_Link(self):
@@ -90,9 +97,10 @@ class CouponList(BasePage):
         self.inputText(value, '面值', *(self.coupon_InputValue_loc))
 
 
-    def inputCouponName(self, name):
+    def inputCouponName(self, name, op=None):
         """输入名称"""
-        self.clearInputText(*(self.coupon_inputName_loc))
+        if op == 1:
+            self.clearInputText(*(self.coupon_inputName_loc))
         self.inputText(name, '名称', *(self.coupon_inputName_loc))
 
     def inputCouponMinValue(self, value):
@@ -171,9 +179,60 @@ class CouponList(BasePage):
         self.inputText(text, '结束日期', *(self.coupon_inputDateEnd_loc))
 
 
+    def inputCouponTerm(self, op=0, **kwargs):
+        """有效期"""
+
+        if op == 0: #相对日期，默认为相对日期
+            self.clearInputText(*(self.coupon_inputTerm_loc))
+            self.inputText(
+                kwargs['text'],
+                '相对日期' ,
+                *(self.coupon_inputTerm_loc)
+            )
+        if op == 1:
+            self.clearInputText(*(self.coupon_inputDateStart_loc))
+            self.clickBtn(
+                '使用固定有效期',
+                *(self.coupon_inputTermBtn_loc)
+            )
+            self.inputText(
+                kwargs['startDate'],
+                '开始日期',
+                *(self.coupon_inputDateStart_loc)
+            )
+            self.clearInputText(*(self.coupon_inputDateEnd_loc))
+            self.inputText(
+                kwargs['endDate'],
+                '结束日期',
+                *(self.coupon_inputDateEnd_loc)
+            )
 
 
+    def clickCouponEatTime(self, index):
+        """时间段设置，复选框"""
+        self.clickBtnIndex(
+            '时间段设置',
+            index,
+            *(self.coupon_clicksEattime_loc)
+        )
 
+
+    def inputCouponArea(self, text):
+        """输入限制与说明"""
+        self.inputText(
+            text,
+            '限制与说明',
+            *(self.coupon_area_loc)
+        )
+
+
+    def clickCouponSave(self):
+        """保存，提交券信息"""
+        self.clickBtn('保存', *(self.coupon_save_loc))
+
+    def clickCouponConfirm(self):
+        """提交后，确认按钮"""
+        self.clickBtn('确认', *(self.coupon_confirm_loc))
 
 
 if __name__ == "__main__":
