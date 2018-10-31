@@ -36,7 +36,7 @@ EMAIL:
 
 RUNING: #case执行配置
     REPLAY: #元素回放配置
-        Time: 900 #回放时间为毫秒
+        Time: 500 #回放时间为毫秒
 
     DESCPTION: N不执行，Y执行
     CONSUME: #消费模块
@@ -47,36 +47,3 @@ RUNING: #case执行配置
                "testCase5":{"Flag":"N","desc":"实体卡绑卡"},
                "testCase6":{"Flag":"N","desc":"次卡开卡"}}
 
-    CHARGE: #储值模块
-        Flag: {"testCase1":{"Flag":"Y","desc":"储值"},
-               "testCase2":{"Flag":"Y","desc":"储值并补开发票"}}
-
-    CREDIT: #积分换礼模块
-        Flag: {"testCase1":{"Flag":"Y","desc":"积分换礼"}}
-
-    PRINT: #班结小票
-        Flag: {"testCase1":{"Flag":"Y","desc":"班结小票打印"}}
-
-    CONSUMELIST: #交易流水-消费
-        Flag: {"testCase1":{"Flag":"Y","desc":"撤销消费"}}
-
-    CREDITLIST: #交易流水-积分
-        Flag: {"testCase1":{"Flag":"Y","desc":"撤销积分"}}
-
-    CHARGELIST:  #充值流水
-        Flag: {"testCase1":{"Flag":"Y","desc":"撤销充值"}}
-
-    CARDINDEX: #储值卡售卖
-        Flag: {"testCase1":{"Flag":"N","desc":"储值卡-实体卡售卖"}}
-
-    COUPONSALEINDEX: #商品售卖
-        Flag: {"testCase1":{"Flag":"Y","desc":"商品售卖-次卡+券_直接购买"}}
-
-    NUMBERCARD: #次卡消费
-        Flag: {"testCase1":{"Flag":"Y","desc":"次卡消费正常流程"}}
-
-    NUMBERCARDLIST: #交易流水-次卡消费
-        Flag: {"testCase1":{"Flag":"Y","desc":"次卡消费撤销正常流程"}}
-
-    CONSUMECOUPONLIST: #交易流水-商品售卖
-        Flag: {"testCase1":{"Flag":"Y","desc":"交易流水-商品售卖撤销正常流程"}}

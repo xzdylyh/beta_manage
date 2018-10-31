@@ -66,6 +66,7 @@ class CouponList(BasePage):
 
     # 保存按钮，根据返回查找
     coupon_save_loc = (By.XPATH, "//button[contains(text(), '保存')]")
+
     # 确认按钮
     coupon_confirm_loc = (By.XPATH, "//button[contains(text(), '确认')]")
 

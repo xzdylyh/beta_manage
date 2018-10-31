@@ -1,4 +1,4 @@
-#coding=utf-8
+#_*_coding=utf8_*_
 """
 __doc__:
 create:2018/10/27
@@ -333,10 +333,8 @@ class BasePage:
 
             #获取属性
             proValue = getattr(element, str(txtName))
-            return proValue
-
-
             self.driver.implicitly_wait(0)
+            return proValue
         except (NoSuchElementException, NameError) as ex:
             self.getImage #错误截图
             raise ex
