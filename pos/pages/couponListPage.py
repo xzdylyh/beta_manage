@@ -71,6 +71,8 @@ class CouponList(BasePage):
     coupon_confirm_loc = (By.XPATH, "//button[contains(text(), '确认')]")
 
 
+    coupon_assert_loc = (By.CSS_SELECTOR, "div.voucher-box>p>b:nth-child(1)")
+
     ########################操作########################################
     def clickCouponManage_Link(self):
         """单击券管理链接，进入创建券页面"""
@@ -187,7 +189,7 @@ class CouponList(BasePage):
             self.clearInputText(*(self.coupon_inputTerm_loc))
             self.inputText(
                 kwargs['text'],
-                '相对日期' ,
+                '相对日期',
                 *(self.coupon_inputTerm_loc)
             )
         if op == 1:
@@ -234,6 +236,25 @@ class CouponList(BasePage):
     def clickCouponConfirm(self):
         """提交后，确认按钮"""
         self.clickBtn('确认', *(self.coupon_confirm_loc))
+
+    def getCouponNum(self):
+        """获取券数量"""
+        couponNum = self.getTagText('text', *(self.coupon_assert_loc))
+        print('当前券数量为:{}'.format(couponNum))
+        return couponNum
+
+
+    def assertAddCoupon(self, oldNum, newNum):
+        """断言新建券是否成功，通过增加券后，数量是否变化来判断"""
+        oldNum = int(oldNum)
+        newNum = int(newNum)
+        if newNum - 1 == oldNum:
+            print('新增加券成功,当前总数为:{}'.format(newNum))
+        else:
+            print('新增加券失败,当前总数为:{}'.format(oldNum))
+            return False
+        self.getImage
+        return True
 
 
 if __name__ == "__main__":
