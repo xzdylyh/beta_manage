@@ -117,19 +117,19 @@ function html_escape(s) {
 <div class='heading'>
 <h4 style="font-family: Microsoft YaHei">UI自动化测试报告</h4>
 <p class='attribute'><strong>测试人员 : </strong> yhleng</p>
-<p class='attribute'><strong>开始时间 : </strong> 2018-11-01 15:00:06</p>
-<p class='attribute'><strong>合计耗时 : </strong> 0:00:27.196312</p>
-<p class='attribute'><strong>测试结果 : </strong> 共 1，通过 1，通过率= 100.00%</p>
+<p class='attribute'><strong>开始时间 : </strong> 2018-11-02 17:15:56</p>
+<p class='attribute'><strong>合计耗时 : </strong> 0:00:15.198060</p>
+<p class='attribute'><strong>测试结果 : </strong> 共 1，错误 1，通过率= 0.00%</p>
 
 <p class='description'>详细测试用例结果</p>
 </div>
 
 
 <p id='show_detail_line'>
-<a class="btn btn-primary" href='javascript:showCase(0)'>概要{ 100.00% }</a>
-<a class="btn btn-warning" href='javascript:showCase(4)'>错误{ 0 }</a>
+<a class="btn btn-primary" href='javascript:showCase(0)'>概要{ 0.00% }</a>
+<a class="btn btn-warning" href='javascript:showCase(4)'>错误{ 1 }</a>
 <a class="btn btn-danger" href='javascript:showCase(1)'>失败{ 0 }</a>
-<a class="btn btn-success" href='javascript:showCase(2)'>通过{ 1 }</a>
+<a class="btn btn-success" href='javascript:showCase(2)'>通过{ 0 }</a>
 <a class="btn btn-info" href='javascript:showCase(3)'>所有{ 1 }</a>
 </p>
 <table id='result_table' class="table table-condensed table-bordered table-hover">
@@ -152,59 +152,63 @@ function html_escape(s) {
     <td>截图</td>
 </tr>
 
-<tr class='passClass warning'>
+<tr class='errorClass warning'>
     <td>TestCouponListPage: 券管理</td>
     <td class="text-center">1</td>
+    <td class="text-center">0</td>
+    <td class="text-center">0</td>
     <td class="text-center">1</td>
-    <td class="text-center">0</td>
-    <td class="text-center">0</td>
     <td class="text-center"><a href="javascript:showClassDetail('c1',1)" class="detail" id='c1'>详细</a></td>
     <td class="text-center">Assert or Error Image</td>
 </tr>
 
-<tr id='pt1_1' class='hiddenRow'>
-    <td class='passCase' width='300px'><div class='testcase'>testCase1_1</div></td>
+<tr id='ft1_1' class='none'>
+    <td class='errorCase' width='300px'><div class='testcase'>testCase1_1</div></td>
     <td colspan='5' align='left' width='600px'> <!--print 输出框位置-->
     <!--默认收起错误信息 -Findyou
-    <button id='btn_pt1_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_1'>通过</button>
-    <div id='div_pt1_1' class="collapse">  -->
+    <button id='btn_ft1_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft1_1'>错误</button>
+    <div id='div_ft1_1' class="collapse">  -->
     <!-- 默认展开错误信息 -Findyou -->
-    <button id='btn_pt1_1' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt1_1'>通过</button>
-    <div id='div_pt1_1' class="collapse in">
+    <button id='btn_ft1_1' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft1_1'>错误</button>
+    <div id='div_ft1_1' class="collapse in">
     <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:600px; margin:auto; border:1px solid #e1e1e1;">
     
-pt1_1: screenshot: 20181101_15.00.14 .png
-screenshot: 20181101_15.00.16 .png
+ft1_1: screenshot: 20181102_17.16.04 .png
+screenshot: 20181102_17.16.05 .png
 Click:券管理链接('link text', '券管理')
-当前券数量为:12
-Click:创建新的券('id', 'dropdownCoupon')
-Click:代金券('link text', '代金券')
-Clicks:属性('xpath', "//input[@name='messageonly']/..")
-Input面值:5
-Input名称:暖心券
-Clicks:客户端显示券名称('xpath', "//input[@name='showname']/..")
-Click:设置焦点为消费总金额输入框('id', 'minvalue')
-Input消费总金额满多少元不可用:50
-Input每次消费最多可使用几张:2
-Clicks:与其它券混合使用('xpath', "//input[@name='mix']/..")
-Clicks:转赠好友('xpath', "//input[@name='givefriend']/..")
-Input启用时间:0
-Input相对日期:1
-Clicks:时间段设置('xpath', "//input[@name='eattime[]'/..]")
-Input限制与说明:%NONE%
-Click:保存('xpath', "//button[contains(text(), '保存')]")
-Click:确认('xpath', "//button[contains(text(), '确认')]")
-当前券数量为:13
-新增加券成功,当前总数为:13
-screenshot: 20181101_15.00.29 .png
+screenshot: 20181102_17.16.06 .png
+screenshot: 20181102_17.16.06 .png
+Click:券管理链接('link text', '券管理')
+screenshot: 20181102_17.16.07 .png
+screenshot: 20181102_17.16.08 .png
+Click:券管理链接('link text', '券管理')
+重试3次,全部失败
+Traceback (most recent call last):
+  File "D:\betaManage\lib\site-packages\ddt.py", line 144, in wrapper
+    return func(self, *args, **kwargs)
+  File "D:\betaManage\pos\lib\scripts.py", line 166, in warpper
+    raise raise_info
+  File "D:\betaManage\pos\lib\scripts.py", line 159, in warpper
+    ret = func(*args, **kwargs)
+  File "D:/betaManage/pos/testCase/testcouponListPage.py", line 47, in testCase1
+    self.clist.clickCouponManage_Link()
+  File "D:\betaManage\pos\pages\couponListPage.py", line 79, in clickCouponManage_Link
+    self.clickBtn('券管理链接', *(self.coupon_list_loc))
+  File "D:\betaManage\pos\lib\scripts.py", line 86, in wrapper
+    func(*args, **kwargs)
+  File "D:\betaManage\pos\base\basepage.py", line 403, in clickBtn
+    self.find_element(*loc).click()
+  File "D:\betaManage\pos\base\basepage.py", line 90, in find_element
+    if self.isDisplayTimeOut(element, TimeOut):
+AttributeError: 'CouponList' object has no attribute 'isDisplayTimeOut'
 
 
     </pre>
     </div>
     </td>
     <td align="right">
-        <a  href="./images/20181101_15.00.29.png">
-            <img   src="./images/20181101_15.00.29.png" height="200px" width="400px"/>
+        <a  href="./images/20181102_17.16.08.png">
+            <img   src="./images/20181102_17.16.08.png" height="200px" width="400px"/>
         </a>
     </td>
 </tr>
@@ -214,10 +218,10 @@ screenshot: 20181101_15.00.29 .png
 <tr id='total_row' class="text-center active">
     <td>总计</td>
     <td>1</td>
+    <td>0</td>
+    <td>0</td>
     <td>1</td>
-    <td>0</td>
-    <td>0</td>
-    <td>通过率：100.00%</td>
+    <td>通过率：0.00%</td>
     <td> <a href="" target="_blank"></a></td>
 </tr>
 </table>

@@ -87,7 +87,7 @@ class BasePage:
             self.driver.implicitly_wait(TimeOut) #智能等待；超时设置
 
             element = self.driver.find_element(*loc) #如果element没有找到，到此处会开始等待
-            if self.isDisplayTimeOut(element, TimeOut):
+            if self.is_display_timeout(element, TimeOut):
                 self.hightlight(element)  #高亮显示
                 self.driver.implicitly_wait(0)  # 恢复超时设置
             else:
