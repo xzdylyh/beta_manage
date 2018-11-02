@@ -58,7 +58,7 @@ class BasePage:
         self.driver.implicitly_wait(0)
 
 
-    def isDisplayTimeOut(self, element, timeSes):
+    def is_display_timeout(self, element, timeSes):
         """
         在指定时间内，轮询元素是否显示
         :param element: 元素对象
@@ -249,7 +249,7 @@ class BasePage:
             self.driver.implicitly_wait(TimeOut)
 
             element = self.driver.find_element(*loc)
-            if self.isDisplayTimeOut(element, TimeOut):
+            if self.is_display_timeout(element, TimeOut):
                 self.hightlight(element)
                 return True
             else:

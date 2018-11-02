@@ -37,7 +37,7 @@ class TestCouponListPage(unittest.TestCase):
 
 
     @ddt.data(*getData('couponListPage', 'CASE1'))
-    @replyCaseFail(num=1)
+    @replyCaseFail(num=3)
     def testCase1(self, data):
         """创建券"""
         self.clist = CouponList(self.url, self.driver, data['title'])
