@@ -53,12 +53,12 @@ class BasePage:
         self.driver.get(url)
 
         self.driver.implicitly_wait(10)
-        self.getImage
+        self.get_image
         assert self.driver.title, pagetitle
         self.driver.implicitly_wait(0)
 
 
-    def is_display_timeout(self, element, timeSes):
+    def is_display_timeout(self, element, timeses):
         """
         在指定时间内，轮询元素是否显示
         :param element: 元素对象
@@ -66,13 +66,13 @@ class BasePage:
         :return: bool
         """
         start_time = int(time.time()) #秒级时间戳
-        timeSes = int(timeSes)
-        while (int(time.time())-start_time) <= timeSes:
+        timeses = int(timeses)
+        while (int(time.time())-start_time) <= timeses:
             if element.is_displayed():
                 return True
             self.wait(500)
 
-        self.getImage
+        self.get_image
         return False
 
 
@@ -82,22 +82,22 @@ class BasePage:
         :param loc: 定位器
         :return: 元素 或 抛出异常
         """
-        TimeOut = 20
+        timeout = 20
         try:
-            self.driver.implicitly_wait(TimeOut) #智能等待；超时设置
+            self.driver.implicitly_wait(timeout) #智能等待；超时设置
 
             element = self.driver.find_element(*loc) #如果element没有找到，到此处会开始等待
-            if self.is_display_timeout(element, TimeOut):
+            if self.is_display_timeout(element, timeout):
                 self.hightlight(element)  #高亮显示
                 self.driver.implicitly_wait(0)  # 恢复超时设置
             else:
                 raise ElementNotVisibleException #抛出异常，给except捕获
             return element
         except (NoSuchElementException, ElementNotVisibleException) as ex:
-            self.getImage
+            self.get_image
             raise ex
         else:
-            self.getImage
+            self.get_image
 
 
     @hightlightConfig('HightLight')
@@ -116,7 +116,7 @@ class BasePage:
         )
 
 
-    def getElementImage(self, element):
+    def get_element_image(self, element):
         """
         截图,指定元素图片
         :param element: 元素对象
@@ -132,28 +132,28 @@ class BasePage:
         self.driver.save_screenshot(imgPath)
         left = element.location['x']
         top = element.location['y']
-        elementWidth = left + element.size['width']
-        elementHeight = top + element.size['height']
+        e_width = left + element.size['width']
+        e_height = top + element.size['height']
 
         picture = Image.open(imgPath)
         picture = picture.crop(
             (
                 left,
                 top,
-                elementWidth,
-                elementHeight
+                e_width,
+                e_height
             )
         )
         timestrmap = time.strftime('%Y%m%d_%H.%M.%S')
-        imgPath = os.path.join(
+        imgpath = os.path.join(
             gl.imgPath, '%s.png' % str(timestrmap)
         )
-        picture.save(imgPath)
+        picture.save(imgpath)
         print('screenshot:', timestrmap, '.png')
 
 
     @property
-    def getImage(self):
+    def get_image(self):
         '''
         截取图片,并保存在images文件夹
         :return: 无
@@ -171,27 +171,27 @@ class BasePage:
 
     def find_elements(self, *loc):
         '''批量找标签'''
-        TimeOut = 20 #智能等待时间
+        timeout = 20 #智能等待时间
         try:
-            self.driver.implicitly_wait(TimeOut) #智能等待；此贯穿self.driver整个生命周期
+            self.driver.implicitly_wait(timeout) #智能等待；此贯穿self.driver整个生命周期
             elements = self.driver.find_elements(*loc)
 
             self.driver.implicitly_wait(0) #恢复等待
             return elements
 
         except NoSuchElementException as ex:
-            self.getImage  # 截取图片
+            self.get_image  # 截取图片
             raise ex
 
 
-    def iterClick(self, *loc):
+    def iter_click(self, *loc):
         '''批量点击某元素'''
         element = self.find_elements(*loc)
         for e in element:
             e.click()
 
 
-    def iterInput(self, text=None, *loc):
+    def iter_input(self, text=None, *loc):
         """
         批量输入
         :param text: 输入内容;为list
@@ -217,13 +217,13 @@ class BasePage:
         #inputElement.clear()
         inputElement.send_keys(content)
 
-    def clearInputText(self, *loc):
+    def clear_input_text(self, *loc):
         '''清除文本框内容'''
         self.find_element(*loc).clear()
 
 
 
-    def addCookies(self, ck_dict):
+    def add_cookies(self, ck_dict):
         '''
         增加cookies到浏览器
         :param ck_dict: cookies字典对象
@@ -237,19 +237,19 @@ class BasePage:
                 }
             )
 
-    def isExist(self, *loc):
+    def is_exist(self, *loc):
         #isDisable
         '''
         元素存在,判断是否显示
         :param loc: 定位器
         :return: 元素存在并显示返回True;否则返回False
         '''
-        TimeOut = 20
+        timeout = 20
         try:
-            self.driver.implicitly_wait(TimeOut)
+            self.driver.implicitly_wait(timeout)
 
             element = self.driver.find_element(*loc)
-            if self.is_display_timeout(element, TimeOut):
+            if self.is_display_timeout(element, timeout):
                 self.hightlight(element)
                 return True
             else:
@@ -259,12 +259,12 @@ class BasePage:
                 NoSuchElementException,
                 ElementNotVisibleException,
                 UnexpectedAlertPresentException) as ex:
-            self.getImage #10秒还未找到显示的元素
+            self.get_image #10秒还未找到显示的元素
             return False
 
 
 
-    def isOrNoExist(self, *loc):
+    def is_exist(self, *loc):
         """
         判断元素,是否存在
         :param loc: 定位器(By.ID,'kw')
@@ -281,17 +281,17 @@ class BasePage:
             self.driver.implicitly_wait(0)
             return True
         except NoSuchElementException as ex:
-            self.getImage #10秒还未找到元素，截图
+            self.get_image #10秒还未找到元素，截图
             return False
 
 
-    def isExistAndClick(self, *loc):
+    def exist_and_click(self, *loc):
         '''如果元素存在则单击,不存在则忽略'''
         print('Click:{0}'.format(loc))
 
-        TimeOut = 3 #超时 时间
+        timeout = 3 #超时 时间
         try:
-            self.driver.implicitly_wait(TimeOut)
+            self.driver.implicitly_wait(timeout)
 
             element = self.driver.find_element(*loc)
             self.hightlight(element)
@@ -300,13 +300,13 @@ class BasePage:
         except NoSuchElementException as ex:
             pass
 
-    def isExistAndInput(self, text, *loc):
+    def exist_and_input(self, text, *loc):
         '''如果元素存在则输入,不存在则忽略'''
         print('Input:{0}'.format(text))
 
-        TimeOut = 3
+        timeout = 3
         try:
-            self.driver.implicitly_wait(TimeOut)
+            self.driver.implicitly_wait(timeout)
 
             element = self.driver.find_element(*loc)
             self.hightlight(element) #高亮显示
@@ -317,26 +317,26 @@ class BasePage:
             pass
 
 
-    def getTagText(self, txtName, *loc):
+    def get_tag_text(self, txtName, *loc):
         """
         获取元素对象属性值
         :param propertyName: 属性名称
         :param loc: #定位器
         :return: 属性值 或 raise
         """
-        Timeout = 20
+        timeout = 20
         try:
-            self.driver.implicitly_wait(Timeout)
+            self.driver.implicitly_wait(timeout)
 
             element = self.find_element(*loc)
             self.hightlight(element) #高亮显示
 
             #获取属性
-            proValue = getattr(element, str(txtName))
+            pro_value = getattr(element, str(txtName))
             self.driver.implicitly_wait(0)
-            return proValue
+            return pro_value
         except (NoSuchElementException, NameError) as ex:
-            self.getImage #错误截图
+            self.get_image #错误截图
             raise ex
 
 
@@ -386,7 +386,7 @@ class BasePage:
         """
         print('Input{}:{}'.format(desc, text))
         if str(text).strip().upper() == '%BLANK%':
-            self.clearInputText(*loc)
+            self.clear_input_text(*loc)
         elif str(text).strip().upper() == '%NONE%':
             pass
         else:
@@ -437,7 +437,7 @@ class BasePage:
         yamldict = getYamlfield(gl.configFile)
         ck_dict = yamldict['CONFIG']['Cookies']['LoginCookies']
         self._open(self.base_url, self.pagetitle)
-        self.addCookies(ck_dict)
+        self.add_cookies(ck_dict)
         self._open(self.base_url, self.pagetitle)
 
 

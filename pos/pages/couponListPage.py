@@ -103,7 +103,7 @@ class CouponList(BasePage):
     def inputCouponName(self, name, op=None):
         """输入名称"""
         if op == 1:
-            self.clearInputText(*(self.coupon_inputName_loc))
+            self.clear_input_text(*(self.coupon_inputName_loc))
         self.inputText(name, '名称', *(self.coupon_inputName_loc))
 
     def inputCouponMinValue(self, value):
@@ -176,9 +176,9 @@ class CouponList(BasePage):
     def _inputCouponT(self, text):
         """有效期－固定日期"""
         self.clickBtn('使用固定有效期', *(self.coupon_inputTermBtn_loc))
-        self.clearInputText(*(self.coupon_inputDateStart_loc))
+        self.clear_input_text(*(self.coupon_inputDateStart_loc))
         self.inputText(text, '开始日期', *(self.coupon_inputDateStart_loc))
-        self.clearInputText(*(self.coupon_inputDateEnd_loc))
+        self.clear_input_text(*(self.coupon_inputDateEnd_loc))
         self.inputText(text, '结束日期', *(self.coupon_inputDateEnd_loc))
 
 
@@ -186,14 +186,14 @@ class CouponList(BasePage):
         """有效期"""
 
         if op == 0: #相对日期，默认为相对日期
-            self.clearInputText(*(self.coupon_inputTerm_loc))
+            self.clear_input_text(*(self.coupon_inputTerm_loc))
             self.inputText(
                 kwargs['text'],
                 '相对日期',
                 *(self.coupon_inputTerm_loc)
             )
         if op == 1:
-            self.clearInputText(*(self.coupon_inputDateStart_loc))
+            self.clear_input_text(*(self.coupon_inputDateStart_loc))
             self.clickBtn(
                 '使用固定有效期',
                 *(self.coupon_inputTermBtn_loc)
@@ -203,7 +203,7 @@ class CouponList(BasePage):
                 '开始日期',
                 *(self.coupon_inputDateStart_loc)
             )
-            self.clearInputText(*(self.coupon_inputDateEnd_loc))
+            self.clear_input_text(*(self.coupon_inputDateEnd_loc))
             self.inputText(
                 kwargs['endDate'],
                 '结束日期',
@@ -239,7 +239,7 @@ class CouponList(BasePage):
 
     def getCouponNum(self):
         """获取券数量"""
-        couponNum = self.getTagText('text', *(self.coupon_assert_loc))
+        couponNum = self.get_tag_text('text', *(self.coupon_assert_loc))
         print('当前券数量为:{}'.format(couponNum))
         return couponNum
 
@@ -253,7 +253,7 @@ class CouponList(BasePage):
         else:
             print('新增加券失败,当前总数为:{}'.format(oldNum))
             return False
-        self.getImage
+        self.get_image
         return True
 
 
