@@ -366,15 +366,18 @@ class BasePage:
         time.sleep(ms)
 
     @Replay
-    def jsClick(self, desc, *loc):
+    def js_click(self, desc, *loc):
         """通过js注入的方式去，单击元素"""
         print('Click{}:{}'.format(desc, loc))
         element = self.find_element(*loc)
-        self.driver.execute_script("arguments[0].click();", element)
+        self.driver.execute_script(
+            "arguments[0].click();",
+            element
+        )
 
 
     @Replay
-    def inputText(self, text, desc, *loc):
+    def input_text(self, text, desc, *loc):
         """
         输入文本操作
         :param text:
@@ -394,7 +397,7 @@ class BasePage:
 
 
     @Replay
-    def clickBtn(self, desc, *loc):
+    def click_button(self, desc, *loc):
         """点击操作"""
         print('Click:{}{}'.format(desc, loc))
         if str(desc).strip().upper() == '%NONE%':
@@ -404,7 +407,7 @@ class BasePage:
 
 
     @Replay
-    def clickBtnIndex(self, desc, index, *loc):
+    def click_btn_index(self, desc, index, *loc):
         """
         点击操作，按索引，适用于findelemens方法
         :param desc: 描述
@@ -425,7 +428,7 @@ class BasePage:
 
 
     @Replay
-    def selectTab(self, *loc):
+    def select_tab(self, *loc):
         '''选择tab操作'''
         print('Select:{}'.format(loc))
         self.find_element(*loc).click()
