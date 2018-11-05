@@ -239,19 +239,19 @@ class CouponList(BasePage):
 
     def getCouponNum(self):
         """获取券数量"""
-        couponNum = self.get_tag_text('text', *(self.coupon_assert_loc))
-        print('当前券数量为:{}'.format(couponNum))
-        return couponNum
+        coupon_num = self.get_tag_text('text', *(self.coupon_assert_loc))
+        print('当前券数量为:{}'.format(coupon_num))
+        return coupon_num
 
 
-    def assertAddCoupon(self, oldNum, newNum):
+    def assertAddCoupon(self, old_num, new_num):
         """断言新建券是否成功，通过增加券后，数量是否变化来判断"""
-        oldNum = int(oldNum)
-        newNum = int(newNum)
-        if newNum - 1 == oldNum:
-            print('新增加券成功,当前总数为:{}'.format(newNum))
+        old_num = int(old_num)
+        new_num = int(new_num)
+        if new_num - 1 == old_num:
+            print('新增加券成功,当前总数为:{}'.format(new_num))
         else:
-            print('新增加券失败,当前总数为:{}'.format(oldNum))
+            print('新增加券失败,当前总数为:{}'.format(old_num))
             return False
         self.get_image
         return True

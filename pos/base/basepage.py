@@ -16,9 +16,9 @@ from selenium.common.exceptions import (
 
 from pos.lib import gl
 from pos.lib.scripts import (
-    getYamlfield,
-    Replay,
-    hightlightConfig
+    get_yaml_field,
+    replay,
+    hight_light_conf
 )
 
 
@@ -100,7 +100,7 @@ class BasePage:
             self.get_image
 
 
-    @hightlightConfig('HightLight')
+    @hight_light_conf('HightLight')
     def hightlight(self, element):
         """
         元素高亮显示
@@ -123,19 +123,19 @@ class BasePage:
         :return: 无
         """
         timestrmap = time.strftime('%Y%m%d_%H.%M.%S')
-        imgPath = os.path.join(
+        imgpath = os.path.join(
             gl.imgPath,
             '%s.png' % str(timestrmap)
         )
 
         #截图，获取元素坐标
-        self.driver.save_screenshot(imgPath)
+        self.driver.save_screenshot(imgpath)
         left = element.location['x']
         top = element.location['y']
         e_width = left + element.size['width']
         e_height = top + element.size['height']
 
-        picture = Image.open(imgPath)
+        picture = Image.open(imgpath)
         picture = picture.crop(
             (
                 left,
@@ -213,9 +213,11 @@ class BasePage:
         :param loc: 文本框location定位器
         :return:
         '''
-        inputElement = self.find_element(*loc)
+        inputelement = self.find_element(*loc)
         #inputElement.clear()
-        inputElement.send_keys(content)
+        inputelement.send_keys(content)
+
+
 
     def clear_input_text(self, *loc):
         '''清除文本框内容'''
@@ -270,9 +272,9 @@ class BasePage:
         :param loc: 定位器(By.ID,'kw')
         :return: True 或 False
         """
-        TimeOut = 60
+        timeout = 60
         try:
-            self.driver.implicitly_wait(TimeOut)
+            self.driver.implicitly_wait(timeout)
             e = self.driver.find_element(*loc)
 
             """高亮显示,定位元素"""
@@ -317,7 +319,7 @@ class BasePage:
             pass
 
 
-    def get_tag_text(self, txtName, *loc):
+    def get_tag_text(self, txt_name, *loc):
         """
         获取元素对象属性值
         :param propertyName: 属性名称
@@ -332,7 +334,7 @@ class BasePage:
             self.hightlight(element) #高亮显示
 
             #获取属性
-            pro_value = getattr(element, str(txtName))
+            pro_value = getattr(element, str(txt_name))
             self.driver.implicitly_wait(0)
             return pro_value
         except (NoSuchElementException, NameError) as ex:
@@ -348,10 +350,10 @@ class BasePage:
         切换window窗口,切换一次后退出
         :return: 无
         """
-        curHandle = self.driver.current_window_handle
-        allHandle = self.driver.window_handles
-        for h in allHandle:
-            if h != curHandle:
+        cur_handle = self.driver.current_window_handle
+        all_handle = self.driver.window_handles
+        for h in all_handle:
+            if h != cur_handle:
                 self.driver.switch_to.window(h)
                 break
 
@@ -365,7 +367,7 @@ class BasePage:
         ms = float(ms) / 1000
         time.sleep(ms)
 
-    @Replay
+    @replay
     def js_click(self, desc, *loc):
         """通过js注入的方式去，单击元素"""
         print('Click{}:{}'.format(desc, loc))
@@ -376,7 +378,7 @@ class BasePage:
         )
 
 
-    @Replay
+    @replay
     def input_text(self, text, desc, *loc):
         """
         输入文本操作
@@ -396,7 +398,7 @@ class BasePage:
             self.send_keys(text, *loc)
 
 
-    @Replay
+    @replay
     def click_button(self, desc, *loc):
         """点击操作"""
         print('Click:{}{}'.format(desc, loc))
@@ -406,7 +408,7 @@ class BasePage:
             self.find_element(*loc).click()
 
 
-    @Replay
+    @replay
     def click_btn_index(self, desc, index, *loc):
         """
         点击操作，按索引，适用于findelemens方法
@@ -427,7 +429,7 @@ class BasePage:
             ele.click()
 
 
-    @Replay
+    @replay
     def select_tab(self, *loc):
         '''选择tab操作'''
         print('Select:{}'.format(loc))
@@ -437,7 +439,7 @@ class BasePage:
     @property
     def open(self):
         """打开浏览器，写入cookies登录信息"""
-        yamldict = getYamlfield(gl.configFile)
+        yamldict = get_yaml_field(gl.configFile)
         ck_dict = yamldict['CONFIG']['Cookies']['LoginCookies']
         self._open(self.base_url, self.pagetitle)
         self.add_cookies(ck_dict)

@@ -9,8 +9,8 @@ import ddt
 from pos.pages.couponListPage import CouponList
 from pos.lib.scripts import (
     select_Browser_WebDriver,
-    replyCaseFail,
-    getData
+    reply_case_fail,
+    get_data
 )
 from pos.lib import (
     gl,
@@ -36,8 +36,8 @@ class TestCouponListPage(unittest.TestCase):
 
 
 
-    @ddt.data(*getData('couponListPage', 'CASE1'))
-    @replyCaseFail(num=3)
+    @ddt.data(*get_data('couponListPage', 'CASE1'))
+    @reply_case_fail(num=3)
     def testCase1(self, data):
         """创建券"""
         self.clist = CouponList(self.url, self.driver, data['title'])
@@ -46,7 +46,7 @@ class TestCouponListPage(unittest.TestCase):
         # 券管理
         self.clist.clickCouponManage_Link()
         #获取当前券列表，券数量
-        oldNum = self.clist.getCouponNum()
+        old_num = self.clist.getCouponNum()
         # 创建新的券
         self.clist.clickCouponCreate_Btn()
         # 选择券类型，0代金券；1礼品券；2券包
@@ -85,10 +85,10 @@ class TestCouponListPage(unittest.TestCase):
         #提交，确认
         self.clist.clickCouponConfirm()
         #当前券数量
-        newNum = self.clist.getCouponNum()
+        new_num = self.clist.getCouponNum()
         #断言增加券是否成功
         self.assertTrue(
-            self.clist.assertAddCoupon(oldNum, newNum)
+            self.clist.assertAddCoupon(old_num, new_num)
         )
 
 

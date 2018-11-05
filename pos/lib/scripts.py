@@ -17,7 +17,7 @@ def select_Browser_WebDriver():
     :return:
     """
     #读取config.yam配置文件中，浏览器配置
-    broName = getYamlfield(gl.configFile)['CONFIG']['Browser']
+    broName = get_yaml_field(gl.configFile)['CONFIG']['Browser']
 
     #根据borName决定，启动，哪个浏览器
     if str(broName).strip().lower() == 'chrome':
@@ -41,7 +41,7 @@ def writeYmal(yamlPath, data):
         yaml.dump(data, fp)
 
 
-def getYamlfield(yamlpath):
+def get_yaml_field(yamlpath):
     """
     读取YAML内容
     :param yamlpath: xxxx.YAML文件所在路径
@@ -54,29 +54,33 @@ def getYamlfield(yamlpath):
     return ret
 
 
-def getRunFlag(scenarioKey, casename):
+def get_run_flag(scenarioKey, casename):
     """
     获取运行标记，来决定是否执行
     :param scenarioKey:
     :return: Y 或 N
     """
-    yamldict = getYamlfield(os.path.join(gl.configPath,'config.yaml'))
+    yamldict = get_yaml_field(
+        os.path.join(gl.configPath,'config.yaml')
+    )
     return yamldict['RUNING'][scenarioKey]['Flag'][casename]['Flag']
 
-def CookInfo(func):
+def cook_info(func):
     """
     从配置文件获取cookies信息
     :param func: 函数名
     :return: 函数
     """
     def warpper(*args, **kwargs):
-        yamldict = getYamlfield(os.path.join(gl.configPath, 'config.yaml'))
+        yamldict = get_yaml_field(
+            os.path.join(gl.configPath, 'config.yaml')
+        )
         cook1= yamldict['CONFIG']['Cookies']['LoginCookies']
         return func(cook=cook1, *args, **kwargs)
     return warpper
 
 
-def Replay(func):
+def replay(func):
     """
     回放速度
     :param func: 函数名
@@ -84,15 +88,15 @@ def Replay(func):
     """
     def wrapper(*args, **kwargs):
         func(*args, **kwargs)
-        yamldict = getYamlfield(os.path.join(gl.configPath, 'config.yaml'))
-        sleepTime = float(yamldict['RUNING']['REPLAY']['Time']) / 1000
-        time.sleep(sleepTime)
+        yamldict = get_yaml_field(os.path.join(gl.configPath, 'config.yaml'))
+        sleeptime = float(yamldict['RUNING']['REPLAY']['Time']) / 1000
+        time.sleep(sleeptime)
         return func
     return wrapper
 
 
 
-def hightlightConfig(key):
+def hight_light_conf(key):
     """
     配置元素，是否高亮显示
     :param key: config.yaml 中关键字 HightLight:1 高亮 其它忽略
@@ -100,7 +104,7 @@ def hightlightConfig(key):
     """
     def _wrapper(func):
         def wrapper(*args, **kwargs):
-            config = getYamlfield(gl.configFile)
+            config = get_yaml_field(gl.configFile)
             ret = None
             if config[key] == 1:
                 ret = func(*args, **kwargs)
@@ -110,7 +114,7 @@ def hightlightConfig(key):
 
 
 
-def rmDirsAndFiles(dirpath):
+def remove_all_files(dirpath):
     """
     删除目标,目录下文件及文件夹
     :param dirpath: 目标目录
@@ -126,24 +130,27 @@ def rmDirsAndFiles(dirpath):
                 os.rmdir(filepath)
 
 
-def zipDir(dirpath,outFullName):
+def zip_dir(dirpath,out_fullName):
     """
     压缩指定文件夹
     :param dirpath: 目标文件夹路径
     :param outFullName: 压缩文件保存路径+xxxx.zip
     :return: 无
     """
-    zip = zipfile.ZipFile(outFullName, "w", zipfile.ZIP_DEFLATED)
+    zip = zipfile.ZipFile(out_fullName, "w", zipfile.ZIP_DEFLATED)
     for path, dirnames, filenames in os.walk(dirpath):
         # 去掉目标跟路径，只对目标文件夹下边的文件及文件夹进行压缩
         fpath = path.replace(dirpath, '')
 
         for filename in filenames:
-            zip.write(os.path.join(path, filename), os.path.join(fpath, filename))
+            zip.write(
+                os.path.join(path, filename),
+                os.path.join(fpath, filename)
+            )
     zip.close()
 
 
-def replyCaseFail(num=3):
+def reply_case_fail(num=3):
     """
     测试case失败后，重新执行功能
     :param num: 失败最多可以执行次数，默认为3次
@@ -168,7 +175,7 @@ def replyCaseFail(num=3):
     return _warpper
 
 
-def getData(file, field):
+def get_data(file, field):
     """
     从data目录下的yaml文件读取指定字段(field)CASE数据
     :param file:yaml数据文件
@@ -181,7 +188,7 @@ def getData(file, field):
         file = os.path.join(file, '.yaml')
 
     field = str(field).strip().upper()
-    data = getYamlfield(
+    data = get_yaml_field(
         os.path.join(
             gl.dataPath, 'couponListPage.yaml'
         )
@@ -192,5 +199,4 @@ def getData(file, field):
 
 
 if __name__ == "__main__":
-    #print json.dumps(getRunFlag('testCouponSendAndCancel')).decode('unicode-escape')
     demo(cook='')

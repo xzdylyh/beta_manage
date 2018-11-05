@@ -21,7 +21,7 @@ class EmailClass(object):
     """发送电子邮件"""
     def __init__(self):
         self.curDateTime = str(time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())) #当前日期时间
-        self.config = scripts.getYamlfield(gl.configFile) #配置文件路径
+        self.config = scripts.get_yaml_field(gl.configFile) #配置文件路径
         self.sender = self.config['EMAIL']['Smtp_Sender'] # 从配置文件获取，发件人
         self.receivers = self.config['EMAIL']['Receivers']  # 从配置文件获取，接收人
         self.msg_title = self.config['EMAIL']['Msg_Title'] #从配置文件获取，邮件标题
@@ -43,7 +43,7 @@ class EmailClass(object):
         dirpath = gl.reportPath
         zipfile = os.path.join(os.path.dirname(dirpath), 'report.zip')
         reportfile = os.path.join(gl.reportPath, 'Report.html')
-        scripts.zipDir(dirpath, zipfile) #压缩报告
+        scripts.zip_dir(dirpath, zipfile) #压缩报告
         #增加邮件内容为html
         fp = open(reportfile, 'rb')
         reportHtmlText = fp.read()

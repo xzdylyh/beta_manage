@@ -9,7 +9,7 @@ from pos.testCase.testcouponListPage import TestCouponListPage
 
 
 if __name__=="__main__":
-    scripts.rmDirsAndFiles(gl.imgPath)
+    scripts.remove_all_files(gl.imgPath)
     suite = unittest.TestSuite()
 
     tests = [unittest.TestLoader().loadTestsFromTestCase(TestCouponListPage)]
