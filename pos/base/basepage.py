@@ -239,7 +239,7 @@ class BasePage:
                 }
             )
 
-    def is_exist(self, *loc):
+    def is_display(self, *loc):
         #isDisable
         '''
         元素存在,判断是否显示
@@ -266,7 +266,7 @@ class BasePage:
 
 
 
-    def is_not_exist(self, *loc):
+    def is_exist(self, *loc):
         """
         判断元素,是否存在
         :param loc: 定位器(By.ID,'kw')
