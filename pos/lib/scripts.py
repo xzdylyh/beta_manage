@@ -17,12 +17,13 @@ def select_Browser_WebDriver():
     :return:
     """
     #读取config.yam配置文件中，浏览器配置
-    broName = get_yaml_field(gl.configFile)['CONFIG']['Browser']
+    bro_name = get_yaml_field(gl.configFile)
+    bro_name = bro_name['CONFIG']['Browser']
 
     #根据borName决定，启动，哪个浏览器
-    if str(broName).strip().lower() == 'chrome':
+    if str(bro_name).strip().lower() == 'chrome':
         driver = webdriver.Chrome()
-    elif str(broName).strip().lower() == 'firefox':
+    elif str(bro_name).strip().lower() == 'firefox':
         driver = webdriver.Firefox()
     else:
         driver = webdriver.Ie()
@@ -30,40 +31,42 @@ def select_Browser_WebDriver():
 
 
 
-def writeYmal(yamlPath, data):
+def writeYmal(path, data):
     """
     写YAML文件内容
-    :param yamlPath: YAML文件路径
+    :param path: YAML文件路径
     :param data: 写入的数据
     :return: 无
     """
-    with open(yamlPath, 'wb') as fp:
+    with open(path, 'wb') as fp:
         yaml.dump(data, fp)
 
 
-def get_yaml_field(yamlpath):
+def get_yaml_field(path):
     """
     读取YAML内容
-    :param yamlpath: xxxx.YAML文件所在路径
+    :param path: xxxx.YAML文件所在路径
     :return: 指定节点内容
     """
-    with open(yamlpath, 'rb') as fp:
+    with open(path, 'rb') as fp:
         cont = fp.read()
 
     ret = yaml.load(cont)
     return ret
 
 
-def get_run_flag(scenarioKey, casename):
+def get_run_flag(scenario_key, casename):
     """
     获取运行标记，来决定是否执行
-    :param scenarioKey:
+    :param scenario_key:
     :return: Y 或 N
     """
     yamldict = get_yaml_field(
         os.path.join(gl.configPath,'config.yaml')
     )
-    return yamldict['RUNING'][scenarioKey]['Flag'][casename]['Flag']
+    return yamldict['RUNING'][scenario_key]['Flag'][casename]['Flag']
+
+
 
 def cook_info(func):
     """
