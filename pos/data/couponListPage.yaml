@@ -21,23 +21,23 @@ CASE1:
         termTime: 1  #相对有效期天数；
         termStartTime: '2018-10-29'    #固定有效期，开始时间格式2018-10-20
         termEndTime: '2018-10-30' #固定有效期，结束时间格式2018-10-20
-        eatTime: '%NONE%' #时间段设置0为全天可用；1为自动化全天门店可用；
+        eatTime: '%Blank%' #时间段设置0为全天可用；1为自动化全天门店可用；
         restriction: '%NONE%'  #输入限制与说明
-    -
-        title: '创建营销活动 - 自动化测试专用'
-        couponType: 0 #券类型，0代金券；1礼品券；2券包
-        property: 0 #属性;0普通；1微信群发消息专用
-        clientShow: 1 #客户端展示券名称;0显示；1不显示
-        mixUsed: 1 #与其它券混合使用；0可以；1不可以；2部分可以
-        inputValue: 10 #券面值为5员
-        name: '暖心券' #名称
-        minValue: 100  # 总金额满50元，此券可用
-        dealNum: 2 #每次消费最多张数
-        isGiveFriend: 1 #券转赠给好友0可以；1不可以
-        enabledTime: 0 #启用时间 1为1天，0为当日启用
-        termTimeOption: 0  #有效期选项；0为相对有效期；1为固定有效期；
-        termTime: 1  #相对有效期天数；
-        termStartTime: '2018-10-29'    #固定有效期，开始时间格式2018-10-20
-        termEndTime: '2018-10-30' #固定有效期，结束时间格式2018-10-20
-        eatTime: '%NONE%' #时间段设置0为全天可用；1为自动化全天门店可用；
-        restriction: '%NONE%'  #输入限制与说明
+#    -
+#        title: '创建营销活动 - 自动化测试专用'
+#        couponType: 0 #券类型，0代金券；1礼品券；2券包
+#        property: 0 #属性;0普通；1微信群发消息专用
+#        clientShow: 1 #客户端展示券名称;0显示；1不显示
+#        mixUsed: 1 #与其它券混合使用；0可以；1不可以；2部分可以
+#        inputValue: 10 #券面值为5员
+#        name: '暖心券' #名称
+#        minValue: 100  # 总金额满50元，此券可用
+#        dealNum: 2 #每次消费最多张数
+#        isGiveFriend: 1 #券转赠给好友0可以；1不可以
+#        enabledTime: 0 #启用时间 1为1天，0为当日启用
+#        termTimeOption: 0  #有效期选项；0为相对有效期；1为固定有效期；
+#        termTime: 1  #相对有效期天数；
+#        termStartTime: '2018-10-29'    #固定有效期，开始时间格式2018-10-20
+#        termEndTime: '2018-10-30' #固定有效期，结束时间格式2018-10-20
+#        eatTime: '%NONE%' #时间段设置0为全天可用；1为自动化全天门店可用；
+#        restriction: '%NONE%'  #输入限制与说明

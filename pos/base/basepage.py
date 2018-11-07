@@ -322,7 +322,7 @@ class BasePage:
     def get_tag_text(self, txt_name, *loc):
         """
         获取元素对象属性值
-        :param propertyName: 属性名称
+        :param propertyName: Text属性名称
         :param loc: #定位器
         :return: 属性值 或 raise
         """
@@ -358,6 +358,7 @@ class BasePage:
                 break
 
 
+
     def wait(self, ms):
         """
         线程休眼时间
@@ -376,6 +377,7 @@ class BasePage:
             "arguments[0].click();",
             element
         )
+
 
 
     @replay
