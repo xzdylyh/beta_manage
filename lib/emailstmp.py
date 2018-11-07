@@ -14,7 +14,7 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.base import MIMEBase
 from email.header import Header
 from email import encoders
-from pos.lib import (gl, scripts)
+from beta_manage.lib import (gl, scripts)
 
 
 class EmailClass(object):

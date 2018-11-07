@@ -8,7 +8,7 @@ import os
 import zipfile
 from selenium import webdriver
 import yaml
-from pos.lib import gl
+from beta_manage.lib import gl
 
 
 def select_Browser_WebDriver():

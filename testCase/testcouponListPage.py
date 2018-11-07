@@ -6,13 +6,13 @@ by:yhleng
 import os
 import unittest
 import ddt
-from pos.pages.couponListPage import CouponList
-from pos.lib.scripts import (
+from beta_manage.pages.couponListPage import CouponList
+from beta_manage.lib.scripts import (
     select_Browser_WebDriver,
     reply_case_fail,
     get_data
 )
-from pos.lib import (
+from beta_manage.lib import (
     gl,
     HTMLTESTRunnerCN
 )

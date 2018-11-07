@@ -14,8 +14,8 @@ from selenium.common.exceptions import (
     UnexpectedAlertPresentException
 )
 
-from pos.lib import gl
-from pos.lib.scripts import (
+from beta_manage.lib import gl
+from beta_manage.lib.scripts import (
     get_yaml_field,
     replay,
     hight_light_conf
