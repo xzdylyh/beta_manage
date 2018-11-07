@@ -1,4 +1,3 @@
-#_*_coding=utf8_*_
 """
 create:2018/10/24
 by: ts

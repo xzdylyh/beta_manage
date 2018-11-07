@@ -31,7 +31,7 @@ def select_Browser_WebDriver():
 
 
 
-def writeYmal(path, data):
+def write_ymal(path, data):
     """
     写YAML文件内容
     :param path: YAML文件路径
@@ -188,12 +188,12 @@ def get_data(file, field):
     yaml_end = str(file).endswith('.yaml')
     yam_end = str(file).endswith('.yam')
     if not (yaml_end or yam_end):
-        file = os.path.join(file, '.yaml')
+        file = '{}.yaml'.format(file)
 
     field = str(field).strip().upper()
     data = get_yaml_field(
         os.path.join(
-            gl.dataPath, 'couponListPage.yaml'
+            gl.dataPath, file
         )
     )[field]
     return data

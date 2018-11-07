@@ -117,9 +117,9 @@ function html_escape(s) {
 <div class='heading'>
 <h4 style="font-family: Microsoft YaHei">UI自动化测试报告</h4>
 <p class='attribute'><strong>测试人员 : </strong> yhleng</p>
-<p class='attribute'><strong>开始时间 : </strong> 2018-11-06 15:35:51</p>
-<p class='attribute'><strong>合计耗时 : </strong> 0:00:45.322059</p>
-<p class='attribute'><strong>测试结果 : </strong> 共 2，通过 2，通过率= 100.00%</p>
+<p class='attribute'><strong>开始时间 : </strong> 2018-11-07 17:07:20</p>
+<p class='attribute'><strong>合计耗时 : </strong> 0:00:12.680999</p>
+<p class='attribute'><strong>测试结果 : </strong> 共 1，通过 1，通过率= 100.00%</p>
 
 <p class='description'>详细测试用例结果</p>
 </div>
@@ -129,8 +129,8 @@ function html_escape(s) {
 <a class="btn btn-primary" href='javascript:showCase(0)'>概要{ 100.00% }</a>
 <a class="btn btn-warning" href='javascript:showCase(4)'>错误{ 0 }</a>
 <a class="btn btn-danger" href='javascript:showCase(1)'>失败{ 0 }</a>
-<a class="btn btn-success" href='javascript:showCase(2)'>通过{ 2 }</a>
-<a class="btn btn-info" href='javascript:showCase(3)'>所有{ 2 }</a>
+<a class="btn btn-success" href='javascript:showCase(2)'>通过{ 1 }</a>
+<a class="btn btn-info" href='javascript:showCase(3)'>所有{ 1 }</a>
 </p>
 <table id='result_table' class="table table-condensed table-bordered table-hover">
 <colgroup>
@@ -153,12 +153,12 @@ function html_escape(s) {
 </tr>
 
 <tr class='passClass warning'>
-    <td>TestCouponListPage: 券管理</td>
-    <td class="text-center">2</td>
-    <td class="text-center">2</td>
+    <td>TestActivityCreate63: 膨胀红包</td>
+    <td class="text-center">1</td>
+    <td class="text-center">1</td>
     <td class="text-center">0</td>
     <td class="text-center">0</td>
-    <td class="text-center"><a href="javascript:showClassDetail('c1',2)" class="detail" id='c1'>详细</a></td>
+    <td class="text-center"><a href="javascript:showClassDetail('c1',1)" class="detail" id='c1'>详细</a></td>
     <td class="text-center">Assert or Error Image</td>
 </tr>
 
@@ -173,87 +173,21 @@ function html_escape(s) {
     <div id='div_pt1_1' class="collapse in">
     <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:600px; margin:auto; border:1px solid #e1e1e1;">
     
-pt1_1: screenshot: 20181106_15.35.59 .png
-screenshot: 20181106_15.36.00 .png
-Click:券管理链接('link text', '券管理')
-当前券数量为:23
-Click:创建新的券('id', 'dropdownCoupon')
-Click:代金券('link text', '代金券')
-Clicks:属性('xpath', "//input[@name='messageonly']/..")
-Input面值:5
-Input名称:暖心券
-Clicks:客户端显示券名称('xpath', "//input[@name='showname']/..")
-Click:设置焦点为消费总金额输入框('id', 'minvalue')
-Input消费总金额满多少元不可用:50
-Input每次消费最多可使用几张:2
-Clicks:与其它券混合使用('xpath', "//input[@name='mix']/..")
-Clicks:转赠好友('xpath', "//input[@name='givefriend']/..")
-Input启用时间:0
-Input相对日期:1
-Clicks:时间段设置('xpath', "//input[@name='eattime[]'/..]")
-Input限制与说明:%NONE%
-Click:保存('xpath', "//button[contains(text(), '保存')]")
-Click:确认('xpath', "//button[contains(text(), '确认')]")
-当前券数量为:24
-新增加券成功,当前总数为:24
-screenshot: 20181106_15.36.15 .png
+pt1_1: screenshot: 20181107_17.07.27 .png
+screenshot: 20181107_17.07.29 .png
+Input活动名称:砍砍砍小活动
+Input活动开始时间:2018-11-08 15:23:13
+Input活动结束时间:2019-11-08 15:23:13
+Input活动说明:砍砍砍越砍越多
+Clicks:上传('css selector', "div.upload-step-one &gt; div &gt; input[type='file']")
 
 
     </pre>
     </div>
     </td>
     <td align="right">
-        <a  href="./images/20181106_15.36.15.png">
-            <img   src="./images/20181106_15.36.15.png" height="200px" width="400px"/>
-        </a>
-    </td>
-</tr>
-
-
-
-<tr id='pt1_2' class='hiddenRow'>
-    <td class='passCase' width='300px'><div class='testcase'>testCase1_2</div></td>
-    <td colspan='5' align='left' width='600px'> <!--print 输出框位置-->
-    <!--默认收起错误信息 -Findyou
-    <button id='btn_pt1_2' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_2'>通过</button>
-    <div id='div_pt1_2' class="collapse">  -->
-    <!-- 默认展开错误信息 -Findyou -->
-    <button id='btn_pt1_2' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt1_2'>通过</button>
-    <div id='div_pt1_2' class="collapse in">
-    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:600px; margin:auto; border:1px solid #e1e1e1;">
-    
-pt1_2: screenshot: 20181106_15.36.16 .png
-screenshot: 20181106_15.36.17 .png
-Click:券管理链接('link text', '券管理')
-当前券数量为:24
-Click:创建新的券('id', 'dropdownCoupon')
-Click:代金券('link text', '代金券')
-Clicks:属性('xpath', "//input[@name='messageonly']/..")
-Input面值:10
-Input名称:暖心券
-Clicks:客户端显示券名称('xpath', "//input[@name='showname']/..")
-Click:设置焦点为消费总金额输入框('id', 'minvalue')
-Input消费总金额满多少元不可用:100
-Input每次消费最多可使用几张:2
-Clicks:与其它券混合使用('xpath', "//input[@name='mix']/..")
-Clicks:转赠好友('xpath', "//input[@name='givefriend']/..")
-Input启用时间:0
-Input相对日期:1
-Clicks:时间段设置('xpath', "//input[@name='eattime[]'/..]")
-Input限制与说明:%NONE%
-Click:保存('xpath', "//button[contains(text(), '保存')]")
-Click:确认('xpath', "//button[contains(text(), '确认')]")
-当前券数量为:25
-新增加券成功,当前总数为:25
-screenshot: 20181106_15.36.33 .png
-
-
-    </pre>
-    </div>
-    </td>
-    <td align="right">
-        <a  href="./images/20181106_15.36.33.png">
-            <img   src="./images/20181106_15.36.33.png" height="200px" width="400px"/>
+        <a  href="./images/20181107_17.07.29.png">
+            <img   src="./images/20181107_17.07.29.png" height="200px" width="400px"/>
         </a>
     </td>
 </tr>
@@ -262,8 +196,8 @@ screenshot: 20181106_15.36.33 .png
 
 <tr id='total_row' class="text-center active">
     <td>总计</td>
-    <td>2</td>
-    <td>2</td>
+    <td>1</td>
+    <td>1</td>
     <td>0</td>
     <td>0</td>
     <td>通过率：100.00%</td>

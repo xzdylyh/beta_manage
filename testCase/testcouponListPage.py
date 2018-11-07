@@ -1,4 +1,3 @@
-#coding=utf-8
 """
 create:2018/10/23
 by:yhleng
