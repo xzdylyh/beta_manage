@@ -5,13 +5,13 @@ by:yhleng
 import os
 import unittest
 import ddt
-from beta_manage.pages.activityCreate63Page import ActivityCreate63
-from beta_manage.lib.scripts import (
+from pages.activityCreate63Page import ActivityCreate63
+from lib.scripts import (
     select_Browser_WebDriver,
     reply_case_fail,
     get_data
 )
-from beta_manage.lib import (
+from lib import (
     gl,
     HTMLTESTRunnerCN
 )
@@ -31,7 +31,6 @@ class TestActivityCreate63(unittest.TestCase):
     def tearDownClass(cls):
         # cls.driver.quit()
         pass
-
 
 
 

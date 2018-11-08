@@ -1,4 +1,3 @@
-#_*_coding:utf-8_*_
 """
 create:2018/10/23
 by:yhleng
@@ -8,7 +7,7 @@ import os
 import zipfile
 from selenium import webdriver
 import yaml
-from beta_manage.lib import gl
+from lib import gl
 
 
 def select_Browser_WebDriver():
@@ -199,6 +198,15 @@ def get_data(file, field):
     return data
 
 
+def is_exist_dir(path):
+    """
+    如果文件夹不存在，则创建
+    :param path:
+    :return:
+    """
+    folder = os.path.exists(path)
+    if not folder:
+        os.makedirs(path)
 
 
 if __name__ == "__main__":

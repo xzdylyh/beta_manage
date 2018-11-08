@@ -1,4 +1,3 @@
-#_*_coding=utf8_*_
 """
 __doc__:
 create:2018/10/27
@@ -14,8 +13,8 @@ from selenium.common.exceptions import (
     UnexpectedAlertPresentException
 )
 
-from beta_manage.lib import gl
-from beta_manage.lib.scripts import (
+from lib import gl
+from lib.scripts import (
     get_yaml_field,
     replay,
     hight_light_conf
@@ -159,12 +158,12 @@ class BasePage:
         :return: 无
         '''
         timestrmap = time.strftime('%Y%m%d_%H.%M.%S')
-        imgPath = os.path.join(
+        imgpath = os.path.join(
             gl.imgPath,
             '%s.png' % str(timestrmap)
         )
 
-        self.driver.save_screenshot(imgPath)
+        self.driver.save_screenshot(imgpath)
         print('screenshot:', timestrmap, '.png')
 
 

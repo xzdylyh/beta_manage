@@ -4,6 +4,7 @@
 """
 import os
 import time
+from lib import scripts
 
 global libPath
 global reportPath #报告路径
@@ -28,7 +29,9 @@ libPath = PATH(os.path.dirname(__file__)) #lib目录
 reportPath = os.path.join(
     PATH(os.path.dirname(libPath)),
     'report'
-)
+    )
+
+
 # case目录，绝对路径
 casePath = os.path.join(
     PATH(os.path.dirname(libPath)),
@@ -37,8 +40,8 @@ casePath = os.path.join(
 # 存储截图目录，绝对路径
 imgPath = os.path.join(
     PATH(reportPath),
-    'images'
-)
+    'images')
+
 # 配置文件目录，绝对路径
 configPath = os.path.join(
     PATH(os.path.dirname(libPath)),

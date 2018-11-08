@@ -1,7 +1,7 @@
 
 from selenium.webdriver.common.by import By
 import autoit
-from beta_manage.base.basepage import BasePage
+from base.basepage import BasePage
 
 class ActivityCreate63(BasePage):
     """营销->膨胀红包活动"""
@@ -75,7 +75,12 @@ class ActivityCreate63(BasePage):
 
 
     def click_ac_upload(self, index, path):
-        """单击上传按钮"""
+        """
+        单击上传按钮；通过索引来决定点击哪个上传功能
+        :param index: 索引为找到元素索引
+        :param path: 上传图片所在绝对路径
+        :return:
+        """
         self.click_btn_index(
             '上传',
             index,

@@ -1,4 +1,3 @@
-#coding=utf-8
 """
 A TestRunner for use with the Python unit testing framework. It
 generates a HTML report to show the result at a glance.
@@ -580,7 +579,7 @@ class HTMLTestRunner(Template_mixin):
         Return report attributes as a list of (name, value).
         Override this to add custom attributes.
         """
-        startTime = str(self.startTime)[:19]
+        starttime = str(self.startTime)[:19]
         duration = str(self.stopTime - self.startTime)
         status = []
         status.append('共 %s' % (result.success_count + result.failure_count + result.error_count))
@@ -594,7 +593,7 @@ class HTMLTestRunner(Template_mixin):
             status = 'none'
         return [
             (u'测试人员', self.tester),
-            (u'开始时间', startTime),
+            (u'开始时间', starttime),
             (u'合计耗时', duration),
             (u'测试结果', status + "，通过率= "+self.passrate),
         ]

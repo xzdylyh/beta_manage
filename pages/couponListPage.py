@@ -3,7 +3,7 @@ create:2018/10/24
 by: ts
 """
 from selenium.webdriver.common.by import By
-from beta_manage.base.basepage import BasePage
+from base.basepage import BasePage
 
 
 class CouponList(BasePage):

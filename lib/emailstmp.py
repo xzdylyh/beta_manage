@@ -1,4 +1,3 @@
-#_*_coding:utf-8_*_
 """
 __doc__:
 email 此模块用来，发送报告及邮件，格式为定制
@@ -14,13 +13,13 @@ from email.mime.multipart import MIMEMultipart
 from email.mime.base import MIMEBase
 from email.header import Header
 from email import encoders
-from beta_manage.lib import (gl, scripts)
+from lib import (gl, scripts)
 
 
 class EmailClass(object):
     """发送电子邮件"""
     def __init__(self):
-        self.curDateTime = str(time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())) #当前日期时间
+        self.cur_date_time = str(time.strftime('%Y-%m-%d %H:%M:%S', time.localtime())) #当前日期时间
         self.config = scripts.get_yaml_field(gl.configFile) #配置文件路径
         self.sender = self.config['EMAIL']['Smtp_Sender'] # 从配置文件获取，发件人
         self.receivers = self.config['EMAIL']['Receivers']  # 从配置文件获取，接收人
@@ -37,7 +36,7 @@ class EmailClass(object):
         msg = MIMEMultipart()
         msg['From'] = Header(self.From, 'utf-8')
         msg['To'] = self.To
-        msg['Subject'] = Header('%s%s'%(self.msg_title, self.curDateTime), 'utf-8')
+        msg['Subject'] = Header('%s%s'%(self.msg_title, self.cur_date_time), 'utf-8')
 
         #附件路径
         dirpath = gl.reportPath
@@ -51,7 +50,7 @@ class EmailClass(object):
         fp.close()
 
         #增加附件
-        html = self.addAttach(zipfile, filename='Report%s.zip'%self.curDateTime) #自动化测试报告附件
+        html = self.addAttach(zipfile, filename='Report%s.zip'%self.cur_date_time) #自动化测试报告附件
         msg.attach(html)
 
         return msg
