@@ -34,6 +34,41 @@ class TestActivityCreate63(unittest.TestCase):
 
 
 
+    def prize_set(self, **data):
+        """奖品设置共三个"""
+        #>>>>>>>>>>>>>>>>>>>>>>奖品一<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<
+        #添加优惠券;0奖品一添加；1奖品二添加；2奖品三添加；
+        self.ac.click_add_coupon(data['acindex'])
+        #选择券索引；0奖品一；1奖品二；2奖品三
+        #类型；0代金券；1礼品券
+        self.ac.click_coupon_type(
+            data['prize_index'],
+            data['coupon_type']
+        )
+        #使用 #使用券0为第一张券；以此类推
+        self.ac.click_used(data['used_index'])
+        #奖品名称 #奖品名称元素索引;0为奖品一；1为奖品二；2为奖品三
+        self.ac.input_prize_name(
+            data['prize_name'],
+            data['pname_index']
+        )
+
+        self.ac.input_prize_value(
+            data['prize_value'],
+            data['pvalue_index']
+        )
+
+        self.ac.click_ac_upload(
+            data['upload'],
+            os.path.join(gl.dataPath, 'upload.png')
+        )
+
+        self.ac.click_ac_upload(
+            data['upload1'],
+            os.path.join(gl.dataPath, 'upload.png')
+        )
+
+
     @ddt.data(*get_data('activityCreate63', 'CASE1'))
     @reply_case_fail(num=1)
     def testCase1(self, data):
@@ -59,6 +94,49 @@ class TestActivityCreate63(unittest.TestCase):
             data['upload'],
             os.path.join(gl.dataPath, 'upload.png')
         )
+
+        # #奖品一数据
+        # self.prize_set(
+        #             acindex=data['acindex'], ##0奖品一；1奖品二；2奖品三 增加券
+        #             prize_index=data['prize_index'], #选择券索引；0奖品一；1奖品二；2奖品三
+        #             coupon_type=data['coupon_type'], #类型；0代金券；1礼品券
+        #             used_index=data['used_index'], #使用券0为第一张券；以此类推
+        #             prize_name=data['prize_name'], #奖品名称
+        #             pname_index=data['pname_index'], #奖品名称元素索引;0为奖品一；1为奖品二；2为奖品三
+        #             prize_value=data['prize_value'], #兑换所需人数
+        #             pvalue_index=data['pvalue_index'], #兑换所需人数元素索引；0为奖品二；1为奖品3
+        #             upload=data['upload1'], #上传1，奖品一
+        #             upload1=data['upload1_1'] #上传2,奖品一
+        #         )
+        # 奖品二数据
+        # self.prize_set(
+        #     acindex=data['acindex2'], ##0奖品一；1奖品二；2奖品三 增加券
+        #     prize_index=data['prize_index2'], #选择券索引；0奖品一；1奖品二；2奖品三
+        #     coupon_type=data['coupon_type2'], #类型；0代金券；1礼品券
+        #     used_index=data['used_index2'], #使用券0为第一张券；以此类推
+        #     prize_name=data['prize_name2'], #奖品名称
+        #     pname_index=data['pname_index2'], #奖品名称元素索引;0为奖品一；1为奖品二；2为奖品三
+        #     prize_value=data['prize_value2'], #兑换所需人数
+        #     pvalue_index=data['pvalue_index2'], #兑换所需人数元素索引；0为奖品二；1为奖品3
+        #     upload=data['upload2'], #上传3，奖品一
+        #     upload1=data['upload2_2'] #上传4,奖品一
+        # )
+
+
+        self.prize_set(
+            acindex=data['acindex'], ##0奖品一；1奖品二；2奖品三 增加券
+            prize_index=data['prize_index'], #选择券索引；0奖品一；1奖品二；2奖品三
+            coupon_type=data['coupon_type'], #类型；0代金券；1礼品券
+            used_index=data['used_index'], #使用券0为第一张券；以此类推
+            prize_name=data['prize_name'], #奖品名称
+            pname_index=data['pname_index'], #奖品名称元素索引;0为奖品一；1为奖品二；2为奖品三
+            prize_value=data['prize_value'], #兑换所需人数
+            pvalue_index=data['pvalue_index'], #兑换所需人数元素索引；0为奖品二；1为奖品3
+            upload=data['upload1'], #上传1，奖品一
+            upload1=data['upload1_1'] #上传2,奖品一
+        )
+
+
 
 
 

@@ -23,6 +23,8 @@ class ActivityCreate63(BasePage):
     coupon_drop_locs = (By.ID, "dropdownCoupon")
     #券类型选择;代金券；礼品券
     coupon_types = ['代金券', '礼品券']
+    #使用券
+    coupon_used_loc = (By.LINK_TEXT, "使用")
 
     #奖品名称
     coupon_prize_locs = (By.NAME, "prize_title[]")
@@ -51,6 +53,7 @@ class ActivityCreate63(BasePage):
 
     def input_activity_stime(self, text):
         """输入活动开始时间"""
+        self.clear_input_text(*(self.activity_stime_loc))
         self.input_text(
             text,
             '活动开始时间',
@@ -59,6 +62,7 @@ class ActivityCreate63(BasePage):
 
     def input_activity_etime(self, text):
         """输入活动结束时间"""
+        self.clear_input_text(*(self.activity_etime_loc))
         self.input_text(
             text,
             '活动结束时间',
@@ -97,4 +101,62 @@ class ActivityCreate63(BasePage):
             '[Class:Button; INSTANCE:1]'
         )
 
+    def click_add_coupon(self, index):
+        """添加券;按索引，0奖品一；1奖品二；2奖品3"""
+        self.click_btn_index(
+            '添加券',
+            index,
+            *(self.coupon_drop_locs)
+        )
+
+    def click_coupon_type(self, index, ctype):
+        """
+        选择添加券类型；0代金券；1礼品券"
+        :param index: 0奖品一；1奖品二；2奖品三
+        :param ctype: 0代金券；1礼品券
+        :return: 无
+        """""
+        ctype = int(ctype)
+        index = int(index)
+        self.click_btn_index(
+            '券类型',
+            index,
+            *(By.LINK_TEXT, self.coupon_types[ctype])
+        )
+
+    def click_used(self, index):
+        """选择券，按索引来选"""
+        self.click_btn_index(
+            '使用',
+            index,
+            *(self.coupon_used_loc)
+        )
+
+
+
+    def click_used(self, index):
+        """单击使用，来选择券"""
+        self.click_btn_index(
+            '使用',
+            index,
+            *(self.coupon_used_loc)
+        )
+
+    def input_prize_name(self, text, index):
+        """奖品名称；0奖品一；1奖品二；2奖品三"""
+        self.input_text_index(
+            '奖品名称',
+            text,
+            index,
+            *(self.coupon_prize_locs)
+        )
+
+    def input_prize_value(self, text, index):
+        """兑换奖品所需人数"""
+        self.input_text_index(
+            '兑换所需人数',
+            text,
+            index,
+            *(self.coupon_value_locs)
+        )
 
