@@ -4,7 +4,6 @@
 """
 import os
 import time
-from lib import scripts
 
 global libPath
 global reportPath #报告路径
@@ -14,6 +13,15 @@ global configPath
 global dataPath
 global curDate
 
+def is_exist_dir(path):
+    """
+    如果文件夹不存在，则创建
+    :param path:
+    :return:
+    """
+    folder = os.path.exists(path)
+    if not folder:
+        os.makedirs(path)
 
 
 # 取路径绝对路径
