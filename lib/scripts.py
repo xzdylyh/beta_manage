@@ -198,7 +198,7 @@ def get_data(file, field):
     return data
 
 
-def is_exist_dir(path):
+def create_dir(path):
     """
     如果文件夹不存在，则创建
     :param path:

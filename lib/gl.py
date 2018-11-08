@@ -5,6 +5,8 @@
 import os
 import time
 
+
+
 global libPath
 global reportPath #报告路径
 global casePath
@@ -12,16 +14,6 @@ global imgPath
 global configPath
 global dataPath
 global curDate
-
-def is_exist_dir(path):
-    """
-    如果文件夹不存在，则创建
-    :param path:
-    :return:
-    """
-    folder = os.path.exists(path)
-    if not folder:
-        os.makedirs(path)
 
 
 # 取路径绝对路径
@@ -80,3 +72,4 @@ if __name__ == "__main__":
     print('report/images路径:{0}'.format(imgPath))
     print('config路径:{0}'.format(configPath))
     print('data路径:{0}'.format(dataPath))
+
