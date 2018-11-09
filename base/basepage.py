@@ -398,6 +398,27 @@ class BasePage:
         else:
             self.send_keys(text, *loc)
 
+    @replay
+    def input_text_index(self, desc, text ,index, *loc):
+        """
+        按索引输入文本
+        :param desc: 输入框描述
+        :param text: 输入内容
+        :param index: 元素索引
+        :param loc: 定位器
+        :return: 无
+        """
+        index = int(index)
+        print('Input{}:{}'.format(desc, text))
+        if str(text).strip().upper() == '%BLANK%':
+            self.clear_input_text(*loc)
+        elif str(text).strip().upper() == '%NONE%':
+            pass
+        else:
+            ele = self.find_elements(*loc)[index]
+            ele.send_keys(text)
+
+
 
     @replay
     def click_button(self, desc, *loc):

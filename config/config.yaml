@@ -39,7 +39,7 @@ RUNING: #case执行配置
         Time: 500 #回放时间为毫秒
 
     DESCPTION: N不执行，Y执行
-    CONSUME: #消费模块
+    CHARGE: #消费模块
         Flag: {"testCase1":{"Flag":"N","desc":"实体卡开卡"},
                "testCase2":{"Flag":"N","desc":"积分消费"},
                "testCase3":{"Flag":"N","desc":"储值消费"},
