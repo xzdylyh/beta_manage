@@ -245,4 +245,5 @@ class ActivityCreate63(BasePage):
         ret = True
         if txt != text:
             ret = False
+        self.get_image
         return ret

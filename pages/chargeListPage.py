@@ -154,7 +154,9 @@ class ChargeList(BasePage):
     def getDelInfo(self):
         """获取删除成功后的信息"""
         info = self.get_tag_text('text', *(self.charge_delSussecc_loc))
+        self.get_image
         return info
+
     def click_btb(self):
         self.click_button('test', *(self.charge_delSussecc_loc))
 
