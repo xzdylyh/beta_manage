@@ -15,7 +15,10 @@ class ActivityCreate63(BasePage):
     #活动说明
     activity_desc_loc = (By.NAME, "activity_desc")
     #商家LOGO上传按钮
-    activity_upload_locs = (By.CSS_SELECTOR, "div.upload-step-one > div > input[type='file']")
+    activity_upload_locs = (
+        By.CSS_SELECTOR,
+        "div.upload-step-one > div > input[type='file']"
+    )
 
     #########膨胀红包-奖品设置########
     #－－－－奖品1；奖品2；奖品3-------#
@@ -32,14 +35,27 @@ class ActivityCreate63(BasePage):
     coupon_value_locs = (By.NAME, "prize_value[]")
 
     ##########页面配置
-    #文字及按钮颜色
-    page_color_loc = (By.XPATH, "//input[@name='title_color']/../ui[0]/li[1]")
+    #文字及按钮颜色 li[1]白色；li[2]黑色
+    page_color = "//input[@name='title_color']/../ul[1]/li[{}]"
     #主题背景色
     page_back_loc = (By.NAME, "activity_background")
     #小程序分享标题
     page_share_loc = (By.NAME, "share_titile")
     #保存
     page_save_loc = (By.XPATH, "//button[contains(text(),'保存')]")
+    #终止
+    page_stop_loc = (By.LINK_TEXT, "终止")
+    #终止确认
+
+    #删除
+    page_delete_loc = (By.LINK_TEXT, "删除")
+    #删除确认
+    page_confirm_loc = (By.XPATH, "//button[contains(text(),'确认')]")
+    #断言
+    assert_title_loc = (
+        By.CSS_SELECTOR,
+        "div.we-table-responsive > table > tbody > tr > td:nth-child(2) > span"
+    )
 
 
     #########################页面操作###################
@@ -160,3 +176,73 @@ class ActivityCreate63(BasePage):
             *(self.coupon_value_locs)
         )
 
+    def click_font_color(self, index):
+        """文字及按钮颜色"""
+        index = int(index)
+        self.click_button(
+            '文字及按钮颜色',
+            *(By.XPATH, self.page_color.format(index))
+        )
+
+    def input_back_ground(self, text):
+        """主题背景色"""
+        self.input_text(
+            text,
+            '主题背景色',
+            *(self.page_back_loc)
+        )
+
+    def input_share_title(self, text):
+        """小程序分享标题"""
+        self.clear_input_text(*(self.page_share_loc))
+        self.input_text(
+            text,
+            '小程序分享标题',
+            *(self.page_share_loc)
+        )
+
+    def click_save_button(self):
+        """保存"""
+        self.click_button(
+            '保存',
+            *(self.page_save_loc)
+        )
+        #保存之后刷新   业务问题，如果执行时间在当前范围内，状态是执行中，需要刷新
+        # self.driver.execute_script("history.go(0)")
+
+    def click_stop_button(self):
+        """终止"""
+        self.click_button(
+            '终止',
+            *(self.page_stop_loc)
+        )
+
+
+
+    def click_delete_button(self, index):
+        """删除"""
+        self.click_btn_index(
+            '删除',
+            index,
+            *(self.page_delete_loc)
+        )
+
+    def click_confirm_button(self):
+        """删除确认"""
+        self.click_button(
+            '确认',
+            *(self.page_confirm_loc)
+        )
+
+    def assert_add_success(self, text):
+        """断言膨胀红包，增加成功"""
+        txt = self.get_tag_text(
+            'text',
+            *(self.assert_title_loc)
+        )
+        txt = str(txt).strip().upper()
+        text = str(text).strip().upper()
+        ret = True
+        if txt != text:
+            ret = False
+        return ret

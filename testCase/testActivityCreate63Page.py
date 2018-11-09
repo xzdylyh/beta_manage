@@ -29,8 +29,8 @@ class TestActivityCreate63(unittest.TestCase):
 
     @classmethod
     def tearDownClass(cls):
-        # cls.driver.quit()
-        pass
+        cls.driver.quit()
+        # pass
 
 
 
@@ -70,7 +70,7 @@ class TestActivityCreate63(unittest.TestCase):
 
 
     @ddt.data(*get_data('activityCreate63', 'CASE1'))
-    @reply_case_fail(num=1)
+    @reply_case_fail(num=3)
     def testCase1(self, data):
         """膨胀红包"""
         self.ac = ActivityCreate63(self.url, self.driver, data['title'])
@@ -95,37 +95,10 @@ class TestActivityCreate63(unittest.TestCase):
             os.path.join(gl.dataPath, 'upload.png')
         )
 
-        # #奖品一数据
-        # self.prize_set(
-        #             acindex=data['acindex'], ##0奖品一；1奖品二；2奖品三 增加券
-        #             prize_index=data['prize_index'], #选择券索引；0奖品一；1奖品二；2奖品三
-        #             coupon_type=data['coupon_type'], #类型；0代金券；1礼品券
-        #             used_index=data['used_index'], #使用券0为第一张券；以此类推
-        #             prize_name=data['prize_name'], #奖品名称
-        #             pname_index=data['pname_index'], #奖品名称元素索引;0为奖品一；1为奖品二；2为奖品三
-        #             prize_value=data['prize_value'], #兑换所需人数
-        #             pvalue_index=data['pvalue_index'], #兑换所需人数元素索引；0为奖品二；1为奖品3
-        #             upload=data['upload1'], #上传1，奖品一
-        #             upload1=data['upload1_1'] #上传2,奖品一
-        #         )
-        # 奖品二数据
-        # self.prize_set(
-        #     acindex=data['acindex2'], ##0奖品一；1奖品二；2奖品三 增加券
-        #     prize_index=data['prize_index2'], #选择券索引；0奖品一；1奖品二；2奖品三
-        #     coupon_type=data['coupon_type2'], #类型；0代金券；1礼品券
-        #     used_index=data['used_index2'], #使用券0为第一张券；以此类推
-        #     prize_name=data['prize_name2'], #奖品名称
-        #     pname_index=data['pname_index2'], #奖品名称元素索引;0为奖品一；1为奖品二；2为奖品三
-        #     prize_value=data['prize_value2'], #兑换所需人数
-        #     pvalue_index=data['pvalue_index2'], #兑换所需人数元素索引；0为奖品二；1为奖品3
-        #     upload=data['upload2'], #上传3，奖品一
-        #     upload1=data['upload2_2'] #上传4,奖品一
-        # )
-
-
+        #奖品一数据
         self.prize_set(
             acindex=data['acindex'], ##0奖品一；1奖品二；2奖品三 增加券
-            prize_index=data['prize_index'], #选择券索引；0奖品一；1奖品二；2奖品三
+            prize_index=data['prize_index'], #选择券索引；0
             coupon_type=data['coupon_type'], #类型；0代金券；1礼品券
             used_index=data['used_index'], #使用券0为第一张券；以此类推
             prize_name=data['prize_name'], #奖品名称
@@ -136,7 +109,62 @@ class TestActivityCreate63(unittest.TestCase):
             upload1=data['upload1_1'] #上传2,奖品一
         )
 
+        #奖品二
+        self.prize_set(
+            acindex=data['acindex2'], ##0奖品一；1奖品二；2奖品三 增加券
+            prize_index=data['prize_index2'], #选择券索引；0
+            coupon_type=data['coupon_type2'], #类型；0代金券；1礼品券
+            used_index=data['used_index2'], #使用券0为第一张券；以此类推
+            prize_name=data['prize_name2'], #奖品名称
+            pname_index=data['pname_index2'], #奖品名称元素索引;0为奖品一；1为奖品二；2为奖品三
+            prize_value=data['prize_value2'], #兑换所需人数
+            pvalue_index=data['pvalue_index2'], #兑换所需人数元素索引；0为奖品二；1为奖品3
+            upload=data['upload2'], #上传1，奖品一
+            upload1=data['upload2_2'] #上传2,奖品一
+        )
 
+        #奖品三
+        self.prize_set(
+            acindex=data['acindex3'], ##0奖品一；1奖品二；2奖品三 增加券
+            prize_index=data['prize_index3'], #选择券索引；0
+            coupon_type=data['coupon_type3'], #类型；0代金券；1礼品券
+            used_index=data['used_index3'], #使用券0为第一张券；以此类推
+            prize_name=data['prize_name3'], #奖品名称
+            pname_index=data['pname_index3'], #奖品名称元素索引;0为奖品一；1为奖品二；2为奖品三
+            prize_value=data['prize_value3'], #兑换所需人数
+            pvalue_index=data['pvalue_index3'], #兑换所需人数元素索引；0为奖品二；1为奖品3
+            upload=data['upload3'], #上传1，奖品一
+            upload1=data['upload3_3'] #上传2,奖品一
+        )
+        #>>>>>>>>>>页面配置<<<<<<<<<<<<<<<<<<<<
+        #文字及按钮颜色;1白色；2黑色
+        self.ac.click_font_color(data['font_color'])
+        #顶部宣传图上传
+        self.ac.click_ac_upload(
+            data['upload7'],
+            os.path.join(gl.dataPath, 'upload.png')
+        )
+        #主题背景色
+        self.ac.input_back_ground(data['backgd_color'])
+        #>>>>>>>>>>分享配置<<<<<<<<<<<<<<<<<<<<
+        self.ac.input_share_title(data['share_title'])
+        #小程序分享图片上传
+        self.ac.click_ac_upload(
+            data['upload8'],
+            os.path.join(gl.dataPath, 'upload.png')
+        )
+        self.ac.wait(3000)
+        #保存
+        self.ac.click_save_button()
+        #断言 增加后，列表显示该标题
+        self.assertTrue(
+            self.ac.assert_add_success(data['activity_name'])
+        )
+
+        #删除该数据 #删除 0第一条，1第二条，以此类推
+        self.ac.click_delete_button(data['delete_index'])
+        #删除确认
+        self.ac.click_confirm_button()
 
 
 
@@ -145,7 +173,9 @@ if __name__ == "__main__":
     suite = unittest.TestSuite()
 
     tests = [
-        unittest.TestLoader().loadTestsFromTestCase(TestActivityCreate63)
+        unittest.TestLoader().loadTestsFromTestCase(
+            TestActivityCreate63
+        )
     ]
     suite.addTests(tests)
     filePath = os.path.join(gl.reportPath, 'Report.html')  # 确定生成报告的路径
