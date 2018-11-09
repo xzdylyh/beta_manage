@@ -9,7 +9,8 @@ from pages.activityCreate63Page import ActivityCreate63
 from lib.scripts import (
     select_Browser_WebDriver,
     reply_case_fail,
-    get_data
+    get_data,
+    get_yaml_field
 )
 from lib import (
     gl,
@@ -70,9 +71,9 @@ class TestActivityCreate63(unittest.TestCase):
 
 
     @ddt.data(*get_data('activityCreate63', 'CASE1'))
-    @reply_case_fail(num=3)
+    @reply_case_fail(num=1)
     def testCase1(self, data):
-        """膨胀红包"""
+        """新建膨胀红包活动"""
         self.ac = ActivityCreate63(self.url, self.driver, data['title'])
         # 打开创建营销活动页面
         self.ac.open
@@ -171,12 +172,12 @@ class TestActivityCreate63(unittest.TestCase):
 
 if __name__ == "__main__":
     suite = unittest.TestSuite()
-
     tests = [
         unittest.TestLoader().loadTestsFromTestCase(
             TestActivityCreate63
         )
     ]
+
     suite.addTests(tests)
     filePath = os.path.join(gl.reportPath, 'Report.html')  # 确定生成报告的路径
     print(filePath)
