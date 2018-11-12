@@ -2,6 +2,8 @@ import os
 import unittest
 import ddt
 from pages.chargeListPage import ChargeList
+from pages.chargeListSusscessPage import chargeListSusscess
+from pages.chargeListModifyPage import chargeListModify
 from lib.scripts import (
     select_Browser_WebDriver,
     reply_case_fail,
@@ -20,6 +22,9 @@ class TestChargeListPage(unittest.TestCase):
     def setUpClass(cls):
         cls.driver = select_Browser_WebDriver()
         cls.url = 'http://manage.beta.acewill.net/charge/edit?type=shop' # 门店规则入口
+        cls.url_s = '' # 保存成功页面url，默认为空
+        cls.url_m = '' # 保存储值规则修改页面url，默认为空
+
 
     @classmethod
     def tearDownClass(cls):
@@ -47,15 +52,17 @@ class TestChargeListPage(unittest.TestCase):
         # 点击保存
         self.clist.clictSubmitBtn()
         # 断言是否保存成功
-        self.assertEqual(self.clist.getScuessText(), data['successText'])
+        self.sclist = chargeListSusscess(self.url_s,self.driver,'savesuss')
+        self.assertEqual(self.sclist.getScuessText(),data['successText'])
         # 点击返回
-        self.clist.clickBcakBtn()
+        self.sclist.clickBcakBtn()
         # 点击删除
-        self.clist.clickDelBtn()
+        self.mclist = chargeListModify(self.url_m, self.driver, 'modify')
+        self.mclist.clickDelBtn()
         # 点击确定
-        self.clist.clickOkBtn()
+        self.mclist.clickOkBtn()
         # 验证删除成功
-        self.assertEqual(self.clist.getDelInfo(),data['delInfo'])
+        self.assertEqual(self.mclist.getDelInfo(),data['delInfo'])
 
 
     # @unittest.skip('调试')
@@ -79,18 +86,20 @@ class TestChargeListPage(unittest.TestCase):
         # 点击保存
         self.clist.clictSubmitBtn()
         # 断言是否保存成功
-        self.assertEqual(self.clist.getScuessText(), data['successText'])
+        self.sclist = chargeListSusscess(self.url_s,self.driver,'savesuss')
+        self.assertEqual(self.sclist.getScuessText(),data['successText'])
         # 点击返回
-        self.clist.clickBcakBtn()
+        self.sclist.clickBcakBtn()
         # 点击删除
-        self.clist.clickDelBtn()
+        self.mclist = chargeListModify(self.url_m, self.driver, 'modify')
+        self.mclist.clickDelBtn()
         # 点击确定
-        self.clist.clickOkBtn()
+        self.mclist.clickOkBtn()
         # 验证删除成功
-        self.assertEqual(self.clist.getDelInfo(), data['delInfo'])
+        self.assertEqual(self.mclist.getDelInfo(),data['delInfo'])
 
 
-
+    # @unittest.skip('ok')
     @ddt.data(*get_data('chargeListPage', 'CASE3'))
     @reply_case_fail(num=3)
     def testcase3(self, data):
@@ -108,21 +117,21 @@ class TestChargeListPage(unittest.TestCase):
         self.clist.selectGift(data['couponIndex'])
         # 点击使用代金券,0：默认使用当前第一个券
         self.clist.selectCoupon(data['couponValue'])
-
-
         # 点击保存
         self.clist.clictSubmitBtn()
         # 断言是否保存成功
-        self.assertEqual(self.clist.getScuessText(), data['successText'])
+        # 断言是否保存成功
+        self.sclist = chargeListSusscess(self.url_s,self.driver,'savesuss')
+        self.assertEqual(self.sclist.getScuessText(),data['successText'])
         # 点击返回
-        self.clist.clickBcakBtn()
+        self.sclist.clickBcakBtn()
         # 点击删除
-        self.clist.clickDelBtn()
+        self.mclist = chargeListModify(self.url_m, self.driver, 'modify')
+        self.mclist.clickDelBtn()
         # 点击确定
-        self.clist.clickOkBtn()
+        self.mclist.clickOkBtn()
         # 验证删除成功
-        self.assertEqual(self.clist.getDelInfo(), data['delInfo'])
-
+        self.assertEqual(self.mclist.getDelInfo(),data['delInfo'])
 
 
 
