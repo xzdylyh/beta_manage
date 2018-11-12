@@ -128,7 +128,11 @@ class ChargeList(BasePage):
 
     def selectCoupon(self,index):
         """使用代金券/礼品券，存在代金券/礼品券，点击使用按钮"""
-        self.click_btn_index('代金券/礼品券', index, *(self.charge_couponD_loc))
+        self.click_btn_index(
+            '代金券/礼品券',
+            index,
+            *(self.charge_couponD_loc)
+        )
 
     def clictSubmitBtn(self):
          """点击保存按钮"""
@@ -136,7 +140,11 @@ class ChargeList(BasePage):
 
     def getScuessText(self):
         """获取保存成功提示"""
-        success_test = self.get_tag_text('text', *(self.charge_sucessText_loc))
+        success_test = self.get_tag_text(
+            'text',
+            *(self.charge_sucessText_loc)
+        )
+        self.get_image
         return success_test
 
     def clickBcakBtn(self):
