@@ -26,7 +26,9 @@ class TestActivityCreate64(unittest.TestCase):
         # cls.driver.quit()
         pass
 
+
     @ddt.data(*get_data('activityCreate64', 'CASE1'))
+    @reply_case_fail(num=3)
     def testCase1(self, data):
         """开卡关怀"""
         self.tc = ActivityCreate64(
