@@ -16,31 +16,33 @@ from lib import (
 
 
 @ddt.ddt
-class TestChargeListPage(unittest.TestCase):
-    """储值规则设置--门店规则"""
+class TestChargeListWeixinPage(unittest.TestCase):
+    """储值规则设置--微信规则"""
+
     @classmethod
     def setUpClass(cls):
         cls.driver = select_Browser_WebDriver()
-        cls.url = 'http://manage.beta.acewill.net/charge/edit?type=shop' # 门店规则入口
-        cls.url_s = '' # 保存成功页面url，默认为空
-        cls.url_m = '' # 保存储值规则修改页面url，默认为空
-
+        cls.url = 'http://manage.beta.acewill.net/charge/edit?type=weixin'  # 微信规则入口
+        cls.url_s = ''  # 保存成功页面url，默认为空
+        cls.url_m = ''  # 保存储值规则修改页面url，默认为空
 
     @classmethod
     def tearDownClass(cls):
         cls.driver.quit()
-         # pass
+        # pass
 
     # @unittest.skip('调试')
-    @ddt.data(*get_data('chargeListPage', 'CASE1'))
+    @ddt.data(*get_data('chargeListWeixinPage', 'CASE1'))
     @reply_case_fail(num=3)
-    def testcase1(self,data):
-        """"创建储值规则-固定金额"""
+    def testcase1(self, data):
+        """"创建储值规则-单独设置--固定金额"""
         self.clist = ChargeList(self.url, self.driver, data['title'])
         # 打开创建储值规则页面
         self.clist.open
         # 输入规则名称
         self.clist.inputRuleNameValue(data['name'])
+        # 适用子规则，0:单独设置，1:使用各门店储值规则
+        self.clist.clickWeRadioBtn(data['radioIndex'])
         # 输入充值金额
         self.clist.inputPrepaidValue(data['charge'])
         # 选择充值送的类型;0:固定金额，1：固定积分，2：代金券/礼品券
@@ -52,8 +54,8 @@ class TestChargeListPage(unittest.TestCase):
         # 点击保存
         self.clist.clictSubmitBtn()
         # 断言是否保存成功
-        self.sclist = chargeListSusscess(self.url_s,self.driver,'savesuss')
-        self.assertEqual(self.sclist.getScuessText(),data['successText'])
+        self.sclist = chargeListSusscess(self.url_s, self.driver, 'savesuss')
+        self.assertEqual(self.sclist.getScuessText(), data['successText'], data['msg'])
         # 点击返回
         self.sclist.clickBcakBtn()
         # 点击删除
@@ -62,11 +64,10 @@ class TestChargeListPage(unittest.TestCase):
         # 点击确定
         self.mclist.clickOkBtn()
         # 验证删除成功
-        self.assertEqual(self.mclist.getDelInfo(),data['delInfo'])
-
+        self.assertEqual(self.mclist.getDelInfo(), data['delInfo'], '删除门店储值规则成功')
 
     # @unittest.skip('调试')
-    @ddt.data(*get_data('chargeListPage', 'CASE2'))
+    @ddt.data(*get_data('chargeListWeixinPage', 'CASE2'))
     @reply_case_fail(num=3)
     def testcase2(self, data):
         """"创建储值规则-固定积分"""
@@ -75,6 +76,8 @@ class TestChargeListPage(unittest.TestCase):
         self.clist.open
         # 输入规则名称
         self.clist.inputRuleNameValue(data['name'])
+        # 适用子规则，0:单独设置，1:使用各门店储值规则
+        self.clist.clickWeRadioBtn(data['radioIndex'])
         # 输入充值金额
         self.clist.inputPrepaidValue(data['charge'])
         # 选择充值送的类型;0:固定金额，1：固定积分，2：代金券/礼品券
@@ -86,8 +89,8 @@ class TestChargeListPage(unittest.TestCase):
         # 点击保存
         self.clist.clictSubmitBtn()
         # 断言是否保存成功
-        self.sclist = chargeListSusscess(self.url_s,self.driver,'savesuss')
-        self.assertEqual(self.sclist.getScuessText(),data['successText'])
+        self.sclist = chargeListSusscess(self.url_s, self.driver, 'savesuss')
+        self.assertEqual(self.sclist.getScuessText(), data['successText'], data['msg'])
         # 点击返回
         self.sclist.clickBcakBtn()
         # 点击删除
@@ -96,11 +99,10 @@ class TestChargeListPage(unittest.TestCase):
         # 点击确定
         self.mclist.clickOkBtn()
         # 验证删除成功
-        self.assertEqual(self.mclist.getDelInfo(),data['delInfo'])
-
+        self.assertEqual(self.mclist.getDelInfo(), data['delInfo'], '删除门店储值规则成功')
 
     # @unittest.skip('ok')
-    @ddt.data(*get_data('chargeListPage', 'CASE3'))
+    @ddt.data(*get_data('chargeListWeixinPage', 'CASE3'))
     @reply_case_fail(num=3)
     def testcase3(self, data):
         """"创建储值规则-代金券/礼品券"""
@@ -109,6 +111,8 @@ class TestChargeListPage(unittest.TestCase):
         self.clist.open
         # 输入规则名称
         self.clist.inputRuleNameValue(data['name'])
+        # 适用子规则，0:单独设置，1:使用各门店储值规则
+        self.clist.clickWeRadioBtn(data['radioIndex'])
         # 输入充值金额
         self.clist.inputPrepaidValue(data['charge'])
         # 选择充值送的类型;0:固定金额，1：固定积分，2：代金券/礼品券
@@ -120,9 +124,8 @@ class TestChargeListPage(unittest.TestCase):
         # 点击保存
         self.clist.clictSubmitBtn()
         # 断言是否保存成功
-        # 断言是否保存成功
-        self.sclist = chargeListSusscess(self.url_s,self.driver,'savesuss')
-        self.assertEqual(self.sclist.getScuessText(),data['successText'])
+        self.sclist = chargeListSusscess(self.url_s, self.driver, 'savesuss')
+        self.assertEqual(self.sclist.getScuessText(), data['successText'], data['msg'])
         # 点击返回
         self.sclist.clickBcakBtn()
         # 点击删除
@@ -131,19 +134,42 @@ class TestChargeListPage(unittest.TestCase):
         # 点击确定
         self.mclist.clickOkBtn()
         # 验证删除成功
-        self.assertEqual(self.mclist.getDelInfo(),data['delInfo'])
+        self.assertEqual(self.mclist.getDelInfo(), data['delInfo'], '删除门店储值规则成功')
 
-
+    @ddt.data(*get_data('chargeListWeixinPage', 'CASE4'))
+    @reply_case_fail(num=3)
+    def testcase4(self, data):
+        """"创建储值规则-使用各门店储值规则"""
+        self.clist = ChargeList(self.url, self.driver, data['title'])
+        # 打开创建储值规则页面
+        self.clist.open
+        # 输入规则名称
+        self.clist.inputRuleNameValue(data['name'])
+        # 适用子规则，0:单独设置，1:使用各门店储值规则
+        self.clist.clickWeRadioBtn(data['radioIndex'])
+        # 点击保存
+        self.clist.clictSubmitBtn()
+        # 断言是否保存成功
+        self.sclist = chargeListSusscess(self.url_s, self.driver, 'savesuss')
+        self.assertEqual(self.sclist.getScuessText(), data['successText'], data['msg'])
+        # 点击返回
+        self.sclist.clickBcakBtn()
+        # 点击删除
+        self.mclist = chargeListModify(self.url_m, self.driver, 'modify')
+        self.mclist.clickDelBtn()
+        # 点击确定
+        self.mclist.clickOkBtn()
+        # 验证删除成功
+        self.assertEqual(self.mclist.getDelInfo(), data['delInfo'], '删除门店储值规则成功')
 
 
 if __name__ == "__main__":
     # unittest.main(verbosity=2)
 
-   
     suite = unittest.TestSuite()
 
     tests = [
-        unittest.TestLoader().loadTestsFromTestCase(TestChargeListPage)
+        unittest.TestLoader().loadTestsFromTestCase(TestChargeListWeixinPage)
     ]
     suite.addTests(tests)
     filePath = os.path.join(gl.reportPath, 'Report.html')  # 确定生成报告的路径
@@ -158,12 +184,3 @@ if __name__ == "__main__":
         )
         # 运行测试用例
         runner.run(suite)
-
-
-
-
-
-
-
-
-

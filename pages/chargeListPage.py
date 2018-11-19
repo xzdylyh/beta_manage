@@ -44,10 +44,10 @@ class ChargeList(BasePage):
 
     # 保存按钮
     charge_submitBtn_loc = (By.XPATH, "//button[@type='submit']")
-    # 界面‘保存成功’文本
-    charge_sucessText_loc = (By.CSS_SELECTOR, 'div.panel-body>div>h4')
-    # 保存成功‘返回’按钮
-    # charge_backBtn_loc = (By.LINK_TEXT, '返回')
+
+    #微信规则
+    charge_weRadioBtn_loc = (By.XPATH, "//input[@name='pattern']/..")
+
 
 
     def inputRuleNameValue(self, value):
@@ -126,6 +126,13 @@ class ChargeList(BasePage):
         """使用代金券/礼品券，存在代金券/礼品券，点击使用按钮"""
         self.click_btn_index('代金券/礼品券',
                              index, *(self.charge_couponD_loc)
+                             )
+
+
+    def clickWeRadioBtn(self,index):
+        """微信规则--适用子规则：0，单独设置；1，使用各门店储值规则 """
+        self.click_btn_index('微信规则', index,
+                             *(self.charge_weRadioBtn_loc)
                              )
 
     def clictSubmitBtn(self):
