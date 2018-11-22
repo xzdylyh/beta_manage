@@ -32,6 +32,7 @@ class TestActivityCreate64(unittest.TestCase):
     @reply_case_fail(num=1)
     def testCase1(self, data):
         """填资料赠券"""
+        print('========★{}★========'.format(data['case_desc'])) #case描述
         po = ActivityCreate128(self.url, self.driver, data['Title'])
         po.open #打开赠券页面
         # 活动名称

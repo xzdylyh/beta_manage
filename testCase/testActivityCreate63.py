@@ -74,6 +74,7 @@ class TestActivityCreate63(unittest.TestCase):
     @reply_case_fail(num=3)
     def testCase1(self, data):
         """新建膨胀红包活动"""
+        print('========★{}★========'.format(data['case_desc'])) #case描述
         self.ac = ActivityCreate63(self.url, self.driver, data['title'])
         # 打开创建营销活动页面
         self.ac.open
