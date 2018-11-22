@@ -23,8 +23,8 @@ class TestActivityCreate64(unittest.TestCase):
 
     @classmethod
     def tearDownClass(cls):
-        # cls.driver.quit()
-        pass
+        cls.driver.quit()
+        # pass
 
 
     @ddt.data(*get_data('activityCreate64', 'CASE1'))
