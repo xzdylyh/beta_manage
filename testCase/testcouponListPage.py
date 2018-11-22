@@ -39,6 +39,7 @@ class TestCouponListPage(unittest.TestCase):
     @reply_case_fail(num=3)
     def testCase1(self, data):
         """创建券"""
+        print('========★{}★========'.format(data['case_desc'])) #case描述
         self.clist = CouponList(self.url, self.driver, data['title'])
         # 打开创建营销活动页面
         self.clist.open

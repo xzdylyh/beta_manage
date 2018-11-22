@@ -41,11 +41,10 @@ class BasePage:
     # －－－－－－－－－－－－－－－－－
 
     #打开浏览器
-    def _open(self, url, pagetitle):
+    def _open(self, url):
         """
         打开浏览器，并断言标题
         :param url: 目标地址
-        :param pagetitle: 目标页标题
         :return: 无
         """
         self.driver.maximize_window()
@@ -53,7 +52,6 @@ class BasePage:
 
         self.driver.implicitly_wait(10)
         self.get_image
-        assert self.driver.title, pagetitle
         self.driver.implicitly_wait(0)
 
 
@@ -463,10 +461,10 @@ class BasePage:
         """打开浏览器，写入cookies登录信息"""
         yamldict = get_yaml_field(gl.configFile)
         ck_dict = yamldict['CONFIG']['Cookies']['LoginCookies']
-        self._open(self.base_url, self.pagetitle)
+        self._open(self.base_url)
         self.add_cookies(ck_dict)
-        self._open(self.base_url, self.pagetitle)
-
+        self._open(self.base_url)
+        assert self.driver.title == self.pagetitle, "断言标题错误,请查检页面"
 
 if __name__ == "__main__":
     pass

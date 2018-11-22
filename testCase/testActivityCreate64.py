@@ -31,6 +31,7 @@ class TestActivityCreate64(unittest.TestCase):
     @reply_case_fail(num=3)
     def testCase1(self, data):
         """开卡关怀"""
+        print('========★{}★========'.format(data['case_desc'])) #case描述
         self.tc = ActivityCreate64(
             self.url,
             self.driver,
