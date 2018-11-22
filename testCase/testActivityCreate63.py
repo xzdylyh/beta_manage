@@ -71,7 +71,7 @@ class TestActivityCreate63(unittest.TestCase):
 
 
     @ddt.data(*get_data('activityCreate63', 'CASE1'))
-    @reply_case_fail(num=1)
+    @reply_case_fail(num=3)
     def testCase1(self, data):
         """新建膨胀红包活动"""
         self.ac = ActivityCreate63(self.url, self.driver, data['title'])
