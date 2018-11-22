@@ -10,7 +10,7 @@ from base.basepage import BasePage
 
 class ChargeList(BasePage):
     """
-    此类用于封装新建门店储值规则页面元素、操作
+    此类用于封装新建门店储值规则、微信页面元素、操作
     """
     # ----------------------元素定位器-----------------------
     # 规则名称：
@@ -35,7 +35,8 @@ class ChargeList(BasePage):
     # 代金券/礼品券checkbox:
     charge_checkGift_loc = (By.XPATH, "//label[@data-exchange='gift']")
     # 代金券/礼品券按钮:
-    charge_selectGift_loc = (By.CSS_SELECTOR, ' div.umar-10.coupon-position > div > div > button')
+    charge_selectGift_loc = (By.CSS_SELECTOR,
+                             ' div.umar-10.coupon-position > div > div > button')
     # 选择代金券/礼品券,0选择代金券，1选择礼品券:
     charge_selectMenuitem_loc = (By.XPATH, "//a[@role='menuitem']/..")
     # 使用代金券
@@ -43,16 +44,11 @@ class ChargeList(BasePage):
 
     # 保存按钮
     charge_submitBtn_loc = (By.XPATH, "//button[@type='submit']")
-    # 判断是否成功
-    charge_sucessText_loc = (By.CSS_SELECTOR, 'div.panel-body>div>h4')
-    # 保存成功后点击返回按钮
-    charge_backBtn_loc = (By.LINK_TEXT, '返回')
-    # 删除规则
-    charge_delBtn_loc = (By.LINK_TEXT, '删除')
-    # 删除确定按钮
-    charge_okBtn_loc = (By.XPATH, ".//*[starts-with(@id,'popover')]/div[2]/div[2]/button[1]")
-    # 删除成功
-    charge_delSussecc_loc = (By.XPATH, "//a[@href='/charge/edit?type=shop']")
+
+    #微信规则
+    charge_weRadioBtn_loc = (By.XPATH, "//input[@name='pattern']/..")
+
+
 
     def inputRuleNameValue(self, value):
         """输入规则名称"""
@@ -128,6 +124,7 @@ class ChargeList(BasePage):
 
     def selectCoupon(self,index):
         """使用代金券/礼品券，存在代金券/礼品券，点击使用按钮"""
+<<<<<<< HEAD
         self.click_btn_index(
             '代金券/礼品券',
             index,
@@ -167,6 +164,24 @@ class ChargeList(BasePage):
 
     def click_btb(self):
         self.click_button('test', *(self.charge_delSussecc_loc))
+=======
+        self.click_btn_index('代金券/礼品券',
+                             index, *(self.charge_couponD_loc)
+                             )
+
+
+    def clickWeRadioBtn(self,index):
+        """微信规则--适用子规则：0，单独设置；1，使用各门店储值规则 """
+        self.click_btn_index('微信规则', index,
+                             *(self.charge_weRadioBtn_loc)
+                             )
+
+    def clictSubmitBtn(self):
+         """点击保存按钮"""
+         self.click_button('保存',
+                           *(self.charge_submitBtn_loc)
+                           )
+>>>>>>> ycc
 
 
 
