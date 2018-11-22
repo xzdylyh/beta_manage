@@ -6,7 +6,8 @@
 
 CASE1:
     -
-        title: '设置储值规则-固定金额(固定金额） - 自动化测试专用'
+        title: '新建微信储值规则 - 自动化测试专用'
+        case_desc: '设置储值规则-固定金额(固定金额）'
         name: 'test'
         radioIndex: 0
         charge: 9000
@@ -19,7 +20,8 @@ CASE1:
         delInfo: '＋添加门店储值规则'
 
     -
-        title: '设置储值规则-固定金额(实收金额的） - 自动化测试专用'
+        title: '新建微信储值规则 - 自动化测试专用'
+        case_desc: '设置储值规则-固定金额(实收金额的）'
         name: 'test'
         radioIndex: 0
         charge: 1000
@@ -34,7 +36,8 @@ CASE1:
 
 CASE2:
     -
-        title: '设置储值规则-固定积分(固定金额） - 自动化测试专用'
+        title: '新建微信储值规则 - 自动化测试专用'
+        case_desc: '设置储值规则-固定积分(固定金额）'
         name: 'test'
         radioIndex: 0
         charge: 1000
@@ -46,7 +49,8 @@ CASE2:
         delInfo: '＋添加门店储值规则'
 
     -
-        title: '设置储值规则-固定积分(实收金额的） - 自动化测试专用'
+        title: '新建微信储值规则 - 自动化测试专用'
+        case_desc: '设置储值规则-固定积分(实收金额的）'
         name: 'test'
         radioIndex: 0
         charge: 1000
@@ -60,7 +64,8 @@ CASE2:
 
 CASE3:
     -
-        title: '设置储值规则-代金券 - 自动化测试专用'
+        title: '新建微信储值规则 - 自动化测试专用'
+        case_desc: '设置储值规则-代金券'
         name: 'test'
         radioIndex: 0
         charge: 1000
@@ -72,7 +77,8 @@ CASE3:
         delInfo: '＋添加门店储值规则'
 
     -
-        title: '设置储值规则-礼品券 - 自动化测试专用'
+        title: '新建微信储值规则 - 自动化测试专用'
+        case_desc: '设置储值规则-礼品券'
         name: 'test'
         radioIndex: 0
         charge: 1000
@@ -85,8 +91,16 @@ CASE3:
 
 CASE4:
     -
-        title: '设置储值规则-代金券 - 自动化测试专用'
+        title: '新建微信储值规则 - 自动化测试专用'
+        case_desc: '设置储值规则-使用各门店储值规则'
         name: 'test'
+        charge: 1000
+        storeRule: 0 # 0:固定金额，1:固定积分，2:代金券/礼品券,3:3个规则全选
+        account: 0 #0:固定金额,1:实收金额的
+        presentValue: 100 #固定金额送（元）min = 0,max = 100000;实收金额的（%）,min = 0,max = 999
+        integra: 0 #0:固定积分,1:实收金额的
+        successText: '保存成功'
+        msg : '添加门店储值规则成功--固定金额（送固定金额）'
         radioIndex: 1
         successText: '保存成功'
         msg : '添加微信储值规则成功--使用各门店储值规则'

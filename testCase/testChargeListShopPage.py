@@ -2,8 +2,8 @@ import os
 import unittest
 import ddt
 from pages.chargeListPage import ChargeList
-from pages.chargeListSusscessPage import chargeListSusscess
-from pages.chargeListModifyPage import chargeListModify
+from pages.chargeListSusscessPage import ChargeListSusscess
+from pages.chargeListModifyPage import ChargeListModify
 from lib.scripts import (
     select_Browser_WebDriver,
     reply_case_fail,
@@ -15,17 +15,15 @@ from lib import (
 )
 
 
-
 @ddt.ddt
 class TestChargeListShopPage(unittest.TestCase):
     """储值规则设置--门店规则"""
     @classmethod
     def setUpClass(cls):
         cls.driver = select_Browser_WebDriver()
-        cls.url = 'http://manage.beta.acewill.net/charge/edit?type=shop' # 门店规则入口
+        cls.url = 'http://manage.beta.acewill.net/charge/edit?type=shop'  # 门店规则入口
         cls.url_s = '' # 保存成功页面url，默认为空
         cls.url_m = '' # 保存储值规则修改页面url，默认为空
-
 
     @classmethod
     def tearDownClass(cls):
@@ -35,8 +33,9 @@ class TestChargeListShopPage(unittest.TestCase):
     # @unittest.skip('调试')
     @ddt.data(*get_data('chargeListShopPage', 'CASE1'))
     @reply_case_fail(num=3)
-    def testcase1(self,data):
+    def testcase1(self, data):
         """"创建储值规则-固定金额"""
+        print('========★{}★========'.format(data['case_desc']))  # case描述
         self.clist = ChargeList(self.url, self.driver, data['title'])
         # 打开创建储值规则页面
         self.clist.open
@@ -53,24 +52,30 @@ class TestChargeListShopPage(unittest.TestCase):
         # 点击保存
         self.clist.clictSubmitBtn()
         # 断言是否保存成功
-        self.sclist = chargeListSusscess(self.url_s,self.driver,'savesuss')
-        self.assertEqual(self.sclist.getScuessText(),data['successText'], data['msg'])
+        self.sclist = ChargeListSusscess(self.url_s, self.driver,
+                                         '储值规则设置 - 自动化测试专用')
+        self.assertEqual(self.sclist.getScuessText(),
+                         data['successText'], data['msg']
+                         )
         # 点击返回
         self.sclist.clickBcakBtn()
         # 点击删除
-        self.mclist = chargeListModify(self.url_m, self.driver, 'modify')
+        self.mclist = ChargeListModify(self.url_m, self.driver,
+                                       '储值规则设置 - 自动化测试专用')
         self.mclist.clickDelBtn()
         # 点击确定
         self.mclist.clickOkBtn()
         # 验证删除成功
-        self.assertEqual(self.mclist.getDelInfo(),data['delInfo'], '删除门店储值规则成功')
-
+        self.assertEqual(self.mclist.getDelInfo(),
+                         data['delInfo'], '删除门店储值规则成功'
+                         )
 
     # @unittest.skip('调试')
     @ddt.data(*get_data('chargeListShopPage', 'CASE2'))
     @reply_case_fail(num=3)
     def testcase2(self, data):
         """"创建储值规则-固定积分"""
+        print('========★{}★========'.format(data['case_desc']))  # case描述
         self.clist = ChargeList(self.url, self.driver, data['title'])
         # 打开创建储值规则页面
         self.clist.open
@@ -87,24 +92,29 @@ class TestChargeListShopPage(unittest.TestCase):
         # 点击保存
         self.clist.clictSubmitBtn()
         # 断言是否保存成功
-        self.sclist = chargeListSusscess(self.url_s,self.driver,'savesuss')
-        self.assertEqual(self.sclist.getScuessText(),data['successText'], data['msg'])
+        self.sclist = ChargeListSusscess(self.url_s, self.driver,
+                                         '储值规则设置 - 自动化测试专用')
+        self.assertEqual(self.sclist.getScuessText(),
+                         data['successText'], data['msg']
+                         )
         # 点击返回
         self.sclist.clickBcakBtn()
         # 点击删除
-        self.mclist = chargeListModify(self.url_m, self.driver, 'modify')
+        self.mclist = ChargeListModify(self.url_m, self.driver,
+                                       '储值规则设置 - 自动化测试专用')
         self.mclist.clickDelBtn()
         # 点击确定
         self.mclist.clickOkBtn()
         # 验证删除成功
-        self.assertEqual(self.mclist.getDelInfo(),data['delInfo'], '删除门店储值规则成功')
-
+        self.assertEqual(self.mclist.getDelInfo(),
+                         data['delInfo'], '删除门店储值规则成功')
 
     # @unittest.skip('ok')
     @ddt.data(*get_data('chargeListShopPage', 'CASE3'))
     @reply_case_fail(num=3)
     def testcase3(self, data):
         """"创建储值规则-代金券/礼品券"""
+        print('========★{}★========'.format(data['case_desc']))  # case描述
         self.clist = ChargeList(self.url, self.driver, data['title'])
         # 打开创建储值规则页面
         self.clist.open
@@ -122,25 +132,27 @@ class TestChargeListShopPage(unittest.TestCase):
         self.clist.clictSubmitBtn()
         # 断言是否保存成功
         # 断言是否保存成功
-        self.sclist = chargeListSusscess(self.url_s,self.driver,'savesuss')
-        self.assertEqual(self.sclist.getScuessText(),data['successText'], data['msg'])
+        self.sclist = ChargeListSusscess(self.url_s,self.driver,
+                                         '储值规则设置 - 自动化测试专用')
+        self.assertEqual(self.sclist.getScuessText(),
+                         data['successText'], data['msg']
+                         )
         # 点击返回
         self.sclist.clickBcakBtn()
         # 点击删除
-        self.mclist = chargeListModify(self.url_m, self.driver, 'modify')
+        self.mclist = ChargeListModify(self.url_m, self.driver,
+                                       '储值规则设置 - 自动化测试专用')
         self.mclist.clickDelBtn()
         # 点击确定
         self.mclist.clickOkBtn()
         # 验证删除成功
-        self.assertEqual(self.mclist.getDelInfo(),data['delInfo'],'删除门店储值规则成功')
-
-
+        self.assertEqual(self.mclist.getDelInfo(),
+                         data['delInfo'], '删除门店储值规则成功'
+                         )
 
 
 if __name__ == "__main__":
     # unittest.main(verbosity=2)
-
-   
     suite = unittest.TestSuite()
 
     tests = [

@@ -3,7 +3,7 @@
 from selenium.webdriver.common.by import By
 from base.basepage import BasePage
 
-class chargeListModify(BasePage):
+class ChargeListModify(BasePage):
     """储值规则修改页面，封装了修改，删除操作"""
     # 修改规则
     charge_modBtn_loc = (By.LINK_TEXT, '修改')
@@ -12,8 +12,11 @@ class chargeListModify(BasePage):
     # 删除确定按钮
     charge_okBtn_loc = (By.XPATH,
                         ".//*[starts-with(@id,'popover')]/div[2]/div[2]/button[1]")
-    # 删除成功后文本提示信息
+    # 添加门店储值规则按钮
     charge_delSussecc_loc = (By.XPATH, "//a[@href='/charge/edit?type=shop']")
+    # 添加微信储值规则
+    charge_weixin_loc = (By.XPATH, "//a[@href='/charge/edit?type=weixin']")
+
 
     def clickModBtn(self):
         """点击修改按钮"""
@@ -32,6 +35,11 @@ class chargeListModify(BasePage):
         info = self.get_tag_text('text', *(self.charge_delSussecc_loc))
         self.get_image
         return info
+
     def click_btb(self):
-        '''点击 添加门店储值规则'''
+        """点击 添加门店储值规则"""
         self.click_button('添加门店储值规则', *(self.charge_delSussecc_loc))
+
+    def clickWeixin_btn(self):
+        """点击添加微信储值规则"""
+        self.click_button('添加门店储值规则', *(self.charge_weixin_loc))

@@ -4,7 +4,7 @@ from selenium.webdriver.common.by import By
 from base.basepage import BasePage
 
 
-class chargeListSusscess(BasePage):
+class ChargeListSusscess(BasePage):
     """储值成功页面，验证储值成功与返回其他界面，简单的操作，不需要数据表"""
 
     # 界面‘保存成功’文本

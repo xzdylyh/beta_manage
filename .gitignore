@@ -1,2 +1,4 @@
 /report/*.*
 /report/images/*.*
+/.idea/
+/__pycache__/
