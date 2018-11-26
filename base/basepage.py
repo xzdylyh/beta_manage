@@ -466,5 +466,11 @@ class BasePage:
         self._open(self.base_url)
         assert self.driver.title == self.pagetitle, "断言标题错误,请查检页面"
 
+
+    def execute_script(self, js):
+        """执行js脚本"""
+        self.driver.execute_script(js)
+
+
 if __name__ == "__main__":
     pass
