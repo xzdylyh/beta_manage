@@ -29,7 +29,7 @@ class TestActivityCreate64(unittest.TestCase):
 
 
     @ddt.data(*get_data('activityCreate128', 'CASE1'))
-    @reply_case_fail(num=1)
+    @reply_case_fail(num=3)
     def testCase1(self, data):
         """填资料赠券"""
         print('========★{}★========'.format(data['case_desc'])) #case描述

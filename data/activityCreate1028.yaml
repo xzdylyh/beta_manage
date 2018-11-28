@@ -1,0 +1,18 @@
+
+
+CASE1:
+    -
+        case_desc: "升级赠礼-正常流程" #case描述
+        page_title: "升级赠礼 - 自动化测试专用" #开卡关怀页标题
+        activity_name: "升级赠礼" #活动名称
+        coupon_type: 0 #券类型；0代金券；1礼品券
+        coupon_index: 0 #选择券0第一张；1第二张，依此类推
+        remind_index: 1 #发券提醒；0不提醒；1短信提醒
+        expire_index: 1 #券到期提醒；0不提醒；1短信提醒
+        credit_num: 1 #赠送积分
+        charge_num: 1 #赠送储值
+        start_time: "2019-11-12"  #活动开始时间
+        end_time: "2019-11-13" #活动结束时间
+
+
+

@@ -1,12 +1,11 @@
 import os
 import unittest
 import ddt
-from pages.activityCreate16Page import ActivityCreate16
+from pages.activityCreate8Page import ActivityCreate8
 from lib.scripts import (
     select_Browser_WebDriver,
     reply_case_fail,
-    get_data,
-    get_yaml_field
+    get_data
 )
 from lib import (
     gl,
@@ -15,26 +14,26 @@ from lib import (
 
 
 @ddt.ddt
-class TestActivityCreate16(unittest.TestCase):
-    """给新会员赠券"""
+class TestActivityCreate8(unittest.TestCase):
+    """给沉寂会员赠券"""
     @classmethod
     def setUpClass(cls):
         cls.driver = select_Browser_WebDriver()
-        cls.url = 'http://manage.beta.acewill.net/activity/create/16'
+        cls.url = 'http://manage.beta.acewill.net/activity/create/8'
 
     @classmethod
     def tearDownClass(cls):
         cls.driver.quit()
         # pass
 
-    @ddt.data(*get_data('activityCreate16', 'CASE1'))
+    @ddt.data(*get_data('activityCreate8', 'CASE1'))
     @reply_case_fail(num=3)
     def testcase1(self, data):
-        """给新会员赠券"""
+        """给沉寂会员赠券"""
         print('========★{}★========'.format(data['case_desc'])) #case描述
         #实例化page对象
-        ts = ActivityCreate16(self.url, self.driver, data['Title'])
-        # 打开给新会员赠券页面
+        ts = ActivityCreate8(self.url, self.driver, data['Title'])
+        # 打开给沉寂会员赠券页面
         ts.open
         #活动名称
         ts.input_activity_name(data['activiy_name'])
@@ -82,13 +81,12 @@ class TestActivityCreate16(unittest.TestCase):
 
 
 
-
-
 if __name__ == "__main__":
     suite = unittest.TestSuite()
     tests = [
         unittest.TestLoader().loadTestsFromTestCase(
-            TestActivityCreate16            )
+            TestActivityCreate8
+        )
     ]
 
     suite.addTests(tests)
