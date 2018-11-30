@@ -68,7 +68,7 @@ class BasePage:
             if element.is_displayed() and element.is_enabled():
                 return True
             self.wait(500)
-            element = self.driver.find_element(lc)
+            element = self.driver.find_element(*loc)
         self.get_image
         return False
 
@@ -482,6 +482,17 @@ class BasePage:
             self.find_element(*loc)
         )
         return st
+
+
+    def get_element_attribute(self, item, *loc):
+        """获取元素属性"""
+        ele = self.find_element(*loc)
+        try:
+            att = ele.get_attribute(item)
+        except Exception as ex:
+            print('属性错误:{}'.format(item))
+            raise ex
+        return att
 
 
 if __name__ == "__main__":
