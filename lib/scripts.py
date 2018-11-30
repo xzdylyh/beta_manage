@@ -4,6 +4,8 @@ by:yhleng
 """
 import time
 import os
+import string
+import random
 import zipfile
 from selenium import webdriver
 import yaml
@@ -207,6 +209,18 @@ def create_dir(path):
     folder = os.path.exists(path)
     if not folder:
         os.makedirs(path)
+
+
+def genrandomstr(lenstr):
+    """
+    随机产生数据
+    :param lenstr: 需要字符串的长度,
+    :return: 指定长度的字符和数字组合的字符串，例如：lenstr=5，"Qamo8"
+    """
+    strs = "".join(random.choice(string.ascii_letters + string.digits)
+                   for _ in range(lenstr)
+                   )
+    return strs
 
 
 if __name__ == "__main__":

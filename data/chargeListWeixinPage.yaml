@@ -6,7 +6,93 @@
 
 CASE1:
     -
-        title: '设置储值规则-固定金额(固定金额） - 自动化测试专用'
+        title: '新建微信储值规则 - 自动化测试专用'
+        case_desc: '设置储值规则-固定金额(固定金额）'
+        name: 'test'
+        radioIndex: 0
+        charge: 9000
+        storeRule: 0 # 0:固定金额，1:固定积分，2:代金券/礼品券,3:3个规则全选
+        account: 0 #0:固定金额,1:实收金额的
+        presentValue: 100 #固定金额送（元）min = 0,max = 100000;实收金额的（%）,min = 0,max = 999
+        integra: 0 #0:固定积分,1:实收金额的
+        successText: '保存成功'
+        msg : '添加微信储值规则成功--固定金额（送固定金额）'
+        delInfo: '＋添加门店储值规则'
+
+    -
+        title: '新建微信储值规则 - 自动化测试专用'
+        case_desc: '设置储值规则-固定金额(实收金额的）'
+        name: 'test'
+        radioIndex: 0
+        charge: 1000
+        storeRule: 0 # 0:固定金额，1:固定积分，2:代金券/礼品券,3:3个规则全选
+        account: 1 #0:固定金额,1:实收金额的
+        presentValue: 90 #固定金额送（元）min = 0,max = 100000;实收金额的（%）,min = 0,max = 999
+        integra: 0 #0:固定积分,1:实收金额的
+        successText: '保存成功'
+        msg : '添加微信储值规则成功--固定金额（送实收金额的）'
+        delInfo: '＋添加门店储值规则'
+
+
+CASE2:
+    -
+        title: '新建微信储值规则 - 自动化测试专用'
+        case_desc: '设置储值规则-固定积分(固定金额）'
+        name: 'test'
+        radioIndex: 0
+        charge: 1000
+        storeRule: 1 # 0:固定金额，1:固定积分，2:代金券/礼品券,3:3个规则全选
+        integra: 0 #0:固定金额,1:实收金额的
+        integralValue: 1000 #固定金额送（元）min = 0,max = 100000;实收金额的（%）,min = 0,max = 999
+        successText: '保存成功'
+        msg : '添加微信储值规则成功--固定积分（送固定金额）'
+        delInfo: '＋添加门店储值规则'
+
+    -
+        title: '新建微信储值规则 - 自动化测试专用'
+        case_desc: '设置储值规则-固定积分(实收金额的）'
+        name: 'test'
+        radioIndex: 0
+        charge: 1000
+        storeRule: 1 # 0:固定金额，1:固定积分，2:代金券/礼品券,3:3个规则全选
+        integra: 1 #0:固定积分,1:实收金额的
+        integralValue: 90 #固定金额送（元）min = 0,max = 100000;实收金额的（%）,min = 0,max = 999
+        successText: '保存成功'
+        msg : '添加微信储值规则成功--固定积分（送实收金额的）'
+        delInfo: '＋添加门店储值规则'
+
+
+CASE3:
+    -
+        title: '新建微信储值规则 - 自动化测试专用'
+        case_desc: '设置储值规则-代金券'
+        name: 'test'
+        radioIndex: 0
+        charge: 1000
+        storeRule: 2 # 0:固定金额，1:固定积分，2:代金券/礼品券,3:3个规则全选
+        couponIndex: 0 #选择代金券/礼品券，0：代金券，1：礼品券
+        couponValue: 0 #点击使用代金券/礼品券,0：默认使用当前第一个券
+        successText: '保存成功'
+        msg : '添加微信储值规则成功--代金券'
+        delInfo: '＋添加门店储值规则'
+
+    -
+        title: '新建微信储值规则 - 自动化测试专用'
+        case_desc: '设置储值规则-礼品券'
+        name: 'test'
+        radioIndex: 0
+        charge: 1000
+        storeRule: 2 # 0:固定金额，1:固定积分，2:代金券/礼品券,3:3个规则全选
+        couponIndex: 1 #选择代金券/礼品券，0：代金券，1：礼品券
+        couponValue: 0 #点击使用代金券/礼品券,0：默认使用当前第一个券
+        successText: '保存成功'
+        msg : '添加微信储值规则成功--礼品券'
+        delInfo: '＋添加门店储值规则'
+
+CASE4:
+    -
+        title: '新建门店储值规则 - 自动化测试专用' # 调用门店创建规则
+        case_desc: '设置储值规则-使用各门店储值规则'
         name: 'test'
         charge: 1000
         storeRule: 0 # 0:固定金额，1:固定积分，2:代金券/礼品券,3:3个规则全选
@@ -14,60 +100,9 @@ CASE1:
         presentValue: 100 #固定金额送（元）min = 0,max = 100000;实收金额的（%）,min = 0,max = 999
         integra: 0 #0:固定积分,1:实收金额的
         successText: '保存成功'
-        delInfo: '＋添加门店储值规则'
-
-    -
-        title: '设置储值规则-固定金额(实收金额的） - 自动化测试专用'
-        name: 'test'
-        charge: 1000
-        storeRule: 0 # 0:固定金额，1:固定积分，2:代金券/礼品券,3:3个规则全选
-        account: 1 #0:固定金额,1:实收金额的
-        presentValue: 90 #固定金额送（元）min = 0,max = 100000;实收金额的（%）,min = 0,max = 999
-        integra: 0 #0:固定积分,1:实收金额的
+        msg : '添加门店储值规则成功--固定金额（送固定金额）'
+        radioIndex: 1
         successText: '保存成功'
-        delInfo: '＋添加门店储值规则'
-
-
-CASE2:
-    -
-        title: '设置储值规则-固定积分(固定金额） - 自动化测试专用'
-        name: 'test'
-        charge: 1000
-        storeRule: 1 # 0:固定金额，1:固定积分，2:代金券/礼品券,3:3个规则全选
-        integra: 0 #0:固定金额,1:实收金额的
-        integralValue: 1000 #固定金额送（元）min = 0,max = 100000;实收金额的（%）,min = 0,max = 999
-        successText: '保存成功'
-        delInfo: '＋添加门店储值规则'
-
-    -
-        title: '设置储值规则-固定积分(实收金额的） - 自动化测试专用'
-        name: 'test'
-        charge: 1000
-        storeRule: 1 # 0:固定金额，1:固定积分，2:代金券/礼品券,3:3个规则全选
-        integra: 1 #0:固定积分,1:实收金额的
-        integralValue: 90 #固定金额送（元）min = 0,max = 100000;实收金额的（%）,min = 0,max = 999
-        successText: '保存成功'
-        delInfo: '＋添加门店储值规则'
-
-
-CASE3:
-    -
-        title: '设置储值规则-代金券 - 自动化测试专用'
-        name: 'test'
-        charge: 1000
-        storeRule: 2 # 0:固定金额，1:固定积分，2:代金券/礼品券,3:3个规则全选
-        couponIndex: 0 #选择代金券/礼品券，0：代金券，1：礼品券
-        couponValue: 0 #点击使用代金券/礼品券,0：默认使用当前第一个券
-        successText: '保存成功'
-        delInfo: '＋添加门店储值规则'
-
-    -
-        title: '设置储值规则-代金券 - 自动化测试专用'
-        name: 'test'
-        charge: 1000
-        storeRule: 2 # 0:固定金额，1:固定积分，2:代金券/礼品券,3:3个规则全选
-        couponIndex: 1 #选择代金券/礼品券，0：代金券，1：礼品券
-        couponValue: 0 #点击使用代金券/礼品券,0：默认使用当前第一个券
-        successText: '保存成功'
+        msg : '添加微信储值规则成功--使用各门店储值规则'
         delInfo: '＋添加门店储值规则'
 
