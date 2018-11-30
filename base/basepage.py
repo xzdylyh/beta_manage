@@ -12,7 +12,7 @@ from selenium.common.exceptions import (
     ElementNotVisibleException,
     UnexpectedAlertPresentException
 )
-
+from selenium.webdriver.support.select import Select
 from lib import gl
 from lib.scripts import (
     get_yaml_field,
@@ -65,7 +65,7 @@ class BasePage:
         start_time = int(time.time()) #秒级时间戳
         timeses = int(timeses)
         while (int(time.time())-start_time) <= timeses:
-            if element.is_displayed():
+            if element.is_displayed() and element.is_enabled():
                 return True
             self.wait(500)
 
@@ -470,6 +470,18 @@ class BasePage:
     def execute_script(self, js):
         """执行js脚本"""
         self.driver.execute_script(js)
+
+
+    def select_list(self, *loc):
+        """
+        创建Select对象
+        :param loc: 定位
+        :return: Select对象
+        """
+        st = Select(
+            self.find_element(*loc)
+        )
+        return st
 
 
 if __name__ == "__main__":

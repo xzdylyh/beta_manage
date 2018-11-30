@@ -177,3 +177,4 @@ class ActivityCreate64(BasePage):
         if not txt != text:
             return False
         return True
+

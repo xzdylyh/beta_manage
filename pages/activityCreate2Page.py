@@ -99,7 +99,6 @@ class ActivityCreate2(ActivityCreate64):
 
     def assert_add_success(self, text, status):
         """断言成功"""
-        self.get_image
         status = str(status).strip()
         title = str(self.get_tag_text(
             'text',
@@ -110,6 +109,7 @@ class ActivityCreate2(ActivityCreate64):
                 'text',
                 *(self.assert_status_loc)
             )).strip()
+        self.get_image
         if not (title == text and st == status):
             return False
         return True
