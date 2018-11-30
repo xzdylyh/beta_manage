@@ -1,0 +1,6 @@
+/report/*.*
+/report/images/*.*
+/__pycache__/
+/.idea/
+/lib/__pycache__/
+/base/__pycache__/

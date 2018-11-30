@@ -22,8 +22,8 @@ class TestChargeListShopPage(unittest.TestCase):
     def setUpClass(cls):
         cls.driver = select_Browser_WebDriver()
         cls.url = 'http://manage.beta.acewill.net/charge/edit?type=shop'  # 门店规则入口
-        cls.url_s = '' # 保存成功页面url，默认为空
-        cls.url_m = '' # 保存储值规则修改页面url，默认为空
+        cls.url_s = ''  # 保存成功页面url，默认为空
+        cls.url_m = ''  # 保存储值规则修改页面url，默认为空
 
     @classmethod
     def tearDownClass(cls):

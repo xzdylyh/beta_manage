@@ -45,7 +45,7 @@ class ChargeList(BasePage):
     # 保存按钮
     charge_submitBtn_loc = (By.XPATH, "//button[@type='submit']")
 
-    #微信规则
+    # 微信规则
     charge_weRadioBtn_loc = (By.XPATH, "//input[@name='pattern']/..")
 
 
@@ -122,9 +122,8 @@ class ChargeList(BasePage):
             *(self.charge_selectMenuitem_loc)
         )
 
-    def selectCoupon(self,index):
+    def selectCoupon(self, index):
         """使用代金券/礼品券，存在代金券/礼品券，点击使用按钮"""
-<<<<<<< HEAD
         self.click_btn_index(
             '代金券/礼品券',
             index,
@@ -135,39 +134,13 @@ class ChargeList(BasePage):
          """点击保存按钮"""
          self.click_button('保存', *(self.charge_submitBtn_loc))
 
-    def getScuessText(self):
-        """获取保存成功提示"""
-        success_test = self.get_tag_text(
-            'text',
-            *(self.charge_sucessText_loc)
-        )
-        self.get_image
-        return success_test
-
-    def clickBcakBtn(self):
-        """"点击返回按钮"""
-        self.click_button('返回', *(self.charge_backBtn_loc))
-
-    def clickDelBtn(self):
-        """点击删除按钮"""
-        self.click_button('删除', *(self.charge_delBtn_loc))
-
-    def clickOkBtn(self):
-        """点击删除确定按钮"""
-        self.click_button('确定', *(self.charge_okBtn_loc))
-
-    def getDelInfo(self):
-        """获取删除成功后的信息"""
-        info = self.get_tag_text('text', *(self.charge_delSussecc_loc))
-        self.get_image
-        return info
-
+    """
     def click_btb(self):
         self.click_button('test', *(self.charge_delSussecc_loc))
-=======
         self.click_btn_index('代金券/礼品券',
                              index, *(self.charge_couponD_loc)
                              )
+    """
 
 
     def clickWeRadioBtn(self,index):
@@ -181,7 +154,6 @@ class ChargeList(BasePage):
          self.click_button('保存',
                            *(self.charge_submitBtn_loc)
                            )
->>>>>>> ycc
 
 
 
