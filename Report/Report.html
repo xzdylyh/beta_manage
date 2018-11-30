@@ -116,9 +116,9 @@ function html_escape(s) {
 </script>
 <div class='heading'>
 <h4 style="font-family: Microsoft YaHei">UI自动化测试报告</h4>
-<p class='attribute'><strong>测试人员 : </strong> yecc</p>
-<p class='attribute'><strong>开始时间 : </strong> 2018-11-27 18:26:47</p>
-<p class='attribute'><strong>合计耗时 : </strong> 0:00:19.417331</p>
+<p class='attribute'><strong>测试人员 : </strong> yhleng</p>
+<p class='attribute'><strong>开始时间 : </strong> 2018-11-30 11:17:45</p>
+<p class='attribute'><strong>合计耗时 : </strong> 0:00:24.776391</p>
 <p class='attribute'><strong>测试结果 : </strong> 共 1，通过 1，通过率= 100.00%</p>
 
 <p class='description'>详细测试用例结果</p>
@@ -153,7 +153,7 @@ function html_escape(s) {
 </tr>
 
 <tr class='passClass warning'>
-    <td>TestCreditIndex: 积分修改</td>
+    <td>TestActivityCreate1028: 升级赠礼</td>
     <td class="text-center">1</td>
     <td class="text-center">1</td>
     <td class="text-center">0</td>
@@ -163,7 +163,7 @@ function html_escape(s) {
 </tr>
 
 <tr id='pt1_1' class='hiddenRow'>
-    <td class='passCase' width='300px'><div class='testcase'>testcase1_1</div></td>
+    <td class='passCase' width='300px'><div class='testcase'>testCase1_1: dict() -> new empty dictionary</div></td>
     <td colspan='5' align='left' width='600px'> <!--print 输出框位置-->
     <!--默认收起错误信息 -Findyou
     <button id='btn_pt1_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_1'>通过</button>
@@ -173,38 +173,34 @@ function html_escape(s) {
     <div id='div_pt1_1' class="collapse in">
     <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:600px; margin:auto; border:1px solid #e1e1e1;">
     
-pt1_1: ========★积分修改★========
-screenshot: 20181127_18.26.51 .png
-screenshot: 20181127_18.26.52 .png
-Click:修改('xpath', "//button[@data-toggle='point.modify']")
-Clicks:选择开启/关闭('xpath', "//input[@name='state']/..")
-Click:删除兑换规则('xpath', "//button[@data-toggle='popover.confirm.close']")
-Click:确定('xpath', ".//*[starts-with(@id,'popover')]/div[2]/div[2]/button[1]")
-Clicks:消费奖励积分('xpath', "//input[@name='consumpoints']/..")
-Clicks:奖励积分模式('xpath', "//input[@name='consumpointsmode']/..")
-Input奖励规则:200
-Clicks:奖励范围('xpath', "//input[@name='giftRange']/..")
-Clicks:积分有效期('xpath', "//input[@name='term']/..")
-选择的月份是：6
-选择的日子是：20
-Click:%NONE%('xpath', "//label[@data-exchange='rules']")
-Click:添加子规则('xpath', "//a[@data-toggle='rule.add']")
-Input积分数量:200
-Clicks:积分兑换('xpath', "//input[@name='point-coupon0']/..")
-Input礼品名称和数量:测试礼物1份
-Input积分名称:自动化测试专用积分
-Click:保存('xpath', "//button[@type='submit']")
-Click:返回('link text', '返回')
-修改后的值为：200积分兑换测试礼物1份
-screenshot: 20181127_18.27.06 .png
+pt1_1: ========★升级赠礼-正常流程★========
+screenshot: 20181130_11.17.53 .png
+screenshot: 20181130_11.17.54 .png
+Input活动名称:升级赠礼
+Click:添加券('id', 'dropdownCoupon')
+Click:代金券('link text', '代金券')
+Clicks:使用('xpath', "//a[contains(text(),'使用')]")
+Clicks:发券提醒('xpath', "//input[@name='sendRemind']/..")
+Clicks:到期提醒('xpath', "//input[@name='expireRemind']/..")
+Click:活动卡类别('xpath', "//input[@name='ccids']/../button[1]")
+Click:确定('xpath', "//button[contains(text(),'确定')]")
+Input赠送积分:1
+Input赠送储值:1
+Input活动开始时间:2019-11-12
+Input活动结束时间:2019-11-13
+Click:保存('xpath', "//button[contains(text(),'保存')]")
+Click:确认('xpath', "//button[contains(text(),'确认')]")
+screenshot: 20181130_11.18.05 .png
+Click:删除('link text', '删除')
+Click:确认('xpath', "//button[contains(text(),'确认')]")
 
 
     </pre>
     </div>
     </td>
     <td align="right">
-        <a  href="./images/20181127_18.27.06.png">
-            <img   src="./images/20181127_18.27.06.png" height="200px" width="400px"/>
+        <a  href="./images/20181130_11.18.05.png">
+            <img   src="./images/20181130_11.18.05.png" height="200px" width="400px"/>
         </a>
     </td>
 </tr>
