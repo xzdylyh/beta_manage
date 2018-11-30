@@ -55,7 +55,7 @@ class BasePage:
         self.driver.implicitly_wait(0)
 
 
-    def is_display_timeout(self, element, timeses):
+    def is_display_timeout(self, element, timeses, *loc):
         """
         在指定时间内，轮询元素是否显示
         :param element: 元素对象
@@ -68,7 +68,7 @@ class BasePage:
             if element.is_displayed() and element.is_enabled():
                 return True
             self.wait(500)
-
+            element = self.driver.find_element(lc)
         self.get_image
         return False
 
@@ -84,7 +84,7 @@ class BasePage:
             self.driver.implicitly_wait(timeout) #智能等待；超时设置
 
             element = self.driver.find_element(*loc) #如果element没有找到，到此处会开始等待
-            if self.is_display_timeout(element, timeout):
+            if self.is_display_timeout(element, timeout, *loc):
                 self.hightlight(element)  #高亮显示
                 self.driver.implicitly_wait(0)  # 恢复超时设置
             else:
@@ -248,7 +248,7 @@ class BasePage:
             self.driver.implicitly_wait(timeout)
 
             element = self.driver.find_element(*loc)
-            if self.is_display_timeout(element, timeout):
+            if self.is_display_timeout(element, timeout, *loc):
                 self.hightlight(element)
                 return True
             else:
