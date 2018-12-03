@@ -12,6 +12,7 @@ from lib import (
     gl,
     HTMLTESTRunnerCN
 )
+from lib.emailstmp import EmailClass
 
 @ddt.ddt
 class TestActivityCreate256(unittest.TestCase):
@@ -95,3 +96,5 @@ if __name__ == "__main__":
         )
         # 运行测试用例
         runner.run(suite)
+
+    EmailClass().send()

@@ -28,4 +28,4 @@ if __name__=="__main__":
         runner.run(suite)
         fp.close()
 
-    EmailClass().send
+    EmailClass().send()
