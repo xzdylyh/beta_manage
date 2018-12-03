@@ -1,7 +1,7 @@
 import os
 import unittest
 import ddt
-from pages.activityCreate2Page import ActivityCreate2
+from pages.activityCreate1Page import ActivityCreate1
 from lib.scripts import (
     select_Browser_WebDriver,
     reply_case_fail,
@@ -15,26 +15,26 @@ from lib import (
 
 
 @ddt.ddt
-class TestActivityCreate2(unittest.TestCase):
-    """给开卡未消费会员赠券"""
+class TestActivityCreate1(unittest.TestCase):
+    """给全部会员赠券"""
     @classmethod
     def setUpClass(cls):
         cls.driver = select_Browser_WebDriver()
-        cls.url = join_url('/activity/create/2')
+        cls.url = join_url('/activity/create/1')
 
     @classmethod
     def tearDownClass(cls):
         cls.driver.quit()
         # pass
 
-    @ddt.data(*get_data('activityCreate2', 'CASE1'))
+    @ddt.data(*get_data('activityCreate1', 'CASE1'))
     @reply_case_fail(num=3)
     def testcase1(self, data):
-        """给开卡未消费会员赠券"""
+        """给全部会员赠券"""
         print('========★{}★========'.format(data['case_desc'])) #case描述
         #实例化page对象
-        ts = ActivityCreate2(self.url, self.driver, data['Title'])
-        # 打开开卡未消费页面
+        ts = ActivityCreate1(self.url, self.driver, data['Title'])
+        # 打开给全部会员赠券页面
         ts.open
         #活动名称
         ts.input_activity_name(data['activiy_name'])
@@ -70,7 +70,7 @@ class TestActivityCreate2(unittest.TestCase):
         #删除
         ts.click_delete_button()
         #删除确认
-        ts.wait(3000)
+        ts.wait(5000)
         #断言删除
         self.assertFalse(
             ts.assert_add_success(
@@ -85,7 +85,7 @@ if __name__ == "__main__":
     suite = unittest.TestSuite()
     tests = [
         unittest.TestLoader().loadTestsFromTestCase(
-            TestActivityCreate2
+            TestActivityCreate1
         )
     ]
 

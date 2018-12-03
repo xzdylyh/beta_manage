@@ -164,6 +164,7 @@ class ActivityCreate64(BasePage):
             '确认',
             *(self.activity_sconfirm_loc)
         )
+        self.wait(5000)
 
     def assert_add_success(self, text):
         """断言新增开卡关怀活动成功"""
