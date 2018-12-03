@@ -6,7 +6,7 @@ from lib.scripts import (
     select_Browser_WebDriver,
     reply_case_fail,
     get_data,
-    get_yaml_field
+    join_url
 )
 from lib import (
     gl,
@@ -20,7 +20,7 @@ class TestActivityCreate16(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.driver = select_Browser_WebDriver()
-        cls.url = 'http://manage.beta.acewill.net/activity/create/16'
+        cls.url = join_url('/activity/create/16')
 
     @classmethod
     def tearDownClass(cls):

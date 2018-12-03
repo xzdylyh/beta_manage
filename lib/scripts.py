@@ -223,5 +223,29 @@ def genrandomstr(lenstr):
     return strs
 
 
+def join_url(url):
+    """
+    读取config基本url并拼接完整
+    :param url: 页面url
+    :return: 完整url
+    """
+    config = get_yaml_field(gl.configFile)
+    base_url = config['CONFIG']['Base_Url']
+
+    if not url.startswith('/'):
+        url = "/{}".format(url)
+    complete_url = "{}{}".format(base_url, url)
+
+    return complete_url
+
+
+
+
+
 if __name__ == "__main__":
-    demo(cook='')
+    # stra = genrandomstr(20)
+    # print(stra)
+    url = join_url('/activity/create/1024')
+    print(url)
+
+

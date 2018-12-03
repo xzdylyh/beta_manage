@@ -20,6 +20,7 @@ CONFIG:
 
     #浏览器 <Chrome 或 Firefox>
     Browser:  Chrome
+    Base_Url: http://manage.beta.acewill.net
 
 
 #发送测试报告,邮件配置

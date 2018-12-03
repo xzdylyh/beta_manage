@@ -5,7 +5,8 @@ from pages.activityCreate8Page import ActivityCreate8
 from lib.scripts import (
     select_Browser_WebDriver,
     reply_case_fail,
-    get_data
+    get_data,
+    join_url
 )
 from lib import (
     gl,
@@ -19,7 +20,7 @@ class TestActivityCreate8(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.driver = select_Browser_WebDriver()
-        cls.url = 'http://manage.beta.acewill.net/activity/create/8'
+        cls.url = join_url('/activity/create/8')
 
     @classmethod
     def tearDownClass(cls):
