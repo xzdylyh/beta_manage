@@ -17,7 +17,8 @@ from lib import gl
 from lib.scripts import (
     get_yaml_field,
     replay,
-    hight_light_conf
+    hight_light_conf,
+    reply_case_fail
 )
 
 
@@ -484,15 +485,70 @@ class BasePage:
         return st
 
 
-    def get_element_attribute(self, item, *loc):
-        """获取元素属性"""
+    def get_element_attribute(self, attr, *loc):
+        """
+        获取元素属性
+        :param attr: 属性
+        :param loc: 定位
+        :return: 无
+        """
         ele = self.find_element(*loc)
         try:
-            att = ele.get_attribute(item)
+            att = ele.get_attribute(attr)
         except Exception as ex:
-            print('属性错误:{}'.format(item))
+            print('属性错误:{}'.format(attr))
             raise ex
         return att
+
+
+    def set_element_attribute(self,attr, val ,*loc):
+        """
+        设置元素属性值,适用于元素唯一
+        :param attr: 元素属性名称如:class
+        :param val: 元素属性值
+        :param loc: 定位
+        :return: 无
+        """
+        element = self.find_element(*loc)
+        self.driver.execute_script(
+            "arguments[0].setAttribute('class','we-checkbox checked');",
+            element
+        )
+        # self.driver.execute_script(
+        #     "arguments[0].attr({},{});".format(attr, val),
+        #     element
+        # )
+
+    def del_element_attribute(self, attr, *loc):
+
+        element = self.find_element(*loc)
+        self.driver.execute_script(
+            "arguments[0].removeAttribute({});".format(attr),
+            element
+        )
+
+    def set_elements_attribute(self,attr, val ,index ,*loc):
+        """
+        设置元素属性
+        :param attr: 元素属性名如:class
+        :param val: 元素属性值
+        :param index: 元素索引,为1000时代表全部设置
+        :param loc: 元素定位
+        :return: 无
+        """
+        index = int(index)
+        element = self.find_elements(*loc)
+        if index == 1000:
+            for ele in element:
+                self.driver.execute_script(
+                    "arguments[0].attr({},{});".format(attr, val),
+                    ele
+                )
+        else:
+            self.driver.execute_script(
+                "arguments[0].attr({},{});".format(attr, val),
+                element[index]
+            )
 
 
 if __name__ == "__main__":

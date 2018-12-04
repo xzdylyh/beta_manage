@@ -1,0 +1,24 @@
+
+
+CASE1:
+    -
+        case_desc: "消费评价-正常流程" #case描述
+        page_title: "消费评价 - 自动化测试专用" #开卡关怀页标题
+        activity_name: "消费评价" #活动名称
+        activity_desc: "消费评价活动" #活动说明
+        activity_status: "尚未执行" #活动状态
+        coupon_type: 0 #券类型；0代金券；1礼品券
+        coupon_index: 0 #选择券0第一张；1第二张，依此类推
+        remind_index: 1 #发券提醒；0不提醒；1短信提醒
+        expire_index: 1 #券到期提醒；0不提醒；1短信提醒
+        credit_num: 1 #赠送积分
+        is_select_coupon: 0 #是否奖励券,0选择,1不选择
+        is_select_credit: 0 #是否奖励积分;0选择,1不选择
+        qs_index: 1 #问卷设置;0选择第一个
+        push_index: 0 #问卷推送条件第一个
+        push_amount: 50 #每满50元
+        start_time: "2019-11-12"  #活动开始时间
+        end_time: "2019-11-13" #活动结束时间
+
+
+

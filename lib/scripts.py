@@ -168,7 +168,7 @@ def reply_case_fail(num=3):
                 rnum +=1
                 try:
                     ret = func(*args, **kwargs)
-                    if rnum > 1:
+                    if rnum > 2:
                         print('重试{}次成功'.format(rnum))
                     return ret
                 except Exception as ex:
