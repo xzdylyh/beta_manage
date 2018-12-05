@@ -1,0 +1,14 @@
+
+
+CASE1:
+    -
+        case_desc: "积分排行-正常流程" #case描述
+        page_title: "积分排行 - 自动化测试专用" #开卡关怀页标题
+        activity_name: "积分排行" #活动名称
+        activity_desc: "积分排行活动" #活动说明
+        activity_status: "尚未执行" #活动状态
+        start_time: "2019-11-12"  #活动开始时间
+        end_time: "2019-11-13" #活动结束时间
+
+
+

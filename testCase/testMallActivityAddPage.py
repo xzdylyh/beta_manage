@@ -28,7 +28,7 @@ class TestMallactivityAdd(unittest.TestCase):
 
 
     @ddt.data(*get_data('mallactivityAdd', 'CASE1'))
-    @reply_case_fail(num=1)
+    @reply_case_fail(num=3)
     def testCase1(self, data):
         """限时秒杀"""
         print('========★{}★========'.format(data['case_desc'])) #case描述
