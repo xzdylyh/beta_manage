@@ -511,13 +511,9 @@ class BasePage:
         """
         element = self.find_element(*loc)
         self.driver.execute_script(
-            "arguments[0].setAttribute('class','we-checkbox checked');",
+            "arguments[0].attr({},{});".format(attr, val),
             element
         )
-        # self.driver.execute_script(
-        #     "arguments[0].attr({},{});".format(attr, val),
-        #     element
-        # )
 
     def del_element_attribute(self, attr, *loc):
 

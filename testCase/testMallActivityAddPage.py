@@ -56,7 +56,10 @@ class TestMallactivityAdd(unittest.TestCase):
         tc.click_save_button()
         #断言
         self.assertTrue(
-            tc.assert_add_success(data['activity_name'], data['activity_status'])
+            tc.assert_add_success(
+                data['activity_name'],
+                data['activity_status']
+            )
         )
 
         #删除
@@ -66,7 +69,10 @@ class TestMallactivityAdd(unittest.TestCase):
         tc.wait(3000)
         #断言
         self.assertFalse(
-            tc.assert_add_success(data['activity_name'], data['activity_status'])
+            tc.assert_add_success(
+                data['activity_name'],
+                data['activity_status']
+            )
         )
 
 
