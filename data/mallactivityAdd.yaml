@@ -1,0 +1,17 @@
+
+
+CASE1:
+    -
+        page_title: "限时秒杀 - 自动化测试专用"  #活动页标题
+        activity_name: "限时秒杀" #活动名称
+        case_desc: "限时秒杀-正常流程" #用例描述
+        start_date: "2028-12-28 14:54:18" #活动开始时间
+        end_date: "2029-12-28 14:54:18" #活动结束时间
+        limit_index: 1 #0不限购;1限购
+        limit_num: 5 #限购数量
+        checkbox_index: 0 #商品索引0第一个,1第二个,依此类推
+        ses_price: 1 #秒杀价格
+        ses_num: 100 #秒杀数量
+        activity_status: "尚未执行" #活动状态
+
+

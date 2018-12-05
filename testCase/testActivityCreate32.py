@@ -69,8 +69,6 @@ class TestActivityCreate32(unittest.TestCase):
         )
         #删除
         ts.click_delete_button()
-        #删除确认
-        ts.click_sconfirm_btn(data['delete_sbtn'])
         ts.wait(6000)
         #断言删除
         self.assertFalse(
