@@ -39,7 +39,7 @@ class TestCreditIndex(unittest.TestCase):
         self.cIndex.open
         # 点击修改按钮
         self.cIndex.click_modify_btn()
-        # 选择开启
+        # 选择开启,删除已存在的积分规则
         self.cIndex.select_state_radio(data['index'])
         self.cIndex.click_removeConfirm_btn()
         self.cIndex.click_Ok_btn()

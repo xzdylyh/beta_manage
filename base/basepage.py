@@ -485,6 +485,7 @@ class BasePage:
         return st
 
 
+<<<<<<< HEAD
     def get_element_attribute(self, attr, *loc):
         """
         获取元素属性
@@ -545,6 +546,39 @@ class BasePage:
                 "arguments[0].attr({},{});".format(attr, val),
                 element[index]
             )
+=======
+    def get_element_attribute(self, item, *loc):
+        """获取元素属性"""
+        ele = self.find_element(*loc)
+        try:
+            att = ele.get_attribute(item)
+        except Exception as ex:
+            print('属性错误:{}'.format(item))
+            raise ex
+        return att
+
+    def get_index_text(self, txt_name, index, *loc):
+        """
+        获取元素对象属性值
+        :param propertyName: Text属性名称
+        :param loc: #定位器
+        :return: 属性值 或 raise
+        """
+        timeout = 20
+        try:
+            self.driver.implicitly_wait(timeout)
+
+            element = self.find_element(*loc)[int(index)]
+            self.hightlight(element) #高亮显示
+
+            #获取属性
+            pro_value = getattr(element, str(txt_name))
+            self.driver.implicitly_wait(0)
+            return pro_value
+        except (NoSuchElementException, NameError) as ex:
+            self.get_image #错误截图
+            raise ex
+>>>>>>> ycc
 
 
 if __name__ == "__main__":

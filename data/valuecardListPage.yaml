@@ -8,6 +8,7 @@ CASE1:
     -
         case_desc: '创建储值卡--永久有效'
         title: '储值卡 - 自动化测试专用'
+        on-off: 0 # 储值功能 0：开启，1：关闭
         name : 'test' # 储值卡名称
         denomination: 1000 # 面额
         price: 800 # 售价
@@ -15,15 +16,16 @@ CASE1:
         index: 0 # 选择有效期 0：永久有效；1：多少天后有效
         prepaidTermCount: '%NONE%' # 天数，此处不用输入
 
-    -
-        case_desc: '创建储值卡--多少天后有效'
-        title: '储值卡 - 自动化测试专用'
-        name : 'test' # 储值卡名称
-        denomination: 1000 # 面额
-        price: 800 # 售价
-        total: 2 # 总量
-        index: 1 # 选择有效期 0：永久有效；1：多少天后有效
-        prepaidTermCount: 6 # 天数
+#    -
+#        case_desc: '创建储值卡--多少天后有效'
+#        title: '储值卡 - 自动化测试专用'
+#        on-off: 0 # 储值功能 0：开启，1：关闭
+#        name : 'test' # 储值卡名称
+#        denomination: 1000 # 面额
+#        price: 800 # 售价
+#        total: 2 # 总量
+#        index: 1 # 选择有效期 0：永久有效；1：多少天后有效
+#        prepaidTermCount: 6 # 天数
 
 
 
