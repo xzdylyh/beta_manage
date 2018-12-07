@@ -1,0 +1,40 @@
+#关键字:
+#%BLANK% 当输值为此值时，输入框不输入值，并且清空默认值；
+#%NONE% 当值为此值时，输入框为默认值，点击操作不做操作
+#当值为空时，输入框，为默认值
+
+
+CASE1:
+    -
+        case_desc: '会员卡管理-卡类别设置-普通会员卡'
+        title_first: '卡类别管理 - 自动化测试专用'
+        title: '卡类别管理 - 自动化测试专用'
+        cardindex: 0 # 选择卡类别属性，0：；普通会员卡，1：不记名卡
+        inputname: '普通会员卡自动化' # inputname
+        cardtype: 0 # 面样式,0:默认颜色，1：自定义卡面
+        cardname: 0 # 卡面名称使用,0:文字，1：logo
+        inputstored: 1  # 选择储值，0开启，1关闭 ,'%NONE%'
+        pointvalue: 0  # 积分，0开启，1关闭
+        vipprice: 80 # 会员价，单位： %
+        creditprice: 9 # 积分特权：每消费现金
+        index: 0 # 特权1
+        privilege: '无限使用' # 特权内容
+        nameindex: 2 # 获取保存成功后，列表中第二个卡的名称
+        remove_index: 0 # 删除列表中第二个卡
+
+    -
+        case_desc: '会员卡管理-卡类别设置-普通会员卡'
+        title_first: '卡类别管理 - 自动化测试专用'
+        title: '卡类别管理 - 自动化测试专用'
+        cardindex: 0 # 选择卡类别属性，0：；普通会员卡，1：不记名卡
+        inputname: '普通会员卡自动化' # inputname
+        cardtype: 1 # 面样式,0:默认颜色，1：自定义卡面
+        cardname: '%NONE%' # 卡面名称使用,0:文字，1：logo
+        inputstored: 1 # 选择储值，0开启，1关闭 ,'%NONE%'
+        pointvalue: 0 # 积分，0开启，1关闭
+        vipprice: 80 # 会员价，单位： %
+        creditprice: 100 # 积分特权：每消费现金
+        index: 0 # 特权1
+        privilege: '无限使用' # 特权内容
+        nameindex: 2 # 获取保存成功后，列表中第二个卡的名称
+        remove_index: 0 # 删除列表中第二个卡

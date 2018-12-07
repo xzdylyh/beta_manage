@@ -1,4 +1,5 @@
 import os
+from time import sleep
 import unittest
 import ddt
 from pages.chargeListSusscessPage import ChargeListSusscess
@@ -31,13 +32,16 @@ class TestValuecardList(unittest.TestCase):
         # pass
 
     @ddt.data(*get_data('valuecardListPage', 'CASE1'))
-    @reply_case_fail(num=3)
+    @reply_case_fail(num=1)
     def testcase1(self, data):
         """创建储值卡--永久有效"""
         print('========★{}★========'.format(data['case_desc']))  # case描述
         self.vlist = ValueCardList(self.url, self.driver, data['title'])
         # 打开储值卡页面
         self.vlist.open
+        # 点击开启按钮
+        self.vlist.select_control(data['on-off'])
+        # sleep(2)
         # 点击创建储值卡按钮，进入创建、编辑页面
         self.vlist.click_cardCreateBtn()
         # 输入储值名称

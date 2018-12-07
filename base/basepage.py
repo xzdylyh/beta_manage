@@ -12,7 +12,7 @@ from selenium.common.exceptions import (
     ElementNotVisibleException,
     UnexpectedAlertPresentException
 )
-
+from selenium.webdriver.support.select import Select
 from lib import gl
 from lib.scripts import (
     get_yaml_field,
@@ -55,7 +55,7 @@ class BasePage:
         self.driver.implicitly_wait(0)
 
 
-    def is_display_timeout(self, element, timeses):
+    def is_display_timeout(self, element, timeses, *loc):
         """
         在指定时间内，轮询元素是否显示
         :param element: 元素对象
@@ -65,10 +65,10 @@ class BasePage:
         start_time = int(time.time()) #秒级时间戳
         timeses = int(timeses)
         while (int(time.time())-start_time) <= timeses:
-            if element.is_displayed():
+            if element.is_displayed() and element.is_enabled():
                 return True
             self.wait(500)
-
+            element = self.driver.find_element(*loc)
         self.get_image
         return False
 
@@ -84,7 +84,7 @@ class BasePage:
             self.driver.implicitly_wait(timeout) #智能等待；超时设置
 
             element = self.driver.find_element(*loc) #如果element没有找到，到此处会开始等待
-            if self.is_display_timeout(element, timeout):
+            if self.is_display_timeout(element, timeout, *loc):
                 self.hightlight(element)  #高亮显示
                 self.driver.implicitly_wait(0)  # 恢复超时设置
             else:
@@ -248,7 +248,7 @@ class BasePage:
             self.driver.implicitly_wait(timeout)
 
             element = self.driver.find_element(*loc)
-            if self.is_display_timeout(element, timeout):
+            if self.is_display_timeout(element, timeout, *loc):
                 self.hightlight(element)
                 return True
             else:
@@ -465,6 +465,57 @@ class BasePage:
         self.add_cookies(ck_dict)
         self._open(self.base_url)
         assert self.driver.title == self.pagetitle, "断言标题错误,请查检页面"
+
+
+    def execute_script(self, js):
+        """执行js脚本"""
+        self.driver.execute_script(js)
+
+
+    def select_list(self, *loc):
+        """
+        创建Select对象
+        :param loc: 定位
+        :return: Select对象
+        """
+        st = Select(
+            self.find_element(*loc)
+        )
+        return st
+
+
+    def get_element_attribute(self, item, *loc):
+        """获取元素属性"""
+        ele = self.find_element(*loc)
+        try:
+            att = ele.get_attribute(item)
+        except Exception as ex:
+            print('属性错误:{}'.format(item))
+            raise ex
+        return att
+
+    def get_index_text(self, txt_name, index, *loc):
+        """
+        获取元素对象属性值
+        :param propertyName: Text属性名称
+        :param loc: #定位器
+        :return: 属性值 或 raise
+        """
+        timeout = 20
+        try:
+            self.driver.implicitly_wait(timeout)
+
+            element = self.find_element(*loc)[int(index)]
+            self.hightlight(element) #高亮显示
+
+            #获取属性
+            pro_value = getattr(element, str(txt_name))
+            self.driver.implicitly_wait(0)
+            return pro_value
+        except (NoSuchElementException, NameError) as ex:
+            self.get_image #错误截图
+            raise ex
+
 
 if __name__ == "__main__":
     pass
