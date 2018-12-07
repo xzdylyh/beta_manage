@@ -27,8 +27,8 @@ class TestCreditIndex(unittest.TestCase):
 
     @classmethod
     def tearDownClass(cls):
-        # cls.driver.quit()
-        pass
+        cls.driver.quit()
+        # pass
 
     @ddt.data(*get_data('creditIndexPage', 'CASE1'))
     @reply_case_fail(num=1)

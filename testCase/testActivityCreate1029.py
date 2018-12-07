@@ -15,7 +15,7 @@ from lib import (
 
 @ddt.ddt
 class TestActivityCreate1029(unittest.TestCase):
-    """升级赠礼"""
+    """消费评价"""
     @classmethod
     def setUpClass(cls):
         cls.driver = select_Browser_WebDriver()
@@ -30,7 +30,7 @@ class TestActivityCreate1029(unittest.TestCase):
     @ddt.data(*get_data('activityCreate1029', 'CASE1'))
     @reply_case_fail(num=3)
     def testCase1(self, data):
-        """升级赠礼"""
+        """消费评价"""
         print('========★{}★========'.format(data['case_desc'])) #case描述
         self.tc = ActivityCreate1029(self.url,self.driver,data['page_title'])
         self.tc.open

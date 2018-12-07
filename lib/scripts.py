@@ -220,7 +220,7 @@ def genrandomstr(lenstr):
     strs = "".join(random.choice(string.ascii_letters + string.digits)
                    for _ in range(lenstr)
                    )
-    return str
+    return strs
 
 
 def join_url(url):
@@ -242,20 +242,6 @@ def join_url(url):
 
 
 
-def join_url(url):
-    """
-    读取config基本url并拼接完整
-    :param url: 页面url
-    :return: 完整url
-    """
-    config = get_yaml_field(gl.configFile)
-    base_url = config['CONFIG']['Base_Url']
-
-    if not url.startswith('/'):
-        url = "/{}".format(url)
-    complete_url = "{}{}".format(base_url, url)
-
-    return complete_url
 
 
 

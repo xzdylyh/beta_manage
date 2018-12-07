@@ -27,8 +27,8 @@ class TestCardCategory(unittest.TestCase):
 
     @classmethod
     def tearDownClass(cls):
-        # cls.driver.quit()
-        pass
+        cls.driver.quit()
+        # pass
 
     @ddt.data(*get_data('cardCategory', 'CASE1'))
     @reply_case_fail(num=1)

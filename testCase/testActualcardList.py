@@ -28,8 +28,8 @@ class TestActualcard(unittest.TestCase):
 
     @classmethod
     def tearDownClass(cls):
-        # cls.driver.quit()
-        pass
+        cls.driver.quit()
+        # pass
 
     @ddt.data(*get_data('actualcardListPage', 'CASE1'))
     @reply_case_fail(num=1)

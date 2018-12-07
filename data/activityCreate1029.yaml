@@ -13,7 +13,7 @@ CASE1:
         expire_index: 1 #券到期提醒；0不提醒；1短信提醒
         credit_num: 1 #赠送积分
         is_select_coupon: 0 #是否奖励券,0选择,1不选择
-        is_select_credit: 0 #是否奖励积分;0选择,1不选择
+        is_select_credit: 1 #是否奖励积分;0选择,1不选择
         qs_index: 1 #问卷设置;0选择第一个
         push_index: 0 #问卷推送条件第一个
         push_amount: 50 #每满50元
