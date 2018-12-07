@@ -485,7 +485,7 @@ class BasePage:
         return st
 
 
-<<<<<<< HEAD
+
     def get_element_attribute(self, attr, *loc):
         """
         获取元素属性
@@ -546,7 +546,7 @@ class BasePage:
                 "arguments[0].attr({},{});".format(attr, val),
                 element[index]
             )
-=======
+
     def get_element_attribute(self, item, *loc):
         """获取元素属性"""
         ele = self.find_element(*loc)
@@ -578,8 +578,6 @@ class BasePage:
         except (NoSuchElementException, NameError) as ex:
             self.get_image #错误截图
             raise ex
->>>>>>> ycc
-
 
 if __name__ == "__main__":
     pass
