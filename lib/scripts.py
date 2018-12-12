@@ -165,13 +165,13 @@ def reply_case_fail(num=3):
             raise_info = None
             rnum = 0
             for _ in range(num):
-                rnum +=1
                 try:
                     ret = func(*args, **kwargs)
-                    if rnum > 2:
+                    if rnum > 1:
                         print('重试{}次成功'.format(rnum))
                     return ret
                 except Exception as ex:
+                    rnum += 1
                     raise_info = ex
             print('重试{}次,全部失败'.format(rnum))
             raise raise_info
@@ -211,7 +211,7 @@ def create_dir(path):
         os.makedirs(path)
 
 
-def genrandomstr(lenstr):
+def genrandomstr(lenstr=5):
     """
     随机产生数据
     :param lenstr: 需要字符串的长度,

@@ -71,10 +71,7 @@ class EmailClass(object):
     def sendEmail(self, message):
         """封装发送email方法"""
         try:
-            # try:
-            #     smtpObj = smtplib.SMTP()
-            #     smtpObj.connect(self.sender_server, 25)
-            # except smtplib.SMTPException as ex:
+
             smtpObj = smtplib.SMTP_SSL(self.sender_server, 465)
             smtpObj.connect(self.sender_server)
 

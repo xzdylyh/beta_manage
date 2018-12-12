@@ -18,7 +18,9 @@ from lib.scripts import (
     get_yaml_field,
     replay,
     hight_light_conf,
-    reply_case_fail
+    reply_case_fail,
+    genrandomstr,
+    get_data
 )
 
 
@@ -73,14 +75,14 @@ class BasePage:
         self.get_image
         return False
 
-
+    @reply_case_fail(num=3)
     def find_element(self, *loc):
         """
         在指定时间内，查找元素；否则抛出异常
         :param loc: 定位器
         :return: 元素 或 抛出异常
         """
-        timeout = 20
+        timeout = 10
         try:
             self.driver.implicitly_wait(timeout) #智能等待；超时设置
 
@@ -166,10 +168,10 @@ class BasePage:
         print('screenshot:', timestrmap, '.png')
 
 
-
+    @reply_case_fail(num=3)
     def find_elements(self, *loc):
         '''批量找标签'''
-        timeout = 20 #智能等待时间
+        timeout = 10 #智能等待时间
         try:
             self.driver.implicitly_wait(timeout) #智能等待；此贯穿self.driver整个生命周期
             elements = self.driver.find_elements(*loc)
@@ -377,7 +379,6 @@ class BasePage:
         )
 
 
-
     @replay
     def input_text(self, text, desc, *loc):
         """
@@ -389,13 +390,27 @@ class BasePage:
         :param loc:
         :return:
         """
-        print('Input{}:{}'.format(desc, text))
-        if str(text).strip().upper() == '%BLANK%':
-            self.clear_input_text(*loc)
-        elif str(text).strip().upper() == '%NONE%':
-            pass
+        var = get_data(gl.configFile,'CONFIG')
+        flag_conf = var['Custom_Var']
+        # 判断是自定义函数%%还是普通文本
+        if str(text).startswith('%') and str(text).endswith('%'):
+            flag = str(text)
+            #判断是自定义函数是否带参数
+            if ('(' in str(text)) and (')' in str(text)):
+
+                s = str(text).rsplit('(')
+                flag = '{}{}'.format(s[0],'%')
+
+                param = s[1].rsplit(')')[0]
+                #eval恢复函数原型并调用
+                eval(str(flag_conf[flag]).format(param))
+            else:
+                flag = str(text)
+                eval(flag_conf[flag])
         else:
             self.send_keys(text, *loc)
+
+
 
     @replay
     def input_text_index(self, desc, text ,index, *loc):
@@ -408,15 +423,26 @@ class BasePage:
         :return: 无
         """
         index = int(index)
-        print('Input{}:{}'.format(desc, text))
-        if str(text).strip().upper() == '%BLANK%':
-            self.clear_input_text(*loc)
-        elif str(text).strip().upper() == '%NONE%':
-            pass
+        var = get_data(gl.configFile,'CONFIG')
+        flag_conf = var['Custom_Var']
+        # 判断是自定义函数%%还是普通文本
+        if str(text).startswith('%') and str(text).endswith('%'):
+            flag = str(text)
+            #判断是自定义函数是否带参数
+            if ('(' in str(text)) and (')' in str(text)):
+
+                s = str(text).rsplit('(')
+                flag = '{}{}'.format(s[0],'%')
+
+                param = s[1].rsplit(')')[0]
+                #eval恢复函数原型并调用
+                eval(str(flag_conf[flag]).format(param))
+            else:
+                flag = str(text)
+                eval(flag_conf[flag])
         else:
             ele = self.find_elements(*loc)[index]
             ele.send_keys(text)
-
 
 
     @replay
@@ -580,4 +606,5 @@ class BasePage:
             raise ex
 
 if __name__ == "__main__":
-    pass
+    base = BasePage('', '', '')
+    base.input_text('%RND(5)%', '', '')

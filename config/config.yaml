@@ -23,7 +23,12 @@ CONFIG:
 
     Base_Url: http://manage.beta.acewill.net
 
+    Custom_Var:
 
+        "%BLANK%": "self.clear_input_text(*loc)"
+        "%NONE%": "pass"
+        "%RND%": "self.send_keys(genrandomstr({}).format(text), *loc)"
+        "%timestamp%": "int(time.time())"
 
 #发送测试报告,邮件配置
 EMAIL:

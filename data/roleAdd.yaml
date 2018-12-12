@@ -1,0 +1,10 @@
+
+
+CASE1:
+    -
+        role_name: "%RND(15)%"  #帐号名称
+        case_desc: "创建角色"  #case描述
+        page_title: "角色与权限 - 自动化测试专用" #标题
+        role_remark: "创建角色"  #备注
+        role_add: "创建角色" #创建角色按钮
+
