@@ -2,7 +2,7 @@
 
 CASE1:
     -
-        case_desc: "给生日会员赠券-正常流程" #case描述
+        case_desc: "给生日会员赠代金券-正常流程" #case描述
         page_title: "给生日会员赠券 - 自动化测试专用" #开卡关怀页标题
         activity_name: "自动化测试给生日会员赠券" #活动名称
         activity_status: "执行中" #活动状态
@@ -13,6 +13,17 @@ CASE1:
         start_time: "2019-11-12"  #活动开始时间
         end_time: "2029-11-13" #活动结束时间
         confirm_index: 1 #确认索引
-
+    -
+        case_desc: "给生日会员赠礼品券-正常流程" #case描述
+        page_title: "给生日会员赠券 - 自动化测试专用" #开卡关怀页标题
+        activity_name: "自动化测试给生日会员赠券" #活动名称
+        activity_status: "执行中" #活动状态
+        coupon_type: 1 #券类型；0代金券；1礼品券
+        coupon_index: 0 #选择券0第一张；1第二张，依此类推
+        remind_index: 1 #发券提醒；0不提醒；1短信提醒
+        expire_index: 1 #券到期提醒；0不提醒；1短信提醒
+        start_time: "2019-11-12"  #活动开始时间
+        end_time: "2029-11-13" #活动结束时间
+        confirm_index: 1 #确认索引
 
 

@@ -1,7 +1,7 @@
 
 CASE1:
     -
-        case_desc: "给新会员赠券－正常流程" #CASE描述
+        case_desc: "给新会员赠代金券－正常流程" #CASE描述
         Title: "给新会员赠券 - 自动化测试专用" #标题
         activiy_name: "给新会员赠券" #活动名称
         coupon_type: 0 #券类型；0代金券；1礼品券
@@ -14,7 +14,20 @@ CASE1:
         activity_status: "尚未执行" #活动状态
         button_index: 1 #确认按钮索引；1为提交确认
         delete_sbtn: 0 #删除确认按钮索引；0为删除索引
-
+    -
+        case_desc: "给新会员赠礼品券－正常流程" #CASE描述
+        Title: "给新会员赠券 - 自动化测试专用" #标题
+        activiy_name: "给新会员赠券" #活动名称
+        coupon_type: 1 #券类型；0代金券；1礼品券
+        used_index: 0 #使用券；0第一张；1第二张；依此类推
+        remind_index: 0 #发券提醒;0不提醒；1短信提醒
+        expire_index: 0 #券到期提醒；0不提醒；1短信提醒
+        start_date: "2030-11-26" #发券日期
+        start_time: "17:00" #发券时间
+        activity_msg: 0 #群发活动消息；0不发送；1发送提醒消息
+        activity_status: "尚未执行" #活动状态
+        button_index: 1 #确认按钮索引；1为提交确认
+        delete_sbtn: 0 #删除确认按钮索引；0为删除索引
 
 
 

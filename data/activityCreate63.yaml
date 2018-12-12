@@ -2,7 +2,7 @@
 
 CASE1:
     -
-        case_desc: "膨胀红包-正常流程" #case描述
+        case_desc: "膨胀红包代金券-正常流程" #case描述
         title: "膨胀红包 - 自动化测试专用"
         activity_name: "砍砍砍小活动" #活动名称
         activity_stime: "2020-11-08 15:23:13" #活动开始时间2018-11-07 15:23:13
@@ -54,5 +54,6 @@ CASE1:
         share_title: "请你嗨吃一顿" #小程序共享标题
         upload8: 8 #小程序分享图片上传
         delete_index: 0 #删除 0第一条，1第二条，以此类推
+
 
 

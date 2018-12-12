@@ -117,20 +117,20 @@ function html_escape(s) {
 <div class='heading'>
 <h4 style="font-family: Microsoft YaHei">UI自动化测试报告</h4>
 <p class='attribute'><strong>测试人员 : </strong> yhleng</p>
-<p class='attribute'><strong>开始时间 : </strong> 2018-12-12 14:25:22</p>
-<p class='attribute'><strong>合计耗时 : </strong> 0:00:15.600697</p>
-<p class='attribute'><strong>测试结果 : </strong> 共 1，通过 1，通过率= 100.00%</p>
+<p class='attribute'><strong>开始时间 : </strong> 2018-12-12 15:30:32</p>
+<p class='attribute'><strong>合计耗时 : </strong> 0:01:31.284919</p>
+<p class='attribute'><strong>测试结果 : </strong> 共 2，通过 1，错误 1，通过率= 50.00%</p>
 
 <p class='description'>详细测试用例结果</p>
 </div>
 
 
 <p id='show_detail_line'>
-<a class="btn btn-primary" href='javascript:showCase(0)'>概要{ 100.00% }</a>
-<a class="btn btn-warning" href='javascript:showCase(4)'>错误{ 0 }</a>
+<a class="btn btn-primary" href='javascript:showCase(0)'>概要{ 50.00% }</a>
+<a class="btn btn-warning" href='javascript:showCase(4)'>错误{ 1 }</a>
 <a class="btn btn-danger" href='javascript:showCase(1)'>失败{ 0 }</a>
 <a class="btn btn-success" href='javascript:showCase(2)'>通过{ 1 }</a>
-<a class="btn btn-info" href='javascript:showCase(3)'>所有{ 1 }</a>
+<a class="btn btn-info" href='javascript:showCase(3)'>所有{ 2 }</a>
 </p>
 <table id='result_table' class="table table-condensed table-bordered table-hover">
 <colgroup>
@@ -152,13 +152,13 @@ function html_escape(s) {
     <td>截图</td>
 </tr>
 
-<tr class='passClass warning'>
-    <td>TestRoleAdd: 积分排行</td>
-    <td class="text-center">1</td>
+<tr class='errorClass warning'>
+    <td>TestActivityCreate63: 膨胀红包</td>
+    <td class="text-center">2</td>
     <td class="text-center">1</td>
     <td class="text-center">0</td>
-    <td class="text-center">0</td>
-    <td class="text-center"><a href="javascript:showClassDetail('c1',1)" class="detail" id='c1'>详细</a></td>
+    <td class="text-center">1</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c1',2)" class="detail" id='c1'>详细</a></td>
     <td class="text-center">Assert or Error Image</td>
 </tr>
 
@@ -173,20 +173,135 @@ function html_escape(s) {
     <div id='div_pt1_1' class="collapse in">
     <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:600px; margin:auto; border:1px solid #e1e1e1;">
     
-pt1_1: ========★创建角色★========
-screenshot: 20181212_14.25.29 .png
-screenshot: 20181212_14.25.30 .png
-Click:选择全部('id', 'allchecked')
+pt1_1: ========★膨胀红包代金券-正常流程★========
+screenshot: 20181212_15.30.40 .png
+screenshot: 20181212_15.30.41 .png
+Clicks:上传('css selector', "div.upload-step-one &gt; div &gt; input[type='file']")
+Clicks:添加券('id', 'dropdownCoupon')
+Clicks:券类型('link text', '代金券')
+Clicks:使用('link text', '使用')
+Clicks:上传('css selector', "div.upload-step-one &gt; div &gt; input[type='file']")
+Clicks:上传('css selector', "div.upload-step-one &gt; div &gt; input[type='file']")
+Clicks:添加券('id', 'dropdownCoupon')
+Clicks:券类型('link text', '代金券')
+Clicks:使用('link text', '使用')
+Clicks:上传('css selector', "div.upload-step-one &gt; div &gt; input[type='file']")
+Clicks:上传('css selector', "div.upload-step-one &gt; div &gt; input[type='file']")
+Clicks:添加券('id', 'dropdownCoupon')
+Clicks:券类型('link text', '代金券')
+Clicks:使用('link text', '使用')
+Clicks:上传('css selector', "div.upload-step-one &gt; div &gt; input[type='file']")
+Clicks:上传('css selector', "div.upload-step-one &gt; div &gt; input[type='file']")
+Click:文字及按钮颜色('xpath', "//input[@name='title_color']/../ul[1]/li[2]")
+Clicks:上传('css selector', "div.upload-step-one &gt; div &gt; input[type='file']")
+Clicks:上传('css selector', "div.upload-step-one &gt; div &gt; input[type='file']")
 Click:保存('xpath', "//button[contains(text(),'保存')]")
-screenshot: 20181212_14.25.35 .png
+screenshot: 20181212_15.31.08 .png
+Clicks:删除('link text', '删除')
+Click:确认('xpath', "//button[contains(text(),'确认')]")
 
 
     </pre>
     </div>
     </td>
     <td align="right">
-        <a  href="./images/20181212_14.25.35.png">
-            <img   src="./images/20181212_14.25.35.png" height="200px" width="400px"/>
+        <a  href="./images/20181212_15.31.08.png">
+            <img   src="./images/20181212_15.31.08.png" height="200px" width="400px"/>
+        </a>
+    </td>
+</tr>
+
+
+
+<tr id='ft1_2' class='none'>
+    <td class='errorCase' width='300px'><div class='testcase'>testCase1_2</div></td>
+    <td colspan='5' align='left' width='600px'> <!--print 输出框位置-->
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_ft1_2' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_ft1_2'>错误</button>
+    <div id='div_ft1_2' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_ft1_2' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_ft1_2'>错误</button>
+    <div id='div_ft1_2' class="collapse in">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:600px; margin:auto; border:1px solid #e1e1e1;">
+    
+ft1_2: ========★膨胀红包代金组合券-正常流程★========
+screenshot: 20181212_15.31.11 .png
+screenshot: 20181212_15.31.11 .png
+Clicks:上传('css selector', "div.upload-step-one &gt; div &gt; input[type='file']")
+Clicks:添加券('id', 'dropdownCoupon')
+Clicks:券类型('link text', '代金券')
+Clicks:使用('link text', '使用')
+Clicks:上传('css selector', "div.upload-step-one &gt; div &gt; input[type='file']")
+Clicks:上传('css selector', "div.upload-step-one &gt; div &gt; input[type='file']")
+Clicks:添加券('id', 'dropdownCoupon')
+Clicks:券类型('link text', '礼品券')
+Clicks:使用('link text', '使用')
+Clicks:上传('css selector', "div.upload-step-one &gt; div &gt; input[type='file']")
+Clicks:上传('css selector', "div.upload-step-one &gt; div &gt; input[type='file']")
+Clicks:添加券('id', 'dropdownCoupon')
+Clicks:券类型('link text', '礼品券')
+Clicks:使用('link text', '使用')
+========★膨胀红包代金组合券-正常流程★========
+screenshot: 20181212_15.31.27 .png
+screenshot: 20181212_15.31.28 .png
+Clicks:上传('css selector', "div.upload-step-one &gt; div &gt; input[type='file']")
+Clicks:添加券('id', 'dropdownCoupon')
+Clicks:券类型('link text', '代金券')
+Clicks:使用('link text', '使用')
+Clicks:上传('css selector', "div.upload-step-one &gt; div &gt; input[type='file']")
+Clicks:上传('css selector', "div.upload-step-one &gt; div &gt; input[type='file']")
+Clicks:添加券('id', 'dropdownCoupon')
+Clicks:券类型('link text', '礼品券')
+Clicks:使用('link text', '使用')
+Clicks:上传('css selector', "div.upload-step-one &gt; div &gt; input[type='file']")
+Clicks:上传('css selector', "div.upload-step-one &gt; div &gt; input[type='file']")
+Clicks:添加券('id', 'dropdownCoupon')
+Clicks:券类型('link text', '礼品券')
+Clicks:使用('link text', '使用')
+========★膨胀红包代金组合券-正常流程★========
+screenshot: 20181212_15.31.44 .png
+screenshot: 20181212_15.31.45 .png
+Clicks:上传('css selector', "div.upload-step-one &gt; div &gt; input[type='file']")
+Clicks:添加券('id', 'dropdownCoupon')
+Clicks:券类型('link text', '代金券')
+Clicks:使用('link text', '使用')
+Clicks:上传('css selector', "div.upload-step-one &gt; div &gt; input[type='file']")
+Clicks:上传('css selector', "div.upload-step-one &gt; div &gt; input[type='file']")
+Clicks:添加券('id', 'dropdownCoupon')
+Clicks:券类型('link text', '礼品券')
+Clicks:使用('link text', '使用')
+Clicks:上传('css selector', "div.upload-step-one &gt; div &gt; input[type='file']")
+Clicks:上传('css selector', "div.upload-step-one &gt; div &gt; input[type='file']")
+Clicks:添加券('id', 'dropdownCoupon')
+Clicks:券类型('link text', '礼品券')
+Clicks:使用('link text', '使用')
+重试3次,全部失败
+Traceback (most recent call last):
+  File "D:\python36\lib\site-packages\ddt.py", line 144, in wrapper
+    return func(self, *args, **kwargs)
+  File "D:\beta_manage\lib\scripts.py", line 177, in warpper
+    raise raise_info
+  File "D:\beta_manage\lib\scripts.py", line 169, in warpper
+    ret = func(*args, **kwargs)
+  File "D:/beta_manage/testCase/testActivityCreate63.py", line 139, in testCase1
+    upload1=data['upload3_3'] #上传2,奖品一
+  File "D:/beta_manage/testCase/testActivityCreate63.py", line 50, in prize_set
+    self.ac.click_used(data['used_index'])
+  File "D:\beta_manage\pages\activityCreate63Page.py", line 158, in click_used
+    *(self.coupon_used_loc)
+  File "D:\beta_manage\lib\scripts.py", line 94, in wrapper
+    func(*args, **kwargs)
+  File "D:\beta_manage\base\basepage.py", line 472, in click_btn_index
+    ele = self.find_elements(*loc)[int(index)]
+IndexError: list index out of range
+
+
+    </pre>
+    </div>
+    </td>
+    <td align="right">
+        <a  href="./images/20181212_15.31.45.png">
+            <img   src="./images/20181212_15.31.45.png" height="200px" width="400px"/>
         </a>
     </td>
 </tr>
@@ -195,11 +310,11 @@ screenshot: 20181212_14.25.35 .png
 
 <tr id='total_row' class="text-center active">
     <td>总计</td>
-    <td>1</td>
+    <td>2</td>
     <td>1</td>
     <td>0</td>
-    <td>0</td>
-    <td>通过率：100.00%</td>
+    <td>1</td>
+    <td>通过率：50.00%</td>
     <td> <a href="" target="_blank"></a></td>
 </tr>
 </table>

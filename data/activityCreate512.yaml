@@ -2,13 +2,28 @@
 
 CASE1:
     -
-        case_desc: "消费返券-正常流程" #case描述
+        case_desc: "消费返代金券-正常流程" #case描述
         page_title: "消费返券 - 自动化测试专用" #开卡关怀页标题
         activity_name: "自动化测试消费返券" #活动名称
         amount: 50 #赠券设置，单笔消费满xx元
         ret_index: 0 #返券设置;0循环赠送；1当次消费仅赠送一次
         cash_index: 0 #奖励范围；0现金消费；1现金储值消费
         coupon_type: 0 #券类型；0代金券；1礼品券
+        coupon_index: 0 #选择券0第一张；1第二张，依此类推
+        remind_index: 1 #发券提醒；0不提醒；1短信提醒
+        expire_index: 1 #券到期提醒；0不提醒；1短信提醒
+        start_time: "2019-11-12"  #活动开始时间
+        end_time: "2019-11-13" #活动结束时间
+        activity_desc: "消费返券" #活动说明
+        activity_status: "尚未执行" #活动状态
+    -
+        case_desc: "消费返礼品券-正常流程" #case描述
+        page_title: "消费返券 - 自动化测试专用" #开卡关怀页标题
+        activity_name: "自动化测试消费返券" #活动名称
+        amount: 50 #赠券设置，单笔消费满xx元
+        ret_index: 0 #返券设置;0循环赠送；1当次消费仅赠送一次
+        cash_index: 0 #奖励范围；0现金消费；1现金储值消费
+        coupon_type: 1 #券类型；0代金券；1礼品券
         coupon_index: 0 #选择券0第一张；1第二张，依此类推
         remind_index: 1 #发券提醒；0不提醒；1短信提醒
         expire_index: 1 #券到期提醒；0不提醒；1短信提醒
