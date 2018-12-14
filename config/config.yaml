@@ -26,11 +26,11 @@ CONFIG:
     Custom_Var:
 
         "%BLANK%": "self.clear_input_text(*loc)"
-<<<<<<< HEAD
+
         "%NONE%": "None"
-=======
+
         "%NONE%": "pass"
->>>>>>> ycc
+
         "%RND%": "self.send_keys(genrandomstr({}).format(text), *loc)"
         "%timestamp%": "int(time.time())"
 
