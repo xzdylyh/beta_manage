@@ -31,7 +31,7 @@ class TestCardCategory(unittest.TestCase):
         # pass
 
     @ddt.data(*get_data('cardCategory', 'CASE1'))
-    @reply_case_fail(num=1)
+    @reply_case_fail(num=3)
     def testcase1(self, data):
         """添加卡类别"""
         print('========★{}★========'.format(data['case_desc']))  # case描述

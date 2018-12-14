@@ -7,7 +7,8 @@ from lib.scripts import (
     select_Browser_WebDriver,
     reply_case_fail,
     get_data,
-    genrandomstr
+    genrandomstr,
+    join_url
 )
 from lib import (
     gl,
@@ -22,7 +23,7 @@ class TestCreditIndex(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.driver = select_Browser_WebDriver()
-        cls.url = "http://manage.beta.acewill.net/credit/index"
+        cls.url = join_url('/credit/index')
         cls.url_ = ""
 
     @classmethod
@@ -31,7 +32,7 @@ class TestCreditIndex(unittest.TestCase):
         # pass
 
     @ddt.data(*get_data('creditIndexPage', 'CASE1'))
-    @reply_case_fail(num=1)
+    @reply_case_fail(num=3)
     def testcase1(self, data):
         """积分修改"""
         print('========★{}★========'.format(data['case_desc']))  # case描述

@@ -7,7 +7,8 @@ from pages.chargeListModifyPage import ChargeListModify
 from lib.scripts import (
     select_Browser_WebDriver,
     reply_case_fail,
-    get_data
+    get_data,
+    join_url
 )
 from lib import (
     gl,
@@ -21,7 +22,7 @@ class TestChargeListShopPage(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.driver = select_Browser_WebDriver()
-        cls.url = 'http://manage.beta.acewill.net/charge/edit?type=shop'  # 门店规则入口
+        cls.url = join_url('/charge/edit?type=shop')  # 门店规则入口
         cls.url_s = ''  # 保存成功页面url，默认为空
         cls.url_m = ''  # 保存储值规则修改页面url，默认为空
 

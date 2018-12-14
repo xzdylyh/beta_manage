@@ -7,7 +7,8 @@ from lib.scripts import (
     select_Browser_WebDriver,
     reply_case_fail,
     get_data,
-    genrandomstr
+    genrandomstr,
+    join_url
 )
 from lib import (
     gl,
@@ -21,7 +22,7 @@ class TestChargelicense(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.driver = select_Browser_WebDriver()
-        cls.url = "http://manage.beta.acewill.net/chargelicense/list"  # 储值授信入口
+        cls.url = join_url('/chargelicense/list')  # 储值授信入口
         cls.url_ = ""
 
     @classmethod
@@ -30,7 +31,7 @@ class TestChargelicense(unittest.TestCase):
         #  pass
 
     @ddt.data(*get_data('chargelicenseListPage', 'CASE1'))
-    @reply_case_fail(num=1)
+    @reply_case_fail(num=3)
     def testcase1(self, data):
         """储值授信修改_增加"""
         print('========★{}★========'.format(data['case_desc']))  # case描述
