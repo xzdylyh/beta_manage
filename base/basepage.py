@@ -390,6 +390,7 @@ class BasePage:
         :param loc:
         :return:
         """
+        print('Input{}:{}'.format(desc, text))
         var = get_data(gl.configFile,'CONFIG')
         flag_conf = var['Custom_Var']
         # 判断是自定义函数%%还是普通文本
@@ -422,6 +423,7 @@ class BasePage:
         :param loc: 定位器
         :return: 无
         """
+        print('Input{}:{}'.format(desc, text))
         index = int(index)
         var = get_data(gl.configFile,'CONFIG')
         flag_conf = var['Custom_Var']

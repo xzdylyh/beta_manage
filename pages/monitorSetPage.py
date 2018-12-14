@@ -92,7 +92,6 @@ class MonitorSet(BasePage):
             kwargs['iselect'] = True
 
         pro = self.get_element_attribute('class', *loc)
-        print(pro)
         if ((not 'checked' in pro) and kwargs['iselect']) or \
                 (('checked' in pro) and not kwargs['iselect']):
             self.click_button(
@@ -147,11 +146,11 @@ class MonitorSet(BasePage):
         )
 
     def select_consume_week(self, amount, select_index=0, bool=True):
-        """单卡单笔消费金额"""
+        """单卡周累计消费金额超过"""
         self._set_option(
             checkbox_loc=self.monitor_week_loc,
             iselect=bool,
-            desc='消费金额-单卡日累计消费金额超过',
+            desc='消费金额-单卡周累计消费金额超过',
             amount=amount,
             select_index=select_index,
             input_loc=self.consume_amountweek_loc,
