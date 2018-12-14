@@ -20,8 +20,15 @@ CONFIG:
 
     #浏览器 <Chrome 或 Firefox>
     Browser:  Chrome
-    Base_Url: "http://manage.beta.acewill.net"
 
+    Base_Url: http://manage.beta.acewill.net
+
+    Custom_Var:
+
+        "%BLANK%": "self.clear_input_text(*loc)"
+        "%NONE%": "pass"
+        "%RND%": "self.send_keys(genrandomstr({}).format(text), *loc)"
+        "%timestamp%": "int(time.time())"
 
 #发送测试报告,邮件配置
 EMAIL:
@@ -30,7 +37,7 @@ EMAIL:
     Password: YHleng870120
     Msg_Title: Beta商家后台-UI自动化测试结果
     Receivers: ['lengyaohui@163.com']  #收件人
-    #Receivers: ['lengyaohui@163.com','wangyan.bj@acewill.cn','cch@acewill.cn','gzx@acewill.cn','huxl@acewill.cn','jtt@acewill.cn','maming@acewill.cn'] #收件人
+    #Receivers: ['lengyaohui@163.com','yechangchun.bj@acewill.cn','wangyan.bj@acewill.cn','cch@acewill.cn','gzx@acewill.cn','huxl@acewill.cn','jtt@acewill.cn','maming@acewill.cn'] #收件人
     From: 自动化测试系统
     To: 微生活测试组
 

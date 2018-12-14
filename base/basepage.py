@@ -17,7 +17,10 @@ from lib import gl
 from lib.scripts import (
     get_yaml_field,
     replay,
-    hight_light_conf
+    hight_light_conf,
+    reply_case_fail,
+    genrandomstr,
+    get_data
 )
 
 
@@ -72,14 +75,14 @@ class BasePage:
         self.get_image
         return False
 
-
+    @reply_case_fail(num=3)
     def find_element(self, *loc):
         """
         在指定时间内，查找元素；否则抛出异常
         :param loc: 定位器
         :return: 元素 或 抛出异常
         """
-        timeout = 20
+        timeout = 10
         try:
             self.driver.implicitly_wait(timeout) #智能等待；超时设置
 
@@ -165,10 +168,10 @@ class BasePage:
         print('screenshot:', timestrmap, '.png')
 
 
-
+    @reply_case_fail(num=3)
     def find_elements(self, *loc):
         '''批量找标签'''
-        timeout = 20 #智能等待时间
+        timeout = 10 #智能等待时间
         try:
             self.driver.implicitly_wait(timeout) #智能等待；此贯穿self.driver整个生命周期
             elements = self.driver.find_elements(*loc)
@@ -376,7 +379,6 @@ class BasePage:
         )
 
 
-
     @replay
     def input_text(self, text, desc, *loc):
         """
@@ -389,12 +391,27 @@ class BasePage:
         :return:
         """
         print('Input{}:{}'.format(desc, text))
-        if str(text).strip().upper() == '%BLANK%':
-            self.clear_input_text(*loc)
-        elif str(text).strip().upper() == '%NONE%':
-            pass
+        var = get_data(gl.configFile,'CONFIG')
+        flag_conf = var['Custom_Var']
+        # 判断是自定义函数%%还是普通文本
+        if str(text).startswith('%') and str(text).endswith('%'):
+            flag = str(text)
+            #判断是自定义函数是否带参数
+            if ('(' in str(text)) and (')' in str(text)):
+
+                s = str(text).rsplit('(')
+                flag = '{}{}'.format(s[0],'%')
+
+                param = s[1].rsplit(')')[0]
+                #eval恢复函数原型并调用
+                eval(str(flag_conf[flag]).format(param))
+            else:
+                flag = str(text)
+                eval(flag_conf[flag])
         else:
             self.send_keys(text, *loc)
+
+
 
     @replay
     def input_text_index(self, desc, text ,index, *loc):
@@ -406,16 +423,28 @@ class BasePage:
         :param loc: 定位器
         :return: 无
         """
-        index = int(index)
         print('Input{}:{}'.format(desc, text))
-        if str(text).strip().upper() == '%BLANK%':
-            self.clear_input_text(*loc)
-        elif str(text).strip().upper() == '%NONE%':
-            pass
+        index = int(index)
+        var = get_data(gl.configFile,'CONFIG')
+        flag_conf = var['Custom_Var']
+        # 判断是自定义函数%%还是普通文本
+        if str(text).startswith('%') and str(text).endswith('%'):
+            flag = str(text)
+            #判断是自定义函数是否带参数
+            if ('(' in str(text)) and (')' in str(text)):
+
+                s = str(text).rsplit('(')
+                flag = '{}{}'.format(s[0],'%')
+
+                param = s[1].rsplit(')')[0]
+                #eval恢复函数原型并调用
+                eval(str(flag_conf[flag]).format(param))
+            else:
+                flag = str(text)
+                eval(flag_conf[flag])
         else:
             ele = self.find_elements(*loc)[index]
             ele.send_keys(text)
-
 
 
     @replay
@@ -484,15 +513,68 @@ class BasePage:
         return st
 
 
-    def get_element_attribute(self, item, *loc):
-        """获取元素属性"""
+
+    def get_element_attribute(self, attr, *loc):
+        """
+        获取元素属性
+        :param attr: 属性
+        :param loc: 定位
+        :return: 无
+        """
         ele = self.find_element(*loc)
         try:
-            att = ele.get_attribute(item)
+            att = ele.get_attribute(attr)
         except Exception as ex:
-            print('属性错误:{}'.format(item))
+            print('属性错误:{}'.format(attr))
             raise ex
         return att
+
+
+    def set_element_attribute(self,attr, val ,*loc):
+        """
+        设置元素属性值,适用于元素唯一
+        :param attr: 元素属性名称如:class
+        :param val: 元素属性值
+        :param loc: 定位
+        :return: 无
+        """
+        element = self.find_element(*loc)
+        self.driver.execute_script(
+            "arguments[0].attr({},{});".format(attr, val),
+            element
+        )
+
+    def del_element_attribute(self, attr, *loc):
+
+        element = self.find_element(*loc)
+        self.driver.execute_script(
+            "arguments[0].removeAttribute({});".format(attr),
+            element
+        )
+
+    def set_elements_attribute(self,attr, val ,index ,*loc):
+        """
+        设置元素属性
+        :param attr: 元素属性名如:class
+        :param val: 元素属性值
+        :param index: 元素索引,为1000时代表全部设置
+        :param loc: 元素定位
+        :return: 无
+        """
+        index = int(index)
+        element = self.find_elements(*loc)
+        if index == 1000:
+            for ele in element:
+                self.driver.execute_script(
+                    "arguments[0].attr({},{});".format(attr, val),
+                    ele
+                )
+        else:
+            self.driver.execute_script(
+                "arguments[0].attr({},{});".format(attr, val),
+                element[index]
+            )
+
 
     def get_index_text(self, txt_name, index, *loc):
         """
@@ -501,11 +583,11 @@ class BasePage:
         :param loc: #定位器
         :return: 属性值 或 raise
         """
-        timeout = 20
+        timeout = 10
         try:
             self.driver.implicitly_wait(timeout)
 
-            element = self.find_element(*loc)[int(index)]
+            element = self.find_elements(*loc)[int(index)]
             self.hightlight(element) #高亮显示
 
             #获取属性
@@ -517,5 +599,24 @@ class BasePage:
             raise ex
 
 
+    def get_attribute_index(self, attr, index,*loc):
+        """
+        获取元素属性
+        :param attr: 属性
+        :param loc: 定位
+        :return: 无
+        """
+        ele = self.find_elements(*loc)[int(index)]
+        try:
+            att = ele.get_attribute(attr)
+        except Exception as ex:
+            print('属性错误:{}'.format(attr))
+            raise ex
+        return att
+
+
+
+
 if __name__ == "__main__":
-    pass
+    base = BasePage('', '', '')
+    base.input_text('%RND(5)%', '', '')

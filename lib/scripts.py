@@ -220,7 +220,7 @@ def genrandomstr(lenstr):
     strs = "".join(random.choice(string.ascii_letters + string.digits)
                    for _ in range(lenstr)
                    )
-    return str
+    return strs
 
 
 def join_url(url):
@@ -244,7 +244,7 @@ def join_url(url):
 
 if __name__ == "__main__":
     # stra = genrandomstr(20)
-    # print(stra)
+    # print(type(stra))
     url = join_url('/activity/create/1024')
     print(url)
 

@@ -8,7 +8,8 @@ from lib.scripts import (
     select_Browser_WebDriver,
     reply_case_fail,
     get_data,
-    genrandomstr
+    genrandomstr,
+    join_url
 )
 from lib import (
     gl,
@@ -23,7 +24,7 @@ class TestValuecardList(unittest.TestCase):
     @classmethod
     def setUpClass(cls):
         cls.driver = select_Browser_WebDriver()
-        cls.url = "http://manage.beta.acewill.net/valuecard/list"  # 储值卡入口
+        cls.url = join_url('/valuecard/list')  # 储值卡入口
         cls.url_s = ""
 
     @classmethod
@@ -32,7 +33,7 @@ class TestValuecardList(unittest.TestCase):
         # pass
 
     @ddt.data(*get_data('valuecardListPage', 'CASE1'))
-    @reply_case_fail(num=1)
+    @reply_case_fail(num=3)
     def testcase1(self, data):
         """创建储值卡--永久有效"""
         print('========★{}★========'.format(data['case_desc']))  # case描述
@@ -63,6 +64,7 @@ class TestValuecardList(unittest.TestCase):
         self.slist = ChargeListSusscess(self.url_s, self.driver, data['title'])
         self.slist.clickBcakBtn()
         # 断言是否成功创建储值卡
+        sleep(2)
         self.assertEqual(self.vlist.get_successNameText(), card_name)
 
 

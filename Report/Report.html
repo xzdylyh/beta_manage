@@ -117,9 +117,9 @@ function html_escape(s) {
 <div class='heading'>
 <h4 style="font-family: Microsoft YaHei">UI自动化测试报告</h4>
 <p class='attribute'><strong>测试人员 : </strong> yecc</p>
-<p class='attribute'><strong>开始时间 : </strong> 2018-12-07 11:21:01</p>
-<p class='attribute'><strong>合计耗时 : </strong> 0:00:40.538345</p>
-<p class='attribute'><strong>测试结果 : </strong> 共 2，通过 2，通过率= 100.00%</p>
+<p class='attribute'><strong>开始时间 : </strong> 2018-12-14 15:50:20</p>
+<p class='attribute'><strong>合计耗时 : </strong> 0:00:11.635502</p>
+<p class='attribute'><strong>测试结果 : </strong> 共 1，通过 1，通过率= 100.00%</p>
 
 <p class='description'>详细测试用例结果</p>
 </div>
@@ -129,8 +129,8 @@ function html_escape(s) {
 <a class="btn btn-primary" href='javascript:showCase(0)'>概要{ 100.00% }</a>
 <a class="btn btn-warning" href='javascript:showCase(4)'>错误{ 0 }</a>
 <a class="btn btn-danger" href='javascript:showCase(1)'>失败{ 0 }</a>
-<a class="btn btn-success" href='javascript:showCase(2)'>通过{ 2 }</a>
-<a class="btn btn-info" href='javascript:showCase(3)'>所有{ 2 }</a>
+<a class="btn btn-success" href='javascript:showCase(2)'>通过{ 1 }</a>
+<a class="btn btn-info" href='javascript:showCase(3)'>所有{ 1 }</a>
 </p>
 <table id='result_table' class="table table-condensed table-bordered table-hover">
 <colgroup>
@@ -153,12 +153,12 @@ function html_escape(s) {
 </tr>
 
 <tr class='passClass warning'>
-    <td>TestCardCategory: 卡类别管理</td>
-    <td class="text-center">2</td>
-    <td class="text-center">2</td>
+    <td>TestRegionIndex: 区域设置</td>
+    <td class="text-center">1</td>
+    <td class="text-center">1</td>
     <td class="text-center">0</td>
     <td class="text-center">0</td>
-    <td class="text-center"><a href="javascript:showClassDetail('c1',2)" class="detail" id='c1'>详细</a></td>
+    <td class="text-center"><a href="javascript:showClassDetail('c1',1)" class="detail" id='c1'>详细</a></td>
     <td class="text-center">Assert or Error Image</td>
 </tr>
 
@@ -173,78 +173,23 @@ function html_escape(s) {
     <div id='div_pt1_1' class="collapse in">
     <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:600px; margin:auto; border:1px solid #e1e1e1;">
     
-pt1_1: ========★会员卡管理-卡类别设置-普通会员卡★========
-screenshot: 20181207_11.21.06 .png
-screenshot: 20181207_11.21.07 .png
-Click:添加卡类别('link text', '添加卡类别')
-Clicks:卡类别属性('xpath', "//input[@name='attribute']/..")
-Input卡类别名称:普通会员卡自动化
-Clicks:卡面样式('xpath', "//input[@name='cardType']/..")
-Clicks:卡面名称使用('xpath', "//input[@name='cardName']/..")
-Clicks:储值('xpath', "//input[@name='stored']/..")
-Click:('xpath', "//button[@data-toggle='popover.confirm.submit']")
-Clicks:积分('xpath', "//input[@name='point']/..")
-Click:('xpath', "//button[@data-toggle='popover.confirm.submit']")
-Input会员价:80
-Input积分特权,每消费现金:9
-Input积分特权:无限使用
-Click:确定('xpath', "//button[@type='submit']")
-screenshot: 20181207_11.21.22 .png
-Clicks:删除('link text', '删除')
-Click:确认('xpath', "//button[@data-url='/cardcategory/remove']")
+pt1_1: ========★区域设置★========
+screenshot: 20181214_15.50.25 .png
+screenshot: 20181214_15.50.26 .png
+Click:添加一级('link text', '添加一级')
+Input区域名称:自动化测试
+Click:保存('xpath', "//button[contains(text(),'保存')]")
+screenshot: 20181214_15.50.28 .png
+Click:删除('xpath', "//a[@class='act delete_area']")
+Click:确定('xpath', "//button[@class='btn btn-primary we-btn submit']")
 
 
     </pre>
     </div>
     </td>
     <td align="right">
-        <a  href="./images/20181207_11.21.22.png">
-            <img   src="./images/20181207_11.21.22.png" height="200px" width="400px"/>
-        </a>
-    </td>
-</tr>
-
-
-
-<tr id='pt1_2' class='hiddenRow'>
-    <td class='passCase' width='300px'><div class='testcase'>testcase1_2</div></td>
-    <td colspan='5' align='left' width='600px'> <!--print 输出框位置-->
-    <!--默认收起错误信息 -Findyou
-    <button id='btn_pt1_2' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_2'>通过</button>
-    <div id='div_pt1_2' class="collapse">  -->
-    <!-- 默认展开错误信息 -Findyou -->
-    <button id='btn_pt1_2' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt1_2'>通过</button>
-    <div id='div_pt1_2' class="collapse in">
-    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:600px; margin:auto; border:1px solid #e1e1e1;">
-    
-pt1_2: ========★会员卡管理-卡类别设置-普通会员卡★========
-screenshot: 20181207_11.21.24 .png
-screenshot: 20181207_11.21.25 .png
-Click:添加卡类别('link text', '添加卡类别')
-Clicks:卡类别属性('xpath', "//input[@name='attribute']/..")
-Input卡类别名称:普通会员卡自动化
-Clicks:卡面样式('xpath', "//input[@name='cardType']/..")
-Click:上传('xpath', "//div[@data-section='face']//div[@class='we-file file-sm']")
-Clicks:卡面名称使用('xpath', "//input[@name='cardName']/..")
-Clicks:储值('xpath', "//input[@name='stored']/..")
-Click:('xpath', "//button[@data-toggle='popover.confirm.submit']")
-Clicks:积分('xpath', "//input[@name='point']/..")
-Click:('xpath', "//button[@data-toggle='popover.confirm.submit']")
-Input会员价:80
-Input积分特权,每消费现金:100
-Input积分特权:无限使用
-Click:确定('xpath', "//button[@type='submit']")
-screenshot: 20181207_11.21.40 .png
-Clicks:删除('link text', '删除')
-Click:确认('xpath', "//button[@data-url='/cardcategory/remove']")
-
-
-    </pre>
-    </div>
-    </td>
-    <td align="right">
-        <a  href="./images/20181207_11.21.40.png">
-            <img   src="./images/20181207_11.21.40.png" height="200px" width="400px"/>
+        <a  href="./images/20181214_15.50.28.png">
+            <img   src="./images/20181214_15.50.28.png" height="200px" width="400px"/>
         </a>
     </td>
 </tr>
@@ -253,8 +198,8 @@ Click:确认('xpath', "//button[@data-url='/cardcategory/remove']")
 
 <tr id='total_row' class="text-center active">
     <td>总计</td>
-    <td>2</td>
-    <td>2</td>
+    <td>1</td>
+    <td>1</td>
     <td>0</td>
     <td>0</td>
     <td>通过率：100.00%</td>
