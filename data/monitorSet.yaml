@@ -1,0 +1,8 @@
+CASE1:
+    -
+        case_desc: "异常交易监控设置－正常流程" #CASE描述
+        page_title: "异常交易监控 - 自动化测试专用" #标题
+        #单卡单笔消费金额超过
+        single_amount: 1 #单笔金额
+        select_index: 0 #锁定项0为不锁定；1为锁定
+        lock_bool: "True" #复选框选择

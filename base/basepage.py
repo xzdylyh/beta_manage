@@ -573,15 +573,6 @@ class BasePage:
                 element[index]
             )
 
-    def get_element_attribute(self, item, *loc):
-        """获取元素属性"""
-        ele = self.find_element(*loc)
-        try:
-            att = ele.get_attribute(item)
-        except Exception as ex:
-            print('属性错误:{}'.format(item))
-            raise ex
-        return att
 
     def get_index_text(self, txt_name, index, *loc):
         """
@@ -590,11 +581,11 @@ class BasePage:
         :param loc: #定位器
         :return: 属性值 或 raise
         """
-        timeout = 20
+        timeout = 10
         try:
             self.driver.implicitly_wait(timeout)
 
-            element = self.find_element(*loc)[int(index)]
+            element = self.find_elements(*loc)[int(index)]
             self.hightlight(element) #高亮显示
 
             #获取属性
@@ -604,6 +595,25 @@ class BasePage:
         except (NoSuchElementException, NameError) as ex:
             self.get_image #错误截图
             raise ex
+
+
+    def get_attribute_index(self, attr, index,*loc):
+        """
+        获取元素属性
+        :param attr: 属性
+        :param loc: 定位
+        :return: 无
+        """
+        ele = self.find_elements(*loc)[int(index)]
+        try:
+            att = ele.get_attribute(attr)
+        except Exception as ex:
+            print('属性错误:{}'.format(attr))
+            raise ex
+        return att
+
+
+
 
 if __name__ == "__main__":
     base = BasePage('', '', '')
