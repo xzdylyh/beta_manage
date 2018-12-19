@@ -58,6 +58,8 @@ class TestCouponListPage(unittest.TestCase):
         self.clist.inputCouponValue(data['inputValue'])
         # 名称;op=1清空输入框
         self.clist.inputCouponName(data['name'], op=1)
+        #固定价值
+        self.clist.input_number_text(data['number'])
         # 客户端展示券名称;0显示；1不显示
         self.clist.clickCouponShowName(data['clientShow'])
         # 起用金额

@@ -19,6 +19,9 @@ class CouponList(BasePage):
     coupon_InputValue_loc = (By.ID, "inputValue")
     # 输入券名称
     coupon_inputName_loc = (By.ID, "inputName")
+    #固定价值
+    coupon_valuetype_loc = (By.XPATH, "//input[@name='valuetype']/..")
+    coupon_number_loc = (By.NAME, "number")
     # 属性 -0普通; 1微信群发消息专用
     coupon_radio_xpath = (By.XPATH, "//input[@name='messageonly']/..")
     # 客户端展示券名称；0显示；1不显示
@@ -98,6 +101,17 @@ class CouponList(BasePage):
         """输入券面值 元"""
         self.input_text(value, '面值', *(self.coupon_InputValue_loc))
 
+    def input_number_text(self, text):
+        """输入固定价值"""
+        self.click_button(
+            text,
+            *(self.coupon_valuetype_loc)
+        )
+        self.input_text(
+            text,
+            '固定价值元',
+            *(self.coupon_number_loc)
+        )
 
     def inputCouponName(self, name, op=None):
         """输入名称"""

@@ -48,7 +48,7 @@ class TestCardrule(unittest.TestCase):
         # 点击保存
         self.cindex.click_save()
 
-    @unittest.skip('')
+    # @unittest.skip('')
     @ddt.data(*get_data('cardRule', 'CASE2'))
     @reply_case_fail(num=3)
     def testcase2(self, data):

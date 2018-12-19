@@ -5,3 +5,4 @@
 /lib/__pycache__/*.*
 /base/__pycache__/*.*
 /pages/__pycache__/*.*
+/testCase/__pycache__/*.*
