@@ -369,7 +369,7 @@ table       { font-size: 100%; }
     <td class="text-center">%(fail)s</td>
     <td class="text-center">%(error)s</td>
     <td class="text-center"><a href="javascript:showClassDetail('%(cid)s',%(count)s)" class="detail" id='%(cid)s'>详细</a></td>
-    <td class="text-center">Assert or Error Image</td>
+    <td class="text-center">断言或错误截图</td>
 </tr>
 """ # variables: (style, desc, count, Pass, fail, error, cid)
 
@@ -737,6 +737,7 @@ class HTMLTestRunner(Template_mixin):
         rows.append(row)
         if not has_output:
             return
+        uo = None
 
     def _generate_ending(self):
         return self.ENDING_TMPL

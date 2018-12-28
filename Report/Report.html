@@ -117,9 +117,9 @@ function html_escape(s) {
 <div class='heading'>
 <h4 style="font-family: Microsoft YaHei">UI自动化测试报告</h4>
 <p class='attribute'><strong>测试人员 : </strong> yhleng</p>
-<p class='attribute'><strong>开始时间 : </strong> 2018-12-18 16:07:56</p>
-<p class='attribute'><strong>合计耗时 : </strong> 0:00:15.456047</p>
-<p class='attribute'><strong>测试结果 : </strong> 共 1，通过 1，通过率= 100.00%</p>
+<p class='attribute'><strong>开始时间 : </strong> 2018-12-28 14:56:05</p>
+<p class='attribute'><strong>合计耗时 : </strong> 0:00:50.161985</p>
+<p class='attribute'><strong>测试结果 : </strong> 共 2，通过 2，通过率= 100.00%</p>
 
 <p class='description'>详细测试用例结果</p>
 </div>
@@ -129,8 +129,8 @@ function html_escape(s) {
 <a class="btn btn-primary" href='javascript:showCase(0)'>概要{ 100.00% }</a>
 <a class="btn btn-warning" href='javascript:showCase(4)'>错误{ 0 }</a>
 <a class="btn btn-danger" href='javascript:showCase(1)'>失败{ 0 }</a>
-<a class="btn btn-success" href='javascript:showCase(2)'>通过{ 1 }</a>
-<a class="btn btn-info" href='javascript:showCase(3)'>所有{ 1 }</a>
+<a class="btn btn-success" href='javascript:showCase(2)'>通过{ 2 }</a>
+<a class="btn btn-info" href='javascript:showCase(3)'>所有{ 2 }</a>
 </p>
 <table id='result_table' class="table table-condensed table-bordered table-hover">
 <colgroup>
@@ -153,13 +153,13 @@ function html_escape(s) {
 </tr>
 
 <tr class='passClass warning'>
-    <td>TestRoleAdd: 积分排行</td>
-    <td class="text-center">1</td>
-    <td class="text-center">1</td>
+    <td>TestActivityCreate512: 营销－消费返券</td>
+    <td class="text-center">2</td>
+    <td class="text-center">2</td>
     <td class="text-center">0</td>
     <td class="text-center">0</td>
-    <td class="text-center"><a href="javascript:showClassDetail('c1',1)" class="detail" id='c1'>详细</a></td>
-    <td class="text-center">Assert or Error Image</td>
+    <td class="text-center"><a href="javascript:showClassDetail('c1',2)" class="detail" id='c1'>详细</a></td>
+    <td class="text-center">断言或错误截图</td>
 </tr>
 
 <tr id='pt1_1' class='hiddenRow'>
@@ -173,22 +173,81 @@ function html_escape(s) {
     <div id='div_pt1_1' class="collapse in">
     <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:600px; margin:auto; border:1px solid #e1e1e1;">
     
-pt1_1: ========★创建角色★========
-screenshot: 20181218_16.08.03 .png
-screenshot: 20181218_16.08.04 .png
-Input角色名称:%RND(15)%
-Input备注:创建角色
-Click:选择全部('id', 'allchecked')
+pt1_1: ========★消费返代金券-正常流程★========
+screenshot: 20181228_14.56.13 .png
+screenshot: 20181228_14.56.14 .png
+Input活动名称:自动化测试消费返券
+Input金额:50
+Click:增加券下拉框('xpath', "//button[contains(text(),'代金券')]")
+Click:代金券('link text', '代金券')
+Clicks:使用('xpath', "//a[contains(text(),'使用')]")
+Clicks:返券设置('xpath', "//input[@name='returnCoupon']/..")
+Clicks:奖励范围('xpath', "//input[@name='cashCharge']/..")
+Clicks:发券提醒('xpath', "//input[@name='sendRemind']/..")
+Clicks:到期提醒('xpath', "//input[@name='expireRemind']/..")
+Input活动开始时间:2019-11-12
+Input活动结束时间:2019-11-13
+Input活动说明:消费返券
 Click:保存('xpath', "//button[contains(text(),'保存')]")
-screenshot: 20181218_16.08.08 .png
+Click:确认('xpath', "//button[contains(text(),'确认')]")
+screenshot: 20181228_14.56.25 .png
+Click:删除('link text', '删除')
+Click:确认('xpath', "//button[contains(text(),'确认')]")
+screenshot: 20181228_14.56.32 .png
 
 
     </pre>
     </div>
     </td>
     <td align="right">
-        <a  href="./images/20181218_16.08.08.png">
-            <img   src="./images/20181218_16.08.08.png" height="200px" width="400px"/>
+        <a  href="./images/20181228_14.56.32.png">
+            <img   src="./images/20181228_14.56.32.png" height="200px" width="400px"/>
+        </a>
+    </td>
+</tr>
+
+
+
+<tr id='pt1_2' class='hiddenRow'>
+    <td class='passCase' width='300px'><div class='testcase'>testCase1_2</div></td>
+    <td colspan='5' align='left' width='600px'> <!--print 输出框位置-->
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt1_2' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_2'>通过</button>
+    <div id='div_pt1_2' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt1_2' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt1_2'>通过</button>
+    <div id='div_pt1_2' class="collapse in">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:600px; margin:auto; border:1px solid #e1e1e1;">
+    
+pt1_2: ========★消费返礼品券-正常流程★========
+screenshot: 20181228_14.56.33 .png
+screenshot: 20181228_14.56.34 .png
+Input活动名称:自动化测试消费返券
+Input金额:50
+Click:增加券下拉框('xpath', "//button[contains(text(),'代金券')]")
+Click:礼品券('link text', '礼品券')
+Clicks:使用('xpath', "//a[contains(text(),'使用')]")
+Clicks:返券设置('xpath', "//input[@name='returnCoupon']/..")
+Clicks:奖励范围('xpath', "//input[@name='cashCharge']/..")
+Clicks:发券提醒('xpath', "//input[@name='sendRemind']/..")
+Clicks:到期提醒('xpath', "//input[@name='expireRemind']/..")
+Input活动开始时间:2019-11-12
+Input活动结束时间:2019-11-13
+Input活动说明:消费返券
+Click:保存('xpath', "//button[contains(text(),'保存')]")
+Click:确认('xpath', "//button[contains(text(),'确认')]")
+screenshot: 20181228_14.56.45 .png
+Click:删除('link text', '删除')
+Click:确认('xpath', "//button[contains(text(),'确认')]")
+screenshot: 20181228_14.56.52 .png
+
+
+    </pre>
+    </div>
+    </td>
+    <td align="right">
+        <a  href="./images/20181228_14.56.52.png">
+            <img   src="./images/20181228_14.56.52.png" height="200px" width="400px"/>
         </a>
     </td>
 </tr>
@@ -197,8 +256,8 @@ screenshot: 20181218_16.08.08 .png
 
 <tr id='total_row' class="text-center active">
     <td>总计</td>
-    <td>1</td>
-    <td>1</td>
+    <td>2</td>
+    <td>2</td>
     <td>0</td>
     <td>0</td>
     <td>通过率：100.00%</td>

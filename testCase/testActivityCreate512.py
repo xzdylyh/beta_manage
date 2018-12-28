@@ -30,7 +30,7 @@ class TestActivityCreate512(unittest.TestCase):
     @ddt.data(*get_data('activityCreate512', 'CASE1'))
     @reply_case_fail(num=3)
     def testCase1(self, data):
-        """开卡关怀"""
+        """消费返券"""
         print('========★{}★========'.format(data['case_desc'])) #case描述
         self.tc = ActivityCreate512(self.url, self.driver, data['page_title'])
         self.tc.open
