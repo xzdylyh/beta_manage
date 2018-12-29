@@ -249,6 +249,19 @@ def join_url(url):
     return complete_url
 
 
+def autoi(strword):
+    """
+    将字符串类型的数字转换成int类型
+    :param strword: 字符串数字，'1,989.00'
+    :return: int类型 1989
+    """
+    if strword.count('0') != 0 or strword.count(',') != 0:
+        num = strword.split('.')[0]
+        split_name = num.split(',')
+        strword = ''.join(split_name)
+        return int(strword)
+    else:
+        return int(strword)
 
 
 

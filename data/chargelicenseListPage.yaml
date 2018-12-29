@@ -9,9 +9,9 @@ CASE1:
         title: '储值授信 - 自动化测试专用'
         case_desc: '储值授信-增加额度'
         index: 0
-        increase: 20 # 增加额度值
+        increase: 2 # 增加额度值
         decrease: "%BLANK%"  # 减少额度值
-        warningLimit: 80 # 预警额度
+        warningLimit: 8 # 预警额度
         phone: 13912300000 # 手机号
 
     -
@@ -19,6 +19,6 @@ CASE1:
         case_desc: '储值授信-减少额度'
         index: 1
         increase: "%BLANK%" # 增加额度值
-        decrease: 10  # 减少额度值
-        warningLimit: 80 # 预警额度
+        decrease: 1  # 减少额度值
+        warningLimit: 8 # 预警额度
         phone: 13912300000 # 手机号
