@@ -26,8 +26,8 @@ class TestManagerList(unittest.TestCase):
 
     @classmethod
     def tearDownClass(cls):
-        # cls.driver.quit()
-        pass
+        cls.driver.quit()
+        # pass
 
     @ddt.data(*(get_data('managerList', 'CASE1')))
     @reply_case_fail(num=3)
@@ -46,15 +46,20 @@ class TestManagerList(unittest.TestCase):
         # 输入手机号码
         phone = data['inputPhone'] + str(int(time.time()))
         self.mlist.input_phone(phone)
-        #
+        # 选择门店
         self.mlist.select_shopselector_and_shopname()
-        self.mlist.click_ok()
-        #
+        self.mlist.click_sure()
+        # 选择管理权限
         self.mlist.select_userright(data['userRight'])
         # 点击保存
         self.mlist.click_save()
         new_num = self.mlist.get_name()
         self.assertTrue(self.mlist.assertTrue(old_num, new_num))
+        # 禁用
+        self.mlist.click_remove()
+        # 确定
+        self.mlist.click_ok()
+
 
 
 if __name__ == "__main__":

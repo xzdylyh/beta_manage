@@ -31,7 +31,7 @@ class TestChargelicense(unittest.TestCase):
         #  pass
 
     @ddt.data(*get_data('chargelicenseListPage', 'CASE1'))
-    @reply_case_fail(num=3)
+    @reply_case_fail(num=1)
     def testcase1(self, data):
         """储值授信修改_增加"""
         print('========★{}★========'.format(data['case_desc']))  # case描述
