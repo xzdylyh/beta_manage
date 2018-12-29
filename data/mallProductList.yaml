@@ -1,0 +1,162 @@
+#关键字:
+#%BLANK% 当输值为此值时，输入框不输入值，并且清空默认值；
+#%NONE% 当值为此值时，输入框为默认值，点击操作不做操作
+#当值为空时，输入框，为默认值
+
+
+CASE1:
+    -
+        case_desc: '商城设置-添加商品-电子优惠券(购买）'
+        title: '商品列表 - 自动化测试专用'
+        liststate: 0 # 功能状态,0：开启；1：关闭
+        goodsType: 0 # 商品类型 0:电子优惠券；1:实物商品；2:虚拟卡；4:会员等级
+        productName: '自动化测试' # 商品名称
+        productDesc: '自动化测试' # 简介
+        couponType: 0 # 0：代金券；1：礼品券3：券包
+        couponIndex: 0 # 0:使用第一个券
+        saleState: 0 # 售卖方式 0：购买，1：积分换购，2：购买+积分
+        price: 100 # 标准价格
+        integral: '%NONE%' # 积分
+        gradePrice: 0 # 等级折扣 0：无等级折扣 1：有等级折扣
+        gradeindex: 2 # 选择等级
+        singleGradePrice: 6 # 折扣
+        product_onhand: 999 # 库存数量
+        limitbuy: 0 # 限购设置 0：不限购；1：每人限购
+        limitbuycount: 9 # 限购数量
+
+    -
+        case_desc: '商城设置-添加商品-电子优惠券（购买）'
+        title: '商品列表 - 自动化测试专用'
+        liststate: 0 # 功能状态,0：开启；1：关闭
+        goodsType: 0 # 商品类型 0:电子优惠券；1:实物商品；2:虚拟卡；4:会员等级
+        productName: '自动化测试' # 商品名称
+        productDesc: '自动化测试' # 简介
+        couponType: 0 # 0：代金券；1：礼品券3：券包
+        couponIndex: 0 # 0:使用第一个券
+        saleState: 0 # 售卖方式 0：购买，1：积分换购，2：购买+积分
+        price: 100 # 标准价格
+        integral: '%NONE%' # 积分
+        gradePrice: 1 # 等级折扣 0：无等级折扣 1：有等级折扣
+        gradeindex: 2 # 选择等级
+        singleGradePrice: 6 # 折扣
+        product_onhand: 999 # 库存数量
+        limitbuy: 1 # 限购设置 0：不限购；1：每人限购
+        limitbuycount: 9 # 限购数量
+
+    -
+        case_desc: '商城设置-添加商品-电子优惠券（积分换购）'
+        title: '商品列表 - 自动化测试专用'
+        liststate: 0 # 功能状态,0：开启；1：关闭
+        goodsType: 0 # 商品类型 0:电子优惠券；1:实物商品；2:虚拟卡；4:会员等级
+        productName: '自动化测试' # 商品名称
+        productDesc: '自动化测试' # 简介
+        couponType: 0 # 0：代金券；1：礼品券3：券包
+        couponIndex: 0 # 0:使用第一个券
+        saleState: 1 # 售卖方式 0：购买，1：积分换购，2：购买+积分
+        price: '%NONE%' # 标准价格
+        integral: 80 # 积分
+        gradePrice: '%NONE%' # 等级折扣 0：无等级折扣 1：有等级折扣
+        gradeindex: 2 # 选择等级
+        singleGradePrice: 6 # 折扣
+        product_onhand: 999 # 库存数量
+        limitbuy: 0 # 限购设置 0：不限购；1：每人限购
+        limitbuycount: 9 # 限购数量
+
+    -
+        case_desc: '商城设置-添加商品-电子优惠券（积分换购）'
+        title: '商品列表 - 自动化测试专用'
+        liststate: 0 # 功能状态,0：开启；1：关闭
+        goodsType: 0 # 商品类型 0:电子优惠券；1:实物商品；2:虚拟卡；4:会员等级
+        productName: '自动化测试' # 商品名称
+        productDesc: '自动化测试' # 简介
+        couponType: 0 # 0：代金券；1：礼品券3：券包
+        couponIndex: 0 # 0:使用第一个券
+        saleState: 1 # 售卖方式 0：购买，1：积分换购，2：购买+积分
+        price: '%NONE%' # 标准价格
+        integral: 80 # 积分
+        gradePrice: '%NONE%' # 等级折扣 0：无等级折扣 1：有等级折扣
+        gradeindex: 2 # 选择等级
+        singleGradePrice: 6 # 折扣
+        product_onhand: 999 # 库存数量
+        limitbuy: 1 # 限购设置 0：不限购；1：每人限购
+        limitbuycount: 9 # 限购数量
+
+CASE2:
+    -
+        case_desc: '商城设置-添加商品-添加实物商品(购买）'
+        title: '商品列表 - 自动化测试专用'
+        liststate: 0 # 功能状态,0：开启；1：关闭
+        goodsType: 1 # 商品类型 0:电子优惠券；1:实物商品；2:虚拟卡；4:会员等级
+        productName: '自动化测试' # 商品名称
+        productDesc: '自动化测试-简介' # 简介
+        productintro: '自动化测试-介绍' # 介绍
+        saleState: 0 # 售卖方式 0：购买，1：积分换购，2：购买+积分
+        specstate: 0 # 库存\规格 0：单规格，1：多规格
+        singleprice: 100 # 单规格标准价格
+        singleonhand: 888 # 单规格库存数量
+        singleintegral: '%NONE%' # 单规格积分
+        specname: '%NONE%' # 规格名称
+        specprice: '%NONE%' # 多规格标准价格
+        specintegral: '%NONE%' # 多规格积分
+        speconhand: '%NONE%' # 多规格库存数量
+        gradePrice: 0 # 等级折扣 0：无等级折扣 1：有等级折扣
+        gradeindex: 2 # 选择等级
+        singleGradePrice: 6 # 折扣
+        limitbuy: 0 # 限购设置 0：不限购；1：每人限购
+        limitbuycount: 9 # 限购数量
+
+    -
+        case_desc: '商城设置-添加商品-添加实物商品(购买）'
+        title: '商品列表 - 自动化测试专用'
+        liststate: 0 # 功能状态,0：开启；1：关闭
+        goodsType: 1 # 商品类型 0:电子优惠券；1:实物商品；2:虚拟卡；4:会员等级
+        productName: '自动化测试' # 商品名称
+        productDesc: '自动化测试-简介' # 简介
+        productintro: '自动化测试-介绍' # 介绍
+        saleState: 0 # 售卖方式 0：购买，1：积分换购，2：购买+积分
+        specstate: 1 # 库存\规格 0：单规格，1：多规格
+        singleprice: '%NONE%' # 单规格标准价格
+        singleonhand: '%NONE%' # 单规格库存数量
+        singleintegral: '%NONE%' # 单规格积分
+        specname: '测试规格' # 规格名称
+        specprice: 90 # 多规格标准价格
+        specintegral: '%NONE%' # 多规格积分
+        speconhand: 89 # 多规格库存数量
+        gradePrice: 1 # 等级折扣 0：无等级折扣 1：有等级折扣
+        gradeindex: 2 # 选择等级
+        singleGradePrice: 6 # 折扣
+        limitbuy: 0 # 限购设置 0：不限购；1：每人限购
+        limitbuycount: 9 # 限购数量
+
+CASE3:
+    -
+        case_desc: '商城设置-添加商品-添加会员等级(购买）'
+        title: '商品列表 - 自动化测试专用'
+        liststate: 0 # 功能状态,0：开启；1：关闭
+        goodsType: 4 # 商品类型 0:电子优惠券；1:实物商品；2:虚拟卡；4:会员等级
+        productName: '自动化测试' # 商品名称
+        productDesc: '自动化测试' # 简介
+        gradeCardId: 1 # 会员等级 1：普通会员，2：vip会员
+        saleState: 0 # 售卖方式 0：购买，1：积分换购，2：购买+积分
+        price: 100 # 标准价格
+        integral: '%NONE%' # 积分
+        gradePrice: 0 # 等级折扣 0：无等级折扣 1：有等级折扣
+        gradeindex: 2 # 选择等级
+        singleGradePrice: 6 # 折扣
+        product_onhand: 999 # 库存数量
+
+    -
+        case_desc: '商城设置-添加商品-添加会员等级(积分换购）'
+        title: '商品列表 - 自动化测试专用'
+        liststate: 0 # 功能状态,0：开启；1：关闭
+        goodsType: 4 # 商品类型 0:电子优惠券；1:实物商品；2:虚拟卡；4:会员等级
+        productName: '自动化测试' # 商品名称
+        productDesc: '自动化测试' # 简介
+        gradeCardId: 1 # 会员等级 1：普通会员，2：vip会员
+        saleState: 1 # 售卖方式 0：购买，1：积分换购，2：购买+积分
+        price: '%NONE%' # 标准价格
+        integral: 88 # 积分
+        gradePrice: '%NONE%' # 等级折扣 0：无等级折扣 1：有等级折扣
+        gradeindex: 2 # 选择等级
+        singleGradePrice: 6 # 折扣
+        product_onhand: 999 # 库存数量

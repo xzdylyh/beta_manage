@@ -8,6 +8,8 @@ class ActivityCreate512(ActivityCreate1024):
     ret_coupon_loc = (By.XPATH, "//input[@name='returnCoupon']/..")
     #奖励范围；0现金消费；1现金储值消费
     ret_cash_loc = (By.XPATH, "//input[@name='cashCharge']/..")
+    #增加券下拉框
+    ret_add_loc = (By.XPATH, "//button[contains(text(),'代金券')]")
     #活动说明
     ret_desc_loc = (By.XPATH, "//*[@id='inputRestriction']")
     #标题
@@ -21,6 +23,13 @@ class ActivityCreate512(ActivityCreate1024):
         "div.we-table-responsive > table:nth-child(1) > tbody > tr:nth-child(1) > td:nth-child(5)"
     )
     #<<<<<<<<<<<<<<<<<<<<<<<<<<<<定位>>>>>>>>>>>>>>>>>>>>>>>>>>>>
+    def click_add_coupon(self):
+        """增加券下拉"""
+        self.click_button(
+            '增加券下拉框',
+            *(self.ret_add_loc)
+        )
+
     def click_return_coupon(self, index):
         """返券设置"""
         self.click_btn_index(

@@ -27,8 +27,8 @@ class TestCardrule(unittest.TestCase):
 
     @classmethod
     def tearDownClass(cls):
-        # cls.driver.quit()
-        pass
+        cls.driver.quit()
+        # pass
 
     # @unittest.skip('')
     @ddt.data(*get_data('cardRule', 'CASE1'))
@@ -48,9 +48,9 @@ class TestCardrule(unittest.TestCase):
         # 点击保存
         self.cindex.click_save()
 
-    @unittest.skip('')
+    # @unittest.skip('')
     @ddt.data(*get_data('cardRule', 'CASE2'))
-    @reply_case_fail(num=3)
+    @reply_case_fail(num=1)
     def testcase2(self, data):
         """降级规则设置"""
         print('========★{}★========'.format(data['case_desc']))  # case描述
@@ -60,11 +60,15 @@ class TestCardrule(unittest.TestCase):
         self.cindex.click_subdmote()
         # 选择降级规则，并输入内容(输入的内容与选择的规则要对应)
         self.cindex.select_down(data['down_index'])
+        # 月累计消费未达到
         self.cindex.input_money(data['money'])
+        # 会员当前等级满
         self.cindex.input_sizes(data['sizes'], data['unit'])
+        # 会员在当前等级每
         self.cindex.input_month_time(data['monthTime'],
                                      data['monthMoney']
                                      )
+        # 会员在当前等级每
         self.cindex.input_recharge_time(data['rechargeTime'],
                                         data['rechargeMoney']
                                         )

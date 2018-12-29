@@ -34,6 +34,10 @@ class ManagerListPage(BasePage):
     # 记录条数
     manager_account_loc = (By.XPATH,
                            "//p[@class='pull-right']/b")
+    # 禁用
+    manager_remove_loc = (By.XPATH, "//a[@data-url='/manager/remove']")
+    # 确认
+    manager_ok_loc = (By.XPATH, "//button[contains(text(),'确认')]")
     # <<<<<<<<<<<<<<操作>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>
     def click_add(self):
         """点击创建帐号"""
@@ -68,7 +72,7 @@ class ManagerListPage(BasePage):
         self.click_button('选择区域', *(self.manager_shopselector_lco))
         self.click_button('门店', *(self.manager_shopname_loc))
 
-    def click_ok(self):
+    def click_sure(self):
         """点击确定"""
         self.click_button('', *(self.manager_sure_loc))
 
@@ -95,3 +99,11 @@ class ManagerListPage(BasePage):
         new_num = int(new_num)
         if old_num + 1 == new_num:
             return True
+
+    def click_remove(self):
+        """点击禁用"""
+        self.click_button('禁用', *(self.manager_remove_loc))
+
+    def click_ok(self):
+        """点击确认禁用"""
+        self.click_button('确认', *(self.manager_ok_loc))

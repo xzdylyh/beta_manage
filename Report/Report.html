@@ -116,16 +116,15 @@ function html_escape(s) {
 </script>
 <div class='heading'>
 <h4 style="font-family: Microsoft YaHei">UI自动化测试报告</h4>
-<<<<<<< HEAD
-<p class='attribute'><strong>测试人员 : </strong> yhleng</p>
-<p class='attribute'><strong>开始时间 : </strong> 2018-12-14 15:55:53</p>
-<p class='attribute'><strong>合计耗时 : </strong> 0:00:26.253582</p>
-=======
 <p class='attribute'><strong>测试人员 : </strong> yecc</p>
-<p class='attribute'><strong>开始时间 : </strong> 2018-12-14 15:50:20</p>
-<p class='attribute'><strong>合计耗时 : </strong> 0:00:11.635502</p>
+<<<<<<< HEAD
+<p class='attribute'><strong>开始时间 : </strong> 2018-12-29 16:59:08</p>
+<p class='attribute'><strong>合计耗时 : </strong> 0:00:35.674482</p>
+=======
+<p class='attribute'><strong>开始时间 : </strong> 2018-12-29 15:09:52</p>
+<p class='attribute'><strong>合计耗时 : </strong> 0:00:22.218894</p>
 >>>>>>> ycc
-<p class='attribute'><strong>测试结果 : </strong> 共 1，通过 1，通过率= 100.00%</p>
+<p class='attribute'><strong>测试结果 : </strong> 共 2，通过 2，通过率= 100.00%</p>
 
 <p class='description'>详细测试用例结果</p>
 </div>
@@ -135,8 +134,8 @@ function html_escape(s) {
 <a class="btn btn-primary" href='javascript:showCase(0)'>概要{ 100.00% }</a>
 <a class="btn btn-warning" href='javascript:showCase(4)'>错误{ 0 }</a>
 <a class="btn btn-danger" href='javascript:showCase(1)'>失败{ 0 }</a>
-<a class="btn btn-success" href='javascript:showCase(2)'>通过{ 1 }</a>
-<a class="btn btn-info" href='javascript:showCase(3)'>所有{ 1 }</a>
+<a class="btn btn-success" href='javascript:showCase(2)'>通过{ 2 }</a>
+<a class="btn btn-info" href='javascript:showCase(3)'>所有{ 2 }</a>
 </p>
 <table id='result_table' class="table table-condensed table-bordered table-hover">
 <colgroup>
@@ -160,20 +159,24 @@ function html_escape(s) {
 
 <tr class='passClass warning'>
 <<<<<<< HEAD
-    <td>TestMonitorSet: 异常交易监控－设置</td>
+    <td>TestMemberList: 修改会员卡资料</td>
 =======
-    <td>TestRegionIndex: 区域设置</td>
+    <td>TestChargelicense: 储值授信</td>
 >>>>>>> ycc
-    <td class="text-center">1</td>
-    <td class="text-center">1</td>
+    <td class="text-center">2</td>
+    <td class="text-center">2</td>
     <td class="text-center">0</td>
     <td class="text-center">0</td>
-    <td class="text-center"><a href="javascript:showClassDetail('c1',1)" class="detail" id='c1'>详细</a></td>
+    <td class="text-center"><a href="javascript:showClassDetail('c1',2)" class="detail" id='c1'>详细</a></td>
+<<<<<<< HEAD
+    <td class="text-center">断言或错误截图</td>
+=======
     <td class="text-center">Assert or Error Image</td>
+>>>>>>> ycc
 </tr>
 
 <tr id='pt1_1' class='hiddenRow'>
-    <td class='passCase' width='300px'><div class='testcase'>testCase1_1</div></td>
+    <td class='passCase' width='300px'><div class='testcase'>testcase1_1</div></td>
     <td colspan='5' align='left' width='600px'> <!--print 输出框位置-->
     <!--默认收起错误信息 -Findyou
     <button id='btn_pt1_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_1'>通过</button>
@@ -184,31 +187,33 @@ function html_escape(s) {
     <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:600px; margin:auto; border:1px solid #e1e1e1;">
     
 <<<<<<< HEAD
-pt1_1: ========★异常交易监控设置－正常流程★========
-screenshot: 20181214_15.56.01 .png
-screenshot: 20181214_15.56.02 .png
-Input消费金额-单卡单笔消费金额超过:1
-Input消费金额-单卡日累计消费金额超过:1
-Input消费金额-单卡周累计消费金额超过:1
-Input消费金额-单卡日累计消费次数超过:1
-Click:消费金额-单卡日累计消费次数超过('xpath', "//input[@name='tmrConsumerCountWeek']/..")
-Input消费金额-单卡日累计消费次数超过:1
-Input消费金额-单卡日累计消费次数超过:1
-Input消费金额-单卡日累计充值金额超过:1
-Input消费金额-单卡周累计充值金额超过:1
-Input消费金额-单卡日累计充值次数超过:1
-Input消费金额-单卡周累计充值次数超过:1
-Click:保存('xpath', "//button[contains(text(),'保存')]")
+pt1_1: ========★修改会员卡资料★========
+screenshot: 20181229_16.59.15 .png
+screenshot: 20181229_16.59.16 .png
+Input卡号:1194221938598555
+Click:查询('xpath', "//button[contains(text(),'查询')]")
+Click:修改资料('link text', '修改资料')
+Input卡名:%RND(8)%
+Clicks:性别('xpath', "//input[@name='cardSex']/..")
+Clicks:日期类型('xpath', "//input[@name='cardCalendar']/..")
+Input生日:1986-08-07
+Click:确认('css selector', 'div.modal.fade.we-modal.edit-actual-modal.in &gt; div &gt; div &gt; div.modal-footer &gt; button.btn.btn-primary.we-btn')
 =======
-pt1_1: ========★区域设置★========
-screenshot: 20181214_15.50.25 .png
-screenshot: 20181214_15.50.26 .png
-Click:添加一级('link text', '添加一级')
-Input区域名称:自动化测试
-Click:保存('xpath', "//button[contains(text(),'保存')]")
-screenshot: 20181214_15.50.28 .png
-Click:删除('xpath', "//a[@class='act delete_area']")
-Click:确定('xpath', "//button[@class='btn btn-primary we-btn submit']")
+pt1_1: ========★储值授信-增加额度★========
+screenshot: 20181229_15.09.56 .png
+screenshot: 20181229_15.09.57 .png
+累计授权额度: 2,558.00
+Click:修改('link text', '修改')
+Clicks:授信额度('xpath', "//input[@name='increase']/..")
+Input增加额度:2
+Input减少额度:%BLANK%
+Input预警额度:8
+Input手机号:13912300000
+Click:保存('xpath', "//button[@type='submit']")
+Click:返回('link text', '返回')
+累计授权额度: 2,560.00
+授信额度修改成功，当前额度为：2560
+screenshot: 20181229_15.10.03 .png
 >>>>>>> ycc
 
 
@@ -217,11 +222,81 @@ Click:确定('xpath', "//button[@class='btn btn-primary we-btn submit']")
     </td>
     <td align="right">
 <<<<<<< HEAD
-        <a  href="./images/20181214_15.56.02.png">
-            <img   src="./images/20181214_15.56.02.png" height="200px" width="400px"/>
+        <a  href="./images/20181229_16.59.16.png">
+            <img   src="./images/20181229_16.59.16.png" height="200px" width="400px"/>
 =======
-        <a  href="./images/20181214_15.50.28.png">
-            <img   src="./images/20181214_15.50.28.png" height="200px" width="400px"/>
+        <a  href="./images/20181229_15.10.03.png">
+            <img   src="./images/20181229_15.10.03.png" height="200px" width="400px"/>
+>>>>>>> ycc
+        </a>
+    </td>
+</tr>
+
+
+
+<tr id='pt1_2' class='hiddenRow'>
+    <td class='passCase' width='300px'><div class='testcase'>testcase1_2</div></td>
+    <td colspan='5' align='left' width='600px'> <!--print 输出框位置-->
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt1_2' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_2'>通过</button>
+    <div id='div_pt1_2' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt1_2' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt1_2'>通过</button>
+    <div id='div_pt1_2' class="collapse in">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:600px; margin:auto; border:1px solid #e1e1e1;">
+    
+<<<<<<< HEAD
+pt1_2: ========★修改会员卡资料★========
+screenshot: 20181229_16.59.24 .png
+screenshot: 20181229_16.59.24 .png
+Input卡号:1194221938598555
+Click:查询('xpath', "//button[contains(text(),'查询')]")
+Click:修改资料('link text', '修改资料')
+Input卡名:%RND(8)%
+Clicks:性别('xpath', "//input[@name='cardSex']/..")
+Clicks:日期类型('xpath', "//input[@name='cardCalendar']/..")
+Input生日:1986-08-07
+Click:确认('css selector', 'div.modal.fade.we-modal.edit-actual-modal.in &gt; div &gt; div &gt; div.modal-footer &gt; button.btn.btn-primary.we-btn')
+========★修改会员卡资料★========
+screenshot: 20181229_16.59.32 .png
+screenshot: 20181229_16.59.33 .png
+Input卡号:1194221938598555
+Click:查询('xpath', "//button[contains(text(),'查询')]")
+Click:修改资料('link text', '修改资料')
+Input卡名:%RND(8)%
+Clicks:性别('xpath', "//input[@name='cardSex']/..")
+Clicks:日期类型('xpath', "//input[@name='cardCalendar']/..")
+Input生日:1986-08-07
+Click:确认('css selector', 'div.modal.fade.we-modal.edit-actual-modal.in &gt; div &gt; div &gt; div.modal-footer &gt; button.btn.btn-primary.we-btn')
+=======
+pt1_2: ========★储值授信-减少额度★========
+screenshot: 20181229_15.10.04 .png
+screenshot: 20181229_15.10.05 .png
+累计授权额度: 2,560.00
+Click:修改('link text', '修改')
+Clicks:授信额度('xpath', "//input[@name='increase']/..")
+Input增加额度:%BLANK%
+Input减少额度:1
+Input预警额度:8
+Input手机号:13912300000
+Click:保存('xpath', "//button[@type='submit']")
+Click:返回('link text', '返回')
+累计授权额度: 2,559.00
+授信额度修改成功，当前额度为：2559
+screenshot: 20181229_15.10.11 .png
+>>>>>>> ycc
+
+
+    </pre>
+    </div>
+    </td>
+    <td align="right">
+<<<<<<< HEAD
+        <a  href="./images/20181229_16.59.33.png">
+            <img   src="./images/20181229_16.59.33.png" height="200px" width="400px"/>
+=======
+        <a  href="./images/20181229_15.10.11.png">
+            <img   src="./images/20181229_15.10.11.png" height="200px" width="400px"/>
 >>>>>>> ycc
         </a>
     </td>
@@ -231,8 +306,8 @@ Click:确定('xpath', "//button[@class='btn btn-primary we-btn submit']")
 
 <tr id='total_row' class="text-center active">
     <td>总计</td>
-    <td>1</td>
-    <td>1</td>
+    <td>2</td>
+    <td>2</td>
     <td>0</td>
     <td>0</td>
     <td>通过率：100.00%</td>

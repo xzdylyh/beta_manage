@@ -8,6 +8,10 @@ class CreditIndexPage(BasePage):
     # <<<<<<<<<<<<<<<元素定位>>>>>>>>>>>>>>>>>>>>>>>>>
     # 功能状态，0：开启；1：关闭
     credit_stateRadio_loc = (By.XPATH, "//input[@name='state']/..")
+    # 确认
+    credit_sure_loc = (By.XPATH, "//button[contains(text(),'确认')]")
+    # 取消
+    credit_cancle_loc = (By.XPATH, "//button[contains(text(),'取消')]")
     # ------------发放积分---------------------
     # 消费奖励积分 开启或关闭
     credit_consumpoint_loc = (By.XPATH, "//input[@name='consumpoints']/..")
@@ -75,6 +79,10 @@ class CreditIndexPage(BasePage):
         self.click_btn_index('选择开启/关闭', index,
                              *(self.credit_stateRadio_loc)
                              )
+
+    def click_sure(self):
+        """点击确认"""
+        self.click_button('确认', *(self.credit_sure_loc))
 
     def click_modify_btn(self):
         """点击修改按钮"""

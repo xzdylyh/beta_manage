@@ -2,6 +2,7 @@
 
 from selenium.webdriver.common.by import By
 from base.basepage import BasePage
+from lib.scripts import autoi
 
 
 class ChargeLicenseList(BasePage):
@@ -47,7 +48,7 @@ class ChargeLicenseList(BasePage):
         """获取累计授权额度"""
         total = self.get_tag_text('text', *(self.charge_total_loc))
         print("累计授权额度: {}".format(total))
-        return total
+        return autoi(total)
 
     def click_eidit_btn(self):
         """点击修改按钮"""
@@ -100,9 +101,7 @@ class ChargeLicenseList(BasePage):
 
     def assertEditCreditLimitTrue(self, old_num, modify_num, new_num):
         """判断修改额度是否成功，通过比较修改前后额度值判断"""
-        old_num = int(float(old_num))
         modify_num = int(modify_num)
-        new_num = int(float(new_num))
         if old_num + modify_num == new_num:
             print("授信额度修改成功，当前额度为：{}".format(new_num))
         elif old_num - modify_num == new_num:

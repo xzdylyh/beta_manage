@@ -20,6 +20,7 @@ from lib.scripts import (
     hight_light_conf,
     reply_case_fail,
     genrandomstr,
+    rndint,
     get_data
 )
 
@@ -471,6 +472,10 @@ class BasePage:
         if index == '%NONE%':
             pass
         else:
+            if str(index).startswith('%') and str(index).endswith('%'):
+                var = get_data(gl.configFile, 'CONFIG')
+                index = eval(var['Custom_Var'][index])
+
             ele = self.find_elements(*loc)[int(index)]
             # 元素高亮显示
             self.hightlight(ele)

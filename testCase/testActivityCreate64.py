@@ -46,6 +46,10 @@ class TestActivityCreate64(unittest.TestCase):
         self.tc.click_coupon_type(data['coupon_type'])
         #使用
         self.tc.click_coupon_used(data['coupon_index'])
+        #赠送积分
+        self.tc.input_credit(data['credit_num'])
+        #赠送储值
+        self.tc.input_charge(data['charge_num'])
         #发券提醒;0不提醒；1短信提醒
         self.tc.click_send_remind(data['remind_index'])
         #券到期提醒;0不提醒；1短信提醒
