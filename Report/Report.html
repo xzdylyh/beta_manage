@@ -116,9 +116,9 @@ function html_escape(s) {
 </script>
 <div class='heading'>
 <h4 style="font-family: Microsoft YaHei">UI自动化测试报告</h4>
-<p class='attribute'><strong>测试人员 : </strong> yhleng</p>
-<p class='attribute'><strong>开始时间 : </strong> 2018-12-28 14:56:05</p>
-<p class='attribute'><strong>合计耗时 : </strong> 0:00:50.161985</p>
+<p class='attribute'><strong>测试人员 : </strong> yecc</p>
+<p class='attribute'><strong>开始时间 : </strong> 2018-12-29 16:59:08</p>
+<p class='attribute'><strong>合计耗时 : </strong> 0:00:35.674482</p>
 <p class='attribute'><strong>测试结果 : </strong> 共 2，通过 2，通过率= 100.00%</p>
 
 <p class='description'>详细测试用例结果</p>
@@ -153,7 +153,7 @@ function html_escape(s) {
 </tr>
 
 <tr class='passClass warning'>
-    <td>TestActivityCreate512: 营销－消费返券</td>
+    <td>TestMemberList: 修改会员卡资料</td>
     <td class="text-center">2</td>
     <td class="text-center">2</td>
     <td class="text-center">0</td>
@@ -163,7 +163,7 @@ function html_escape(s) {
 </tr>
 
 <tr id='pt1_1' class='hiddenRow'>
-    <td class='passCase' width='300px'><div class='testcase'>testCase1_1</div></td>
+    <td class='passCase' width='300px'><div class='testcase'>testcase1_1</div></td>
     <td colspan='5' align='left' width='600px'> <!--print 输出框位置-->
     <!--默认收起错误信息 -Findyou
     <button id='btn_pt1_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_1'>通过</button>
@@ -173,35 +173,25 @@ function html_escape(s) {
     <div id='div_pt1_1' class="collapse in">
     <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:600px; margin:auto; border:1px solid #e1e1e1;">
     
-pt1_1: ========★消费返代金券-正常流程★========
-screenshot: 20181228_14.56.13 .png
-screenshot: 20181228_14.56.14 .png
-Input活动名称:自动化测试消费返券
-Input金额:50
-Click:增加券下拉框('xpath', "//button[contains(text(),'代金券')]")
-Click:代金券('link text', '代金券')
-Clicks:使用('xpath', "//a[contains(text(),'使用')]")
-Clicks:返券设置('xpath', "//input[@name='returnCoupon']/..")
-Clicks:奖励范围('xpath', "//input[@name='cashCharge']/..")
-Clicks:发券提醒('xpath', "//input[@name='sendRemind']/..")
-Clicks:到期提醒('xpath', "//input[@name='expireRemind']/..")
-Input活动开始时间:2019-11-12
-Input活动结束时间:2019-11-13
-Input活动说明:消费返券
-Click:保存('xpath', "//button[contains(text(),'保存')]")
-Click:确认('xpath', "//button[contains(text(),'确认')]")
-screenshot: 20181228_14.56.25 .png
-Click:删除('link text', '删除')
-Click:确认('xpath', "//button[contains(text(),'确认')]")
-screenshot: 20181228_14.56.32 .png
+pt1_1: ========★修改会员卡资料★========
+screenshot: 20181229_16.59.15 .png
+screenshot: 20181229_16.59.16 .png
+Input卡号:1194221938598555
+Click:查询('xpath', "//button[contains(text(),'查询')]")
+Click:修改资料('link text', '修改资料')
+Input卡名:%RND(8)%
+Clicks:性别('xpath', "//input[@name='cardSex']/..")
+Clicks:日期类型('xpath', "//input[@name='cardCalendar']/..")
+Input生日:1986-08-07
+Click:确认('css selector', 'div.modal.fade.we-modal.edit-actual-modal.in &gt; div &gt; div &gt; div.modal-footer &gt; button.btn.btn-primary.we-btn')
 
 
     </pre>
     </div>
     </td>
     <td align="right">
-        <a  href="./images/20181228_14.56.32.png">
-            <img   src="./images/20181228_14.56.32.png" height="200px" width="400px"/>
+        <a  href="./images/20181229_16.59.16.png">
+            <img   src="./images/20181229_16.59.16.png" height="200px" width="400px"/>
         </a>
     </td>
 </tr>
@@ -209,7 +199,7 @@ screenshot: 20181228_14.56.32 .png
 
 
 <tr id='pt1_2' class='hiddenRow'>
-    <td class='passCase' width='300px'><div class='testcase'>testCase1_2</div></td>
+    <td class='passCase' width='300px'><div class='testcase'>testcase1_2</div></td>
     <td colspan='5' align='left' width='600px'> <!--print 输出框位置-->
     <!--默认收起错误信息 -Findyou
     <button id='btn_pt1_2' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_2'>通过</button>
@@ -219,35 +209,36 @@ screenshot: 20181228_14.56.32 .png
     <div id='div_pt1_2' class="collapse in">
     <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:600px; margin:auto; border:1px solid #e1e1e1;">
     
-pt1_2: ========★消费返礼品券-正常流程★========
-screenshot: 20181228_14.56.33 .png
-screenshot: 20181228_14.56.34 .png
-Input活动名称:自动化测试消费返券
-Input金额:50
-Click:增加券下拉框('xpath', "//button[contains(text(),'代金券')]")
-Click:礼品券('link text', '礼品券')
-Clicks:使用('xpath', "//a[contains(text(),'使用')]")
-Clicks:返券设置('xpath', "//input[@name='returnCoupon']/..")
-Clicks:奖励范围('xpath', "//input[@name='cashCharge']/..")
-Clicks:发券提醒('xpath', "//input[@name='sendRemind']/..")
-Clicks:到期提醒('xpath', "//input[@name='expireRemind']/..")
-Input活动开始时间:2019-11-12
-Input活动结束时间:2019-11-13
-Input活动说明:消费返券
-Click:保存('xpath', "//button[contains(text(),'保存')]")
-Click:确认('xpath', "//button[contains(text(),'确认')]")
-screenshot: 20181228_14.56.45 .png
-Click:删除('link text', '删除')
-Click:确认('xpath', "//button[contains(text(),'确认')]")
-screenshot: 20181228_14.56.52 .png
+pt1_2: ========★修改会员卡资料★========
+screenshot: 20181229_16.59.24 .png
+screenshot: 20181229_16.59.24 .png
+Input卡号:1194221938598555
+Click:查询('xpath', "//button[contains(text(),'查询')]")
+Click:修改资料('link text', '修改资料')
+Input卡名:%RND(8)%
+Clicks:性别('xpath', "//input[@name='cardSex']/..")
+Clicks:日期类型('xpath', "//input[@name='cardCalendar']/..")
+Input生日:1986-08-07
+Click:确认('css selector', 'div.modal.fade.we-modal.edit-actual-modal.in &gt; div &gt; div &gt; div.modal-footer &gt; button.btn.btn-primary.we-btn')
+========★修改会员卡资料★========
+screenshot: 20181229_16.59.32 .png
+screenshot: 20181229_16.59.33 .png
+Input卡号:1194221938598555
+Click:查询('xpath', "//button[contains(text(),'查询')]")
+Click:修改资料('link text', '修改资料')
+Input卡名:%RND(8)%
+Clicks:性别('xpath', "//input[@name='cardSex']/..")
+Clicks:日期类型('xpath', "//input[@name='cardCalendar']/..")
+Input生日:1986-08-07
+Click:确认('css selector', 'div.modal.fade.we-modal.edit-actual-modal.in &gt; div &gt; div &gt; div.modal-footer &gt; button.btn.btn-primary.we-btn')
 
 
     </pre>
     </div>
     </td>
     <td align="right">
-        <a  href="./images/20181228_14.56.52.png">
-            <img   src="./images/20181228_14.56.52.png" height="200px" width="400px"/>
+        <a  href="./images/20181229_16.59.33.png">
+            <img   src="./images/20181229_16.59.33.png" height="200px" width="400px"/>
         </a>
     </td>
 </tr>

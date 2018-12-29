@@ -222,6 +222,16 @@ def genrandomstr(lenstr=5):
                    )
     return strs
 
+def rndint(max=1, min=0):
+    """
+    返回一个随机整数
+    :param max:
+    :param min:
+    :return:
+    """
+    rnd = random.randint(min, int(max))
+    return rnd
+
 
 def join_url(url):
     """

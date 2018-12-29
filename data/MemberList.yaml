@@ -1,0 +1,20 @@
+
+CASE1:
+    -
+        case_desc: "修改会员卡资料"  #case描述
+        Title: "会员查询 - 自动化测试专用" #web标题
+        cardNo: "1194221938598555" #卡号
+        cardName: "%RND(8)%"   #卡名称
+        sex_index: 0 #性别;男1；女
+        member_level: 0 #会员等级 第一个；1第二条依此类推
+        date_type: 0 #0公历，1农历
+        birthday: "1986-08-07" #生日
+    -
+        case_desc: "修改会员卡资料"  #case描述
+        Title: "会员查询 - 自动化测试专用" #web标题
+        cardNo: "1194221938598555" #卡号
+        cardName: "%RND(8)%"   #卡名称
+        sex_index: 1 #性别;男1；女
+        member_level: 1 #会员等级 第一个；1第二条依此类推
+        date_type: 1 #0公历，1农历
+        birthday: "1986-08-07" #生日

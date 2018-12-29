@@ -8,6 +8,7 @@ class ActivityCreate512(ActivityCreate1024):
     ret_coupon_loc = (By.XPATH, "//input[@name='returnCoupon']/..")
     #奖励范围；0现金消费；1现金储值消费
     ret_cash_loc = (By.XPATH, "//input[@name='cashCharge']/..")
+    #增加券下拉框
     ret_add_loc = (By.XPATH, "//button[contains(text(),'代金券')]")
     #活动说明
     ret_desc_loc = (By.XPATH, "//*[@id='inputRestriction']")
