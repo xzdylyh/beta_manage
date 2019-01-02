@@ -222,6 +222,7 @@ def genrandomstr(lenstr=5):
                    )
     return strs
 
+
 def rndint(max=1, min=0):
     """
     返回一个随机整数
@@ -230,6 +231,7 @@ def rndint(max=1, min=0):
     :return:
     """
     rnd = random.randint(min, int(max))
+
     return rnd
 
 
