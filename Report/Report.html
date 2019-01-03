@@ -116,10 +116,10 @@ function html_escape(s) {
 </script>
 <div class='heading'>
 <h4 style="font-family: Microsoft YaHei">UI自动化测试报告</h4>
-<p class='attribute'><strong>测试人员 : </strong> yecc</p>
-<p class='attribute'><strong>开始时间 : </strong> 2019-01-02 15:03:45</p>
-<p class='attribute'><strong>合计耗时 : </strong> 0:00:21.122780</p>
-<p class='attribute'><strong>测试结果 : </strong> 共 2，通过 2，通过率= 100.00%</p>
+<p class='attribute'><strong>测试人员 : </strong> yhleng</p>
+<p class='attribute'><strong>开始时间 : </strong> 2019-01-03 14:45:28</p>
+<p class='attribute'><strong>合计耗时 : </strong> 0:01:17.944135</p>
+<p class='attribute'><strong>测试结果 : </strong> 共 3，通过 3，通过率= 100.00%</p>
 
 <p class='description'>详细测试用例结果</p>
 </div>
@@ -129,8 +129,8 @@ function html_escape(s) {
 <a class="btn btn-primary" href='javascript:showCase(0)'>概要{ 100.00% }</a>
 <a class="btn btn-warning" href='javascript:showCase(4)'>错误{ 0 }</a>
 <a class="btn btn-danger" href='javascript:showCase(1)'>失败{ 0 }</a>
-<a class="btn btn-success" href='javascript:showCase(2)'>通过{ 2 }</a>
-<a class="btn btn-info" href='javascript:showCase(3)'>所有{ 2 }</a>
+<a class="btn btn-success" href='javascript:showCase(2)'>通过{ 3 }</a>
+<a class="btn btn-info" href='javascript:showCase(3)'>所有{ 3 }</a>
 </p>
 <table id='result_table' class="table table-condensed table-bordered table-hover">
 <colgroup>
@@ -153,17 +153,17 @@ function html_escape(s) {
 </tr>
 
 <tr class='passClass warning'>
-    <td>TestActualCardOpen: 实体卡开卡</td>
-    <td class="text-center">2</td>
-    <td class="text-center">2</td>
+    <td>TestActivityCreate512: 营销－消费返券</td>
+    <td class="text-center">3</td>
+    <td class="text-center">3</td>
     <td class="text-center">0</td>
     <td class="text-center">0</td>
-    <td class="text-center"><a href="javascript:showClassDetail('c1',2)" class="detail" id='c1'>详细</a></td>
+    <td class="text-center"><a href="javascript:showClassDetail('c1',3)" class="detail" id='c1'>详细</a></td>
     <td class="text-center">断言或错误截图</td>
 </tr>
 
 <tr id='pt1_1' class='hiddenRow'>
-    <td class='passCase' width='300px'><div class='testcase'>testcase1_1</div></td>
+    <td class='passCase' width='300px'><div class='testcase'>testCase1_1</div></td>
     <td colspan='5' align='left' width='600px'> <!--print 输出框位置-->
     <!--默认收起错误信息 -Findyou
     <button id='btn_pt1_1' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_1'>通过</button>
@@ -173,25 +173,40 @@ function html_escape(s) {
     <div id='div_pt1_1' class="collapse in">
     <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:600px; margin:auto; border:1px solid #e1e1e1;">
     
-pt1_1: ========★实体卡开卡－正常流程★========
-screenshot: 20190102_15.03.51 .png
-screenshot: 20190102_15.03.52 .png
-1511625919205488
-Input实体卡号:1511625919205488
-Input手机号:13718655208
-Input姓名:自动化测试开卡
-Clicks:性别('xpath', "//input[@name='gender']/..")
-Clicks:公历，农历('xpath', "//input[@name='birthFlag']/..")
-Input生日:1990-09-08
-Click:确认开卡('xpath', "//button[contains(text(),'确认开卡')]")
+pt1_1: ========★消费返代金券(赠券上限3次)-正常流程★========
+screenshot: 20190103_14.45.35 .png
+screenshot: 20190103_14.45.36 .png
+Input活动名称:自动化测试消费返券
+Clicks:返券方式('xpath', "//input[@name='returnRule']/..")
+Input金额:50
+Click:增加券下拉框('xpath', "//button[contains(text(),'代金券')]")
+Click:代金券('link text', '代金券')
+Clicks:使用('xpath', "//a[contains(text(),'使用')]")
+Clicks:菜品设置('xpath', "//input[@name='dishesSet']/..")
+Input返券需要满足菜品:%NONE%
+Clicks:返券设置('xpath', "//input[@name='returnCoupon']/..")
+Clicks:赠券上限('xpath', "//input[@name='returnCouponLimit']/..")
+Input自定义:3
+Clicks:奖励范围('xpath', "//input[@name='cashCharge']/..")
+Clicks:发券提醒('xpath', "//input[@name='sendRemind']/..")
+Clicks:到期提醒('xpath', "//input[@name='expireRemind']/..")
+Input活动开始时间:2019-11-12
+Input活动结束时间:2019-11-13
+Input活动说明:消费返券
+Click:保存('xpath', "//button[contains(text(),'保存')]")
+Click:确认('xpath', "//button[contains(text(),'确认')]")
+screenshot: 20190103_14.45.50 .png
+Click:删除('link text', '删除')
+Click:确认('xpath', "//button[contains(text(),'确认')]")
+screenshot: 20190103_14.45.57 .png
 
 
     </pre>
     </div>
     </td>
     <td align="right">
-        <a  href="./images/20190102_15.03.52.png">
-            <img   src="./images/20190102_15.03.52.png" height="200px" width="400px"/>
+        <a  href="./images/20190103_14.45.57.png">
+            <img   src="./images/20190103_14.45.57.png" height="200px" width="400px"/>
         </a>
     </td>
 </tr>
@@ -199,7 +214,7 @@ Click:确认开卡('xpath', "//button[contains(text(),'确认开卡')]")
 
 
 <tr id='pt1_2' class='hiddenRow'>
-    <td class='passCase' width='300px'><div class='testcase'>testcase1_2</div></td>
+    <td class='passCase' width='300px'><div class='testcase'>testCase1_2</div></td>
     <td colspan='5' align='left' width='600px'> <!--print 输出框位置-->
     <!--默认收起错误信息 -Findyou
     <button id='btn_pt1_2' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_2'>通过</button>
@@ -209,25 +224,91 @@ Click:确认开卡('xpath', "//button[contains(text(),'确认开卡')]")
     <div id='div_pt1_2' class="collapse in">
     <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:600px; margin:auto; border:1px solid #e1e1e1;">
     
-pt1_2: ========★实体卡开卡－正常流程★========
-screenshot: 20190102_15.03.59 .png
-screenshot: 20190102_15.03.59 .png
-1511625362431123
-Input实体卡号:1511625362431123
-Input手机号:13718653921
-Input姓名:自动化测试开卡
-Clicks:性别('xpath', "//input[@name='gender']/..")
-Clicks:公历，农历('xpath', "//input[@name='birthFlag']/..")
-Input生日:1993-09-08
-Click:确认开卡('xpath', "//button[contains(text(),'确认开卡')]")
+pt1_2: ========★消费返礼品券(不设赠券上限+菜品设置)-正常流程★========
+screenshot: 20190103_14.45.58 .png
+screenshot: 20190103_14.45.59 .png
+Input活动名称:自动化测试消费返券
+Clicks:返券方式('xpath', "//input[@name='returnRule']/..")
+Input金额:50
+Click:增加券下拉框('xpath', "//button[contains(text(),'代金券')]")
+Click:礼品券('link text', '礼品券')
+Clicks:使用('xpath', "//a[contains(text(),'使用')]")
+Clicks:菜品设置('xpath', "//input[@name='dishesSet']/..")
+Input返券需要满足菜品:10001,10002
+Clicks:返券设置('xpath', "//input[@name='returnCoupon']/..")
+Clicks:赠券上限('xpath', "//input[@name='returnCouponLimit']/..")
+Input自定义:%NONE%
+Clicks:奖励范围('xpath', "//input[@name='cashCharge']/..")
+Clicks:发券提醒('xpath', "//input[@name='sendRemind']/..")
+Clicks:到期提醒('xpath', "//input[@name='expireRemind']/..")
+Input活动开始时间:2019-11-12
+Input活动结束时间:2019-11-13
+Input活动说明:消费返券
+Click:保存('xpath', "//button[contains(text(),'保存')]")
+Click:确认('xpath', "//button[contains(text(),'确认')]")
+screenshot: 20190103_14.46.13 .png
+Click:删除('link text', '删除')
+Click:确认('xpath', "//button[contains(text(),'确认')]")
+screenshot: 20190103_14.46.20 .png
 
 
     </pre>
     </div>
     </td>
     <td align="right">
-        <a  href="./images/20190102_15.03.59.png">
-            <img   src="./images/20190102_15.03.59.png" height="200px" width="400px"/>
+        <a  href="./images/20190103_14.46.20.png">
+            <img   src="./images/20190103_14.46.20.png" height="200px" width="400px"/>
+        </a>
+    </td>
+</tr>
+
+
+
+<tr id='pt1_3' class='hiddenRow'>
+    <td class='passCase' width='300px'><div class='testcase'>testCase1_3</div></td>
+    <td colspan='5' align='left' width='600px'> <!--print 输出框位置-->
+    <!--默认收起错误信息 -Findyou
+    <button id='btn_pt1_3' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_3'>通过</button>
+    <div id='div_pt1_3' class="collapse">  -->
+    <!-- 默认展开错误信息 -Findyou -->
+    <button id='btn_pt1_3' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt1_3'>通过</button>
+    <div id='div_pt1_3' class="collapse in">
+    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:600px; margin:auto; border:1px solid #e1e1e1;">
+    
+pt1_3: ========★消费返礼品券(阶梯返券)-正常流程★========
+screenshot: 20190103_14.46.21 .png
+screenshot: 20190103_14.46.22 .png
+Input活动名称:自动化测试消费返券
+Clicks:返券方式('xpath', "//input[@name='returnRule']/..")
+Input金额:50
+Click:增加券下拉框('xpath', "//button[contains(text(),'代金券')]")
+Click:礼品券('link text', '礼品券')
+Clicks:使用('xpath', "//a[contains(text(),'使用')]")
+Clicks:菜品设置('xpath', "//input[@name='dishesSet']/..")
+Input返券需要满足菜品:10001,10002
+Clicks:返券设置('xpath', "//input[@name='returnCoupon']/..")
+Clicks:赠券上限('xpath', "//input[@name='returnCouponLimit']/..")
+Input自定义:%NONE%
+Clicks:奖励范围('xpath', "//input[@name='cashCharge']/..")
+Clicks:发券提醒('xpath', "//input[@name='sendRemind']/..")
+Clicks:到期提醒('xpath', "//input[@name='expireRemind']/..")
+Input活动开始时间:2019-11-12
+Input活动结束时间:2019-11-13
+Input活动说明:消费返券
+Click:保存('xpath', "//button[contains(text(),'保存')]")
+Click:确认('xpath', "//button[contains(text(),'确认')]")
+screenshot: 20190103_14.46.35 .png
+Click:删除('link text', '删除')
+Click:确认('xpath', "//button[contains(text(),'确认')]")
+screenshot: 20190103_14.46.43 .png
+
+
+    </pre>
+    </div>
+    </td>
+    <td align="right">
+        <a  href="./images/20190103_14.46.43.png">
+            <img   src="./images/20190103_14.46.43.png" height="200px" width="400px"/>
         </a>
     </td>
 </tr>
@@ -236,8 +317,8 @@ Click:确认开卡('xpath', "//button[contains(text(),'确认开卡')]")
 
 <tr id='total_row' class="text-center active">
     <td>总计</td>
-    <td>2</td>
-    <td>2</td>
+    <td>3</td>
+    <td>3</td>
     <td>0</td>
     <td>0</td>
     <td>通过率：100.00%</td>
