@@ -21,9 +21,10 @@ from lib.scripts import (
     reply_case_fail,
     genrandomstr,
     rndint,
+    rnd_num,
     get_data
 )
-
+from selenium.webdriver.common.action_chains import ActionChains
 
 class BasePage:
     """PO公共方法类"""
@@ -455,7 +456,8 @@ class BasePage:
         if str(desc).strip().upper() == '%NONE%':
             pass
         else:
-            self.find_element(*loc).click()
+            ele = self.find_element(*loc)
+            self.action_chains.move_to_element(ele).move_by_offset(5,5).click().perform()
 
 
     @replay
@@ -472,15 +474,11 @@ class BasePage:
         if index == '%NONE%':
             pass
         else:
-            if str(index).startswith('%') and str(index).endswith('%'):
-                var = get_data(gl.configFile, 'CONFIG')
-                index = eval(var['Custom_Var'][index])
-
             ele = self.find_elements(*loc)[int(index)]
             # 元素高亮显示
             self.hightlight(ele)
             # 元素单击
-            ele.click()
+            self.action_chains.move_to_element(ele).move_by_offset(5,5).click().perform()
 
 
     @replay
@@ -619,7 +617,11 @@ class BasePage:
             raise ex
         return att
 
-
+    @property
+    def action_chains(self):
+        """右键方法"""
+        action = ActionChains(self.driver)
+        return action
 
 
 if __name__ == "__main__":

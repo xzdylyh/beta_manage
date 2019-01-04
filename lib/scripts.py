@@ -7,6 +7,7 @@ import os
 import string
 import random
 import zipfile
+import csv
 from selenium import webdriver
 import yaml
 from lib import gl
@@ -222,7 +223,8 @@ def genrandomstr(lenstr=5):
                    )
     return strs
 
-def rndint(max=1, min=0):
+
+def rndint(min=0, max=1):
     """
     返回一个随机整数
     :param max:
@@ -230,6 +232,7 @@ def rndint(max=1, min=0):
     :return:
     """
     rnd = random.randint(min, int(max))
+
     return rnd
 
 
@@ -264,9 +267,45 @@ def autoi(strword):
         return int(strword)
 
 
+def rnd_num(len=5):
+    """
+    返回一个随机整数
+    :param max:
+    :param min:
+    :return:
+    """
+    rnd = ''
+    for _ in range(len):
+        rnd += str(random.randint(0, 9))
+
+    return rnd
 
 
 
+def createphone():
+    """
+    :return: 手机号
+    """
+    prelist = ['139', '138', '136', '133',
+               '134', '156', '158', '155', '159'
+               ]
+    phone = random.choice(prelist) + ''.join(random.choice('0123456789')
+                                             for i in range(8)
+                                             )
+    return phone
+
+
+def write_csvfile(filepath, header, data):
+    """
+    :param filepath:csv文件路径
+    :param header:csv文件标头（表格第一行）[]
+    :param data:写入数据，[{}]
+    :return:无
+    """
+    with open(filepath, 'w', newline='') as files:
+        writer = csv.DictWriter(files, header)
+        writer.writeheader()
+        writer.writerows(data)
 
 
 
@@ -274,6 +313,6 @@ if __name__ == "__main__":
     # stra = genrandomstr(20)
     # print(type(stra))
     url = join_url('/activity/create/1024')
-    print(url)
+    print(createphone())
 
 
