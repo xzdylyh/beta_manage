@@ -32,6 +32,7 @@ CONFIG:
         "%Rnd_Phone%": "'1{}'.format(int(time.time()))"
         "%RND_NUM%": "rnd_num({}).format(len)"
 
+
 #发送测试报告,邮件配置
 EMAIL:
     Smtp_Server: smtp.exmail.qq.com

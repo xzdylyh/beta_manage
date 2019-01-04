@@ -21,6 +21,7 @@ from lib.scripts import (
     reply_case_fail,
     genrandomstr,
     rndint,
+    rnd_num,
     get_data
 )
 from selenium.webdriver.common.action_chains import ActionChains

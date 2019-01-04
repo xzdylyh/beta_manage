@@ -7,6 +7,7 @@ import os
 import string
 import random
 import zipfile
+import csv
 from selenium import webdriver
 import yaml
 from lib import gl
@@ -281,12 +282,37 @@ def rnd_num(len=5):
 
 
 
+def createphone():
+    """
+    :return: 手机号
+    """
+    prelist = ['139', '138', '136', '133',
+               '134', '156', '158', '155', '159'
+               ]
+    phone = random.choice(prelist) + ''.join(random.choice('0123456789')
+                                             for i in range(8)
+                                             )
+    return phone
+
+
+def write_csvfile(filepath, header, data):
+    """
+    :param filepath:csv文件路径
+    :param header:csv文件标头（表格第一行）[]
+    :param data:写入数据，[{}]
+    :return:无
+    """
+    with open(filepath, 'w', newline='') as files:
+        writer = csv.DictWriter(files, header)
+        writer.writeheader()
+        writer.writerows(data)
+
 
 
 if __name__ == "__main__":
     # stra = genrandomstr(20)
     # print(type(stra))
     url = join_url('/activity/create/1024')
-    print(url)
+    print(createphone())
 
 

@@ -30,6 +30,6 @@ CASE1:
         cardrule: 0 # 卡号生成规则，0：随机卡号，1：自定义卡号
         cardway: 1 # 开卡方式，0：仅创建批次，1：创建批次并开卡
         uploadphone: 0 # 0:上传手机号（手机号必须11位）;1:不上传手机号
-        cardnumber: 1 # 申请张数
+        cardnumber: 2 # 申请张数
         cardprice: '%NONE%' # 开卡售价
 
