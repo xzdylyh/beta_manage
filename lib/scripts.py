@@ -223,7 +223,7 @@ def genrandomstr(lenstr=5):
     return strs
 
 
-def rndint(max=1, min=0):
+def rndint(min=0, max=1):
     """
     返回一个随机整数
     :param max:
@@ -266,7 +266,18 @@ def autoi(strword):
         return int(strword)
 
 
+def rnd_num(len=5):
+    """
+    返回一个随机整数
+    :param max:
+    :param min:
+    :return:
+    """
+    rnd = ''
+    for _ in range(len):
+        rnd += str(random.randint(0, 9))
 
+    return rnd
 
 
 
