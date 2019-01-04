@@ -9,7 +9,9 @@ from lib.scripts import (
     reply_case_fail,
     get_data,
     genrandomstr,
-    join_url
+    join_url,
+    write_csvfile,
+    createphone
 )
 from lib import (
     gl,
@@ -25,6 +27,13 @@ class TestActualcard(unittest.TestCase):
         cls.driver = select_Browser_WebDriver()
         cls.url = join_url('/actualcard/list')
         cls.url_s = ''
+        header = ['手机号', '姓名', '性别']
+        data = [{'手机号': createphone(), '姓名': '六小灵童', '性别': '男'},
+                {'手机号': createphone(), '姓名': '刘诗诗', '性别': '女'}
+                ]
+        write_csvfile(os.path.join(gl.dataPath, '随机卡号+手机号模版.csv'),
+                      header,
+                      data)
 
     @classmethod
     def tearDownClass(cls):
@@ -32,7 +41,7 @@ class TestActualcard(unittest.TestCase):
         # pass
 
     @ddt.data(*get_data('actualcardListPage', 'CASE1'))
-    @reply_case_fail(num=1)
+    @reply_case_fail(num=3)
     def testcase1(self, data):
         """ 创建卡"""
         print('========★{}★========'.format(data['case_desc']))  # case描述

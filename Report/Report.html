@@ -117,9 +117,9 @@ function html_escape(s) {
 <div class='heading'>
 <h4 style="font-family: Microsoft YaHei">UI自动化测试报告</h4>
 <p class='attribute'><strong>测试人员 : </strong> yecc</p>
-<p class='attribute'><strong>开始时间 : </strong> 2018-12-29 15:09:52</p>
-<p class='attribute'><strong>合计耗时 : </strong> 0:00:22.218894</p>
-<p class='attribute'><strong>测试结果 : </strong> 共 2，通过 2，通过率= 100.00%</p>
+<p class='attribute'><strong>开始时间 : </strong> 2019-01-04 15:46:14</p>
+<p class='attribute'><strong>合计耗时 : </strong> 0:00:15.514015</p>
+<p class='attribute'><strong>测试结果 : </strong> 共 1，通过 1，通过率= 100.00%</p>
 
 <p class='description'>详细测试用例结果</p>
 </div>
@@ -129,8 +129,8 @@ function html_escape(s) {
 <a class="btn btn-primary" href='javascript:showCase(0)'>概要{ 100.00% }</a>
 <a class="btn btn-warning" href='javascript:showCase(4)'>错误{ 0 }</a>
 <a class="btn btn-danger" href='javascript:showCase(1)'>失败{ 0 }</a>
-<a class="btn btn-success" href='javascript:showCase(2)'>通过{ 2 }</a>
-<a class="btn btn-info" href='javascript:showCase(3)'>所有{ 2 }</a>
+<a class="btn btn-success" href='javascript:showCase(2)'>通过{ 1 }</a>
+<a class="btn btn-info" href='javascript:showCase(3)'>所有{ 1 }</a>
 </p>
 <table id='result_table' class="table table-condensed table-bordered table-hover">
 <colgroup>
@@ -153,12 +153,12 @@ function html_escape(s) {
 </tr>
 
 <tr class='passClass warning'>
-    <td>TestChargelicense: 储值授信</td>
-    <td class="text-center">2</td>
-    <td class="text-center">2</td>
+    <td>TestListCompanies: 集团消费</td>
+    <td class="text-center">1</td>
+    <td class="text-center">1</td>
     <td class="text-center">0</td>
     <td class="text-center">0</td>
-    <td class="text-center"><a href="javascript:showClassDetail('c1',2)" class="detail" id='c1'>详细</a></td>
+    <td class="text-center"><a href="javascript:showClassDetail('c1',1)" class="detail" id='c1'>详细</a></td>
     <td class="text-center">Assert or Error Image</td>
 </tr>
 
@@ -173,69 +173,27 @@ function html_escape(s) {
     <div id='div_pt1_1' class="collapse in">
     <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:600px; margin:auto; border:1px solid #e1e1e1;">
     
-pt1_1: ========★储值授信-增加额度★========
-screenshot: 20181229_15.09.56 .png
-screenshot: 20181229_15.09.57 .png
-累计授权额度: 2,558.00
-Click:修改('link text', '修改')
-Clicks:授信额度('xpath', "//input[@name='increase']/..")
-Input增加额度:2
-Input减少额度:%BLANK%
-Input预警额度:8
-Input手机号:13912300000
-Click:保存('xpath', "//button[@type='submit']")
-Click:返回('link text', '返回')
-累计授权额度: 2,560.00
-授信额度修改成功，当前额度为：2560
-screenshot: 20181229_15.10.03 .png
+pt1_1: ========★添加集团消费★========
+screenshot: 20190104_15.46.18 .png
+screenshot: 20190104_15.46.19 .png
+Click:集团('link text', '添加集团')
+Input集团名称:自动化测试集团Z8RSou
+Input挂帐额度:1000
+Input联系人姓名:刘氏
+Input手机号:13873260975
+Input备注:自动化测试专用
+Click:保存('xpath', "//button[contains(text(),'保存')]")
+Input首页集团名称:自动化测试集团Z8RSou
+Click:查询('xpath', "//button[contains(text(),'查询')]")
+screenshot: 20190104_15.46.27 .png
 
 
     </pre>
     </div>
     </td>
     <td align="right">
-        <a  href="./images/20181229_15.10.03.png">
-            <img   src="./images/20181229_15.10.03.png" height="200px" width="400px"/>
-        </a>
-    </td>
-</tr>
-
-
-
-<tr id='pt1_2' class='hiddenRow'>
-    <td class='passCase' width='300px'><div class='testcase'>testcase1_2</div></td>
-    <td colspan='5' align='left' width='600px'> <!--print 输出框位置-->
-    <!--默认收起错误信息 -Findyou
-    <button id='btn_pt1_2' type="button"  class="btn btn-danger btn-xs collapsed" data-toggle="collapse" data-target='#div_pt1_2'>通过</button>
-    <div id='div_pt1_2' class="collapse">  -->
-    <!-- 默认展开错误信息 -Findyou -->
-    <button id='btn_pt1_2' type="button"  class="btn btn-danger btn-xs" data-toggle="collapse" data-target='#div_pt1_2'>通过</button>
-    <div id='div_pt1_2' class="collapse in">
-    <pre style="overflow-y:scroll; overflow-x:hidden;height:200px; width:600px; margin:auto; border:1px solid #e1e1e1;">
-    
-pt1_2: ========★储值授信-减少额度★========
-screenshot: 20181229_15.10.04 .png
-screenshot: 20181229_15.10.05 .png
-累计授权额度: 2,560.00
-Click:修改('link text', '修改')
-Clicks:授信额度('xpath', "//input[@name='increase']/..")
-Input增加额度:%BLANK%
-Input减少额度:1
-Input预警额度:8
-Input手机号:13912300000
-Click:保存('xpath', "//button[@type='submit']")
-Click:返回('link text', '返回')
-累计授权额度: 2,559.00
-授信额度修改成功，当前额度为：2559
-screenshot: 20181229_15.10.11 .png
-
-
-    </pre>
-    </div>
-    </td>
-    <td align="right">
-        <a  href="./images/20181229_15.10.11.png">
-            <img   src="./images/20181229_15.10.11.png" height="200px" width="400px"/>
+        <a  href="./images/20190104_15.46.27.png">
+            <img   src="./images/20190104_15.46.27.png" height="200px" width="400px"/>
         </a>
     </td>
 </tr>
@@ -244,8 +202,8 @@ screenshot: 20181229_15.10.11 .png
 
 <tr id='total_row' class="text-center active">
     <td>总计</td>
-    <td>2</td>
-    <td>2</td>
+    <td>1</td>
+    <td>1</td>
     <td>0</td>
     <td>0</td>
     <td>通过率：100.00%</td>

@@ -29,6 +29,7 @@ CONFIG:
         "%NONE%": "None"
         "%RND%": "self.send_keys(genrandomstr({}).format(text), *loc)"
         "%timestamp%": "int(time.time())"
+        "%Rnd_Phone%": "'1{}'.format(int(time.time()))"
 
 #发送测试报告,邮件配置
 EMAIL:
