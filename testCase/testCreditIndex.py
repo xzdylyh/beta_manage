@@ -56,7 +56,7 @@ class TestCreditIndex(unittest.TestCase):
         # 1:自发放之日起一年后过期（逐笔过期）2:永久有效
         index = data['termRadio']
         self.cIndex.select_termRadio_radio(index)
-        self.cIndex.click_sure()
+        # self.cIndex.click_sure()
         if index == 0:
             # 当选择0:当年发放的所有积分，在下一年度的，可以选择月、日
             self.cIndex.select_monthAndDay(data['month'], data['day'])
