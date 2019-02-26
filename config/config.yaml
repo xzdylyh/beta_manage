@@ -21,7 +21,7 @@ CONFIG:
     #浏览器 <Chrome 或 Firefox>
     Browser:  Chrome
 
-    Base_Url: http://manage.beta.acewill.net
+    Base_Url: http://xxxxxxxxxx
 
     Custom_Var:
 
@@ -37,7 +37,7 @@ CONFIG:
 EMAIL:
     Smtp_Server: smtp.exmail.qq.com
     Smtp_Sender: lengyaohui.bj@acewill.cn
-    Password: YHleng870120
+    Password: ----------
     Msg_Title: Beta商家后台-UI自动化测试结果
     Receivers: ['lengyaohui@163.com']  #收件人
     #Receivers: ['lengyaohui@163.com','yechangchun.bj@acewill.cn','wangyan.bj@acewill.cn','cch@acewill.cn','gzx@acewill.cn','huxl@acewill.cn','jtt@acewill.cn','maming@acewill.cn'] #收件人
