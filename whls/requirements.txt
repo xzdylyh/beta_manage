@@ -13,7 +13,7 @@ pyflakes==2.0.0
 PyYAML==3.13
 selenium==3.14.1
 setuptools==40.6.3
-urllib3==1.24
+urllib3==1.26.5
 wheel==0.32.3
 xlrd==1.2.0
 xlutils==2.0.0
